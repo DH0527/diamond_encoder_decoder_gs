@@ -8,7 +8,8 @@ plyfile==1.1.2
 opencv-python==4.10.0.84
 tqdm==4.67.1
 
-# 소스 빌드 (gaussian-splatting 서브모듈):
+# 소스 빌드 (gaussian-splatting 서브모듈, pip install --no-build-isolation 로):
 #   submodules/diff-gaussian-rasterization @ 9c5c2028f6fbee2be239bc4c9421ff894fe4fbe0
 #   submodules/simple-knn                  @ 86710c2d4b46680c02301765dd79e465819c8f19
-#   submodules/fused-ssim                  @ 1272e21a282342e89537159e4bad508b19b34157
+# submodules/fused-ssim 은 설치하지 않는다. 원래 서버 env 에 없었고, 3DGS 는 표준 SSIM 으로
+# 학습했다. 설치하면 SSIM 계산이 바뀐다 (SETUP_KR.md 3.3).

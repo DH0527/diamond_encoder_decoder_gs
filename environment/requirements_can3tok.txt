@@ -11,7 +11,7 @@ pillow==12.2.0
 matplotlib==3.10.9
 tqdm==4.67.3
 
-# 래스터라이저는 PyPI 에 없다 — 소스에서 빌드 (SETUP_KR.md §3.3):
+# 래스터라이저는 PyPI 에 없다 — pip install --no-build-isolation 로 소스 빌드 (SETUP_KR.md §3.3):
 #   graphdeco-inria/diff-gaussian-rasterization @ 9c5c2028f6fbee2be239bc4c9421ff894fe4fbe0 (branch dr_aa)
 
 # 선택: tools/make_*_slides.py 만 쓴다 (학습에는 불필요, 현재 서버 env 에도 없음)

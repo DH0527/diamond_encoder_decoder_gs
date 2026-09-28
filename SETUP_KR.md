@@ -218,24 +218,35 @@ pip install -r environment/requirements_3dgs.txt \
 | 확장 | 저장소 | 커밋 |
 |---|---|---|
 | diff-gaussian-rasterization | github.com/graphdeco-inria/diff-gaussian-rasterization | `9c5c2028f6fbee2be239bc4c9421ff894fe4fbe0` (branch `dr_aa`) |
-| simple-knn | gitlab.inria.fr/bkerbl/simple-knn | `86710c2d4b46680c02301765dd79e465819c8f19` |
-| fused-ssim (3dgs 만) | github.com/rahul-goel/fused-ssim | `1272e21a282342e89537159e4bad508b19b34157` |
+| simple-knn (3dgs 만) | gitlab.inria.fr/bkerbl/simple-knn | `86710c2d4b46680c02301765dd79e465819c8f19` |
 
-이 셋은 `graphdeco-inria/gaussian-splatting` 커밋 `54c035f` 가 서브모듈로 고정한 버전
+둘 다 `graphdeco-inria/gaussian-splatting` 커밋 `54c035f` 가 서브모듈로 고정한 버전
 그대로이므로, §4.2 에서 그 저장소를 받으면 함께 따라옵니다.
 
 ```bash
-export CUDA_HOME=/usr/local/cuda-12.1          # torch 의 cu121 과 맞춘다
+export CUDA_HOME=/usr/local/cuda-12.1          # torch 의 cu121 과 맞춘다 (nvcc 12.x 필요)
 cd gaussian-splatting                          # §4.2 에서 받은 저장소
 
 # can3tok 환경: 래스터라이저만 필요
 conda activate can3tok
-pip install ./submodules/diff-gaussian-rasterization
+pip install --no-build-isolation ./submodules/diff-gaussian-rasterization
 
-# 3dgs 환경: 셋 다
+# 3dgs 환경: 래스터라이저 + simple-knn
 conda activate 3dgs
-pip install ./submodules/diff-gaussian-rasterization ./submodules/simple-knn ./submodules/fused-ssim
+pip install --no-build-isolation ./submodules/diff-gaussian-rasterization ./submodules/simple-knn
 ```
+
+**`--no-build-isolation` 은 꼭 붙이세요.** 두 확장의 `setup.py` 는 빌드 중에 `import torch` 를
+하는데, 최신 pip 는 격리된 임시 환경에서 빌드해서 torch 가 보이지 않습니다
+(`ModuleNotFoundError: No module named 'torch'`).
+
+**`fused-ssim` 은 설치하지 마세요.** `54c035f` 에는 서브모듈로 들어 있지만 원래 서버의 `3dgs`
+환경에는 없었고, 그래서 3DGS 가 표준 SSIM 으로 학습했습니다 (`train.py` 가 없으면 자동으로
+대체). 설치하면 더 빠르지만 SSIM 계산이 달라져 원래 데이터와 조건이 바뀝니다.
+
+GPU 가 **RTX 50 시리즈나 B200 같은 Blackwell** 이면 torch 2.4.1 + cu121 이 그 GPU 를
+지원하지 않습니다 (`no kernel image is available`). 그 경우 torch 와 CUDA 버전을 올려야 하니
+먼저 확인하세요.
 
 라이선스: 이 확장들과 Inria 3DGS 코드는 **Gaussian-Splatting License (비상업 연구용)**
 입니다. 그래서 이 저장소에는 소스를 넣지 않고 커밋만 고정했습니다.
