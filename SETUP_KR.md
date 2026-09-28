@@ -7,6 +7,19 @@
 이 문서는 다른 서버에서 **처음부터** 같은 결과를 내기 위해 필요한 모든 것을 적습니다.
 원래 서버 기준 날짜는 2026-09-28 입니다.
 
+### 저장소 받기
+
+비공개 저장소라 `DH0527` 계정 또는 초대받은 협업자만 받을 수 있습니다.
+
+```bash
+git clone https://github.com/DH0527/diamond_encoder_decoder_gs.git
+cd diamond_encoder_decoder_gs
+```
+
+이 문서에서 **`<repo>`** 는 이렇게 받은 디렉터리의 경로입니다. 원래 서버에서는
+`/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7` 입니다. 파이썬 패키지 이름은
+저장소 이름과 달리 `can3tok/` 입니다.
+
 ---
 
 ## 0. 한눈에 보기
@@ -176,10 +189,10 @@ git checkout 54c035f
 git submodule update --init --recursive
 
 # 수정 3개 파일 (train.py, scene/gaussian_model.py, utils/camera_utils.py)
-git apply <can3tok>/data_pipeline/3dgs_replay/gaussian_splatting_54c035f.patch
+git apply <repo>/data_pipeline/3dgs_replay/gaussian_splatting_54c035f.patch
 
 # 새 파일 (replay 덤프 로직, 렌더 어댑터, 점검 도구)
-cp -r <can3tok>/data_pipeline/3dgs_replay/overlay/* .
+cp -r <repo>/data_pipeline/3dgs_replay/overlay/* .
 ```
 
 패치가 추가하는 것: `--log_every N`(N iter 마다 스냅샷), `--compact_npz`(float16 zip-npz
@@ -343,7 +356,7 @@ split 순으로 만들고, 마지막에 7개 파일이 다 있는지 검사합�
 
 ```bash
 conda activate can3tok
-cd <can3tok>
+cd <repo>
 
 # 먼저 확인만 (GPU 안 씀): 계약 플래그 + 데이터·자산 경로 존재 여부 + 최종 명령
 bash scripts/launch_from_config.sh configs/B1_bgcap.args.json --dry-run

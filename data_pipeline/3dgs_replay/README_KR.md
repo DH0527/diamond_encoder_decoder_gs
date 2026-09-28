@@ -13,8 +13,8 @@ can3tok 의 학습 데이터(`step_*.npz`)를 만드는 수정된 3DGS. 전체 �
 ```bash
 git clone --recursive https://github.com/graphdeco-inria/gaussian-splatting
 cd gaussian-splatting && git checkout 54c035f && git submodule update --init --recursive
-git apply <can3tok>/data_pipeline/3dgs_replay/gaussian_splatting_54c035f.patch
-cp -r <can3tok>/data_pipeline/3dgs_replay/overlay/* .
+git apply <repo>/data_pipeline/3dgs_replay/gaussian_splatting_54c035f.patch
+cp -r <repo>/data_pipeline/3dgs_replay/overlay/* .
 ```
 
 패치 적용 시 `trailing whitespace` 경고가 6 줄 나오는데, 원본 코드의 줄끝 공백이라 무해합니다.

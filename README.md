@@ -2,6 +2,10 @@
 
 > **현재 상태 (2026-09-28) — 새 환경에서 시작한다면 [`SETUP_KR.md`](SETUP_KR.md) 부터 보세요.**
 >
+> ```bash
+> git clone https://github.com/DH0527/diamond_encoder_decoder_gs.git
+> ```
+>
 > - 현재 latent 는 **`16 × 32 × 32` = 16,384** (셀 1024 × 16채널 = centroid 4 · occupancy 1 · shape 3 · appearance 8),
 >   출력 가우시안 262,144. 아래 본문은 초기 `32 × 64 × 64` 설계 기록입니다.
 > - 데이터: vanilla 3DGS replay (Tanks&Temples train + truck). 만드는 법 `SETUP_KR.md` §4.
