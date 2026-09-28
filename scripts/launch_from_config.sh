@@ -56,18 +56,61 @@ TAG=${TAG:-${NAME}_$(date +%Y%m%d_%H%M%S)}
 OUT="runs/$TAG"
 LOG="runs/$TAG.log"
 
-# 계약 플래그 검사 (§8.1)
-"$PYTHON" - "$CONFIG" <<'PY'
-import json, sys
-d = json.load(open(sys.argv[1]))
+# 사전 점검 (모든 실행): 계약 플래그 · 경로 · split 과 실제 파일 수
+#   train.py 는 split 의 n_total 을 실제 파일 수와 대조하지 않고, split_path 가 없으면
+#   경고 없이 무작위 split 으로 바꾼다. 둘 다 학습은 그대로 돌면서 결과만 틀어지므로
+#   여기서 막는다. --set 으로 덮어쓴 값도 반영한다.
+MODE=run; [[ $DRYRUN -eq 1 ]] && MODE=dry
+OVR=()
+for ((i=0; i<${#SETS[@]}; i+=2)); do OVR+=("${SETS[i+1]}"); done
+"$PYTHON" - "$MODE" "$CONFIG" "${OVR[@]}" <<'PY'
+import glob, json, os, sys
+mode, cfg_path, ovr = sys.argv[1], sys.argv[2], sys.argv[3:]
+d = json.load(open(cfg_path))
+for kv in ovr:
+    k, _, v = kv.partition("=")
+    d[k] = v
+problems = []
+
 need = ["normalize_pooler_xyz", "count_aware_template", "attr_slot_mask",
         "shared_cell_owner", "holdout_own_photo", "keep_extra_fullres",
         "reuse_prev_vis", "eval_pred_mask"]
 miss = [k for k in need if k not in d]
 if miss:
-    sys.exit(f"[중단] {sys.argv[1]} 에 계약 플래그가 없습니다: {miss}\n"
-             f"       파서 기본값이 들어가 체크포인트와 다른 모델이 됩니다. 키를 명시하세요.")
-print("계약 플래그 확인: " + " ".join(f"{k}={d[k]}" for k in need))
+    sys.exit(f"[중단] {cfg_path} 에 계약 플래그가 없습니다: {miss}\n"
+             f"       파서 기본값이 들어가 체크포인트와 다른 모델이 됩니다. 키를 명시하세요. (SETUP_KR.md §8.1)")
+print("계약 플래그: " + " ".join(f"{k}={d[k]}" for k in need))
+
+for key in ("root", "stats_path", "scene_anchors", "split_path", "photo_map", "view_pool"):
+    for p in [x for x in str(d.get(key) or "").split(",") if x]:
+        ok = os.path.exists(p)
+        print(f"  {'ok ' if ok else '없음'}  {key:14s} {p}")
+        if not ok:
+            problems.append(f"{key} 경로 없음: {p}")
+if not str(d.get("split_path") or ""):
+    problems.append("split_path 가 비어 있음 -> train.py 가 무작위 split 을 씀 (누수)")
+
+roots = [r for r in str(d.get("root") or "").split(",") if r]
+n_files = sum(len(glob.glob(os.path.join(r, "step_*.npz"))) for r in roots)
+sp = str(d.get("split_path") or "")
+if sp and os.path.exists(sp):
+    s = json.load(open(sp))
+    nt = s.get("n_total")
+    same_roots = [os.path.abspath(r) for r in s.get("roots", roots)] == [os.path.abspath(r) for r in roots]
+    print(f"  split: n_total {nt} / 현재 npz {n_files}  train {len(s.get('train', []))} val {len(s.get('val', []))}")
+    if nt is not None and nt != n_files:
+        problems.append(f"split n_total {nt} != 현재 npz 수 {n_files}. 자산을 만든 뒤 npz 를 추가/삭제했다면 "
+                        f"인덱스가 다른 파일을 가리킵니다 -> tools/prepare_dataset.py 를 다시 돌리세요")
+    if not same_roots:
+        problems.append("split 의 roots 가 config 의 root 와 다름 (순서까지 같아야 함)")
+
+if problems:
+    print("\n문제:")
+    for m in problems:
+        print("  - " + m)
+    if mode == "run":
+        sys.exit("[중단] 위 문제를 고친 뒤 다시 실행하세요. 확인만 하려면 --dry-run.")
+    print("  (dry-run 이라 중단하지 않음)")
 PY
 
 if [[ -n "$RESUME" && ! -f "$RESUME" ]]; then
@@ -75,20 +118,6 @@ if [[ -n "$RESUME" && ! -f "$RESUME" ]]; then
 fi
 
 if [[ $DRYRUN -eq 1 ]]; then
-  # 새 서버에서 가장 흔한 실패는 데이터/자산 경로가 옛 서버를 가리키는 것 (SETUP_KR.md §5.2)
-  "$PYTHON" - "$CONFIG" <<'PY'
-import json, os, sys
-d = json.load(open(sys.argv[1]))
-bad = 0
-for key in ("root", "stats_path", "scene_anchors", "split_path", "photo_map", "view_pool"):
-    val = str(d.get(key) or "")
-    for p in [x for x in val.split(",") if x]:
-        ok = os.path.exists(p)
-        bad += not ok
-        print(f"  {'ok ' if ok else '없음'}  {key:14s} {p}")
-if bad:
-    print(f"\n경로 {bad}개가 없습니다. tools/relocate_assets.py --assets configs 로 옮기거나 데이터를 준비하세요.")
-PY
   echo
   echo "[dry-run] 실행할 명령:"
   printf '  CUDA_VISIBLE_DEVICES=%s %s --standalone --nproc_per_node=%s --master_port=%s train.py \\\n' \

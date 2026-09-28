@@ -55,8 +55,15 @@ def read_colmap_cameras(colmap_root: str):
     """Return [{image, cam(16,)}] from a COLMAP sparse reconstruction.
 
     cam is the same 16-vector can3tok uses everywhere: fx, fy, cx, cy, R(9), T(3).
+
+    COLMAP 바이너리 로더는 Inria gaussian-splatting 의 scene/colmap_loader.py 를 쓴다.
+    그 저장소 위치는 환경변수 GS_ROOT 로 준다 (기본값은 원래 서버 경로).
     """
-    sys.path.insert(0, "/data/daeho/gaussian-splatting")
+    gs_root = os.environ.get("GS_ROOT", "/data/daeho/gaussian-splatting")
+    if not os.path.isfile(os.path.join(gs_root, "scene", "colmap_loader.py")):
+        raise SystemExit(f"scene/colmap_loader.py 를 {gs_root} 에서 찾지 못했습니다. "
+                         f"GS_ROOT=/path/to/gaussian-splatting 을 주세요 (SETUP_KR.md §4.2).")
+    sys.path.insert(0, gs_root)
     from scene.colmap_loader import (read_extrinsics_binary, read_intrinsics_binary,
                                      read_extrinsics_text, read_intrinsics_text,
                                      qvec2rotmat)

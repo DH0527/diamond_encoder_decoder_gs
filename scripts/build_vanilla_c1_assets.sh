@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 # vanilla 3DGS replay → C1 계약(1024 anchors, train+truck, blockB split) 자산.
+#
+# [옛 방식] 원래 서버 전용 기록용으로 남겨 둔다. 경로가 하드코딩돼 있고, truck 사진만
+# 매칭하며, blockB split 을 speedy 에서 복사한다. 새 데이터에는 쓰지 말고
+# tools/prepare_dataset.py 를 쓸 것 (SETUP_KR.md §5.3).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 

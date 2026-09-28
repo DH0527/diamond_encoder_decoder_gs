@@ -9,6 +9,8 @@
 > - 현재 latent 는 **`16 × 32 × 32` = 16,384** (셀 1024 × 16채널 = centroid 4 · occupancy 1 · shape 3 · appearance 8),
 >   출력 가우시안 262,144. 아래 본문은 초기 `32 × 64 × 64` 설계 기록입니다.
 > - 데이터: vanilla 3DGS replay (Tanks&Temples train + truck). 만드는 법 `SETUP_KR.md` §4.
+>   새 서버에서 3DGS 부터 다시 한다면 `SETUP_KR.md` 의 **빠른 시작** 절을 따라가세요.
+> - 새로 만든 npz 의 자산·실행 설정은 `tools/prepare_dataset.py` 한 번으로 만듭니다.
 > - 학습 설정: `configs/B1_bgcap.args.json` (처음부터), `configs/B1g_stable.args.json` (재개).
 >   실행은 `scripts/launch_from_config.sh`.
 > - 체크포인트 · 데이터 · 그림은 크기 때문에 저장소에 없습니다 (`SETUP_KR.md` §9).

@@ -45,6 +45,96 @@ replay npz(147 GB), COLMAP 원본(2 GB), 분석 그림(`mdmd/*.png`, 220 MB).
 
 ---
 
+## 빠른 시작 — 새 서버에서 3DGS 부터 다시 (train / truck)
+
+원래 서버와 같은 두 씬을 새 서버에서 3DGS 학습부터 다시 해서 쓰는 순서입니다. 시간은 원래
+서버(RTX 5000 Ada 32 GB) 실측입니다.
+
+| 단계 | 할 일 | 자세히 | 시간 |
+|---|---|---|---|
+| 0 | 사양 확인: GPU 32 GB 급 3 장(3DGS 는 2 장), 디스크 약 250 GB 여유, CUDA 12.1 | §2 | — |
+| 1 | 저장소 받기 | 위 | 1 분 |
+| 2 | conda 환경 2 개 + 래스터라이저 빌드 | §3 | 약 30 분 |
+| 3 | COLMAP 데이터 준비 — **원래 서버에서 복사 권장** | 아래 ③ | 수 분 |
+| 4 | 수정된 3DGS 로 학습 + npz 덤프 (두 씬 동시) | §4.2 – 4.3 | train 1 시간, truck 1 시간 52 분 |
+| 5 | **`tools/prepare_dataset.py`** 로 자산 + 실행 설정 생성 | §5.3 | 약 3 분 |
+| 6 | `--dry-run` 으로 점검 후 학습 시작 | §6.2 | 80,000 step 약 4.5 일 (3 장) |
+
+### ③ COLMAP 은 원래 서버 것을 그대로 쓰세요
+
+3DGS 는 COLMAP 카메라를 그대로 쓰고, 보류 사진(`00004.jpg`)·view pool 인덱스·blockB 의 사진 제외
+규칙이 모두 그 카메라 목록에 묶여 있습니다. `convert.py` 를 다시 돌리면 카메라 자세가 달라져 원래
+서버 결과와 비교할 수 없게 됩니다. 2 GB 라 복사가 가장 간단합니다.
+
+```bash
+rsync -avP daeho@<원래서버>:/data/daeho/train_colmap/ /새/train_colmap/
+rsync -avP daeho@<원래서버>:/data/daeho/truck_colmap/ /새/truck_colmap/
+```
+
+### 전체 명령 (경로만 바꿔서)
+
+```bash
+# 1. 받기
+git clone https://github.com/DH0527/diamond_encoder_decoder_gs.git && cd diamond_encoder_decoder_gs
+REPO=$PWD
+
+# 2. 환경 (§3.1 – 3.3 참고해 can3tok, 3dgs 두 env 와 래스터라이저 설치)
+
+# 4. 수정된 3DGS 준비 + npz 덤프
+git clone --recursive https://github.com/graphdeco-inria/gaussian-splatting /새/gaussian-splatting
+cd /새/gaussian-splatting && git checkout 54c035f && git submodule update --init --recursive
+git apply $REPO/data_pipeline/3dgs_replay/gaussian_splatting_54c035f.patch
+cp -r $REPO/data_pipeline/3dgs_replay/overlay/* .
+cd $REPO
+GS_ROOT=/새/gaussian-splatting PY=/새/anaconda3/envs/3dgs/bin/python \
+OUT_ROOT=/새/vanilla-3dgs/output TRAIN_SRC=/새/train_colmap TRUCK_SRC=/새/truck_colmap \
+bash data_pipeline/3dgs_replay/run_dump_compact_npz.sh
+# -> /새/vanilla-3dgs/output/{train,truck}/replay/step_000010.npz … step_030000.npz (씬당 3,000개)
+
+# 5. 자산 + 실행 설정 (3DGS 가 두 씬 모두 끝난 뒤)
+conda activate can3tok
+python tools/prepare_dataset.py \
+    --names train,truck \
+    --replays /새/vanilla-3dgs/output/train/replay,/새/vanilla-3dgs/output/truck/replay \
+    --colmaps /새/train_colmap,/새/truck_colmap \
+    --gs_root /새/gaussian-splatting \
+    --tag v2 --check
+# -> configs/v2.args.json
+
+# 6. 점검 후 학습
+bash scripts/launch_from_config.sh configs/v2.args.json --dry-run
+GPUS=0,1,2 NPROC=3 bash scripts/launch_from_config.sh configs/v2.args.json --detached
+tail -f runs/v2_*.log
+```
+
+### 단계별로 확인할 것
+
+- **4 끝난 뒤**: 씬마다 `step_*.npz` 가 3,000 개인지 (`ls …/replay | wc -l`). 3DGS 로그 끝에
+  `Training complete.` 가 있는지. 하나라도 모자라면 5 로 넘어가지 마세요.
+- **5 출력**: 두 씬 모두 `매칭 3000/3000  최대 자세 오차 0.00e+00` 이어야 합니다 (아니면 스크립트가
+  멈춥니다). `보류 사진 00004.jpg = view_pool 인덱스 3`, `[split] train 2867 / val 408` 이면 원래
+  서버와 같은 조건입니다. 3DGS 는 난수 시드를 고정해서 같은 코드 · 같은 COLMAP 이면 step → 카메라
+  순서가 같게 나옵니다 (§8.5). 가우시안 수는 달라지지만 split 과 사진 매핑은 같아야 정상이고,
+  다르게 나와도 오류는 아니지만 원래와 조건이 달라진 것입니다.
+- **6 dry-run**: 모든 경로가 `ok`, `split: n_total 6000 / 현재 npz 6000`.
+
+### 주의
+
+- **npz 는 5 를 돌리기 전에만 지우거나 추가하세요.** split 은 파일 목록의 순번이라, 자산을 만든 뒤
+  파일이 바뀌면 인덱스가 다른 파일을 가리킵니다. `train.py` 는 이걸 검사하지 않지만
+  `launch_from_config.sh` 가 실행 전에 막습니다.
+- **디스크가 모자라면**: 학습은 3DGS step 12,000 이상만 씁니다 (`min_snapshot_step`). 4 가 끝난 뒤
+  **5 를 돌리기 전에** `step_000010 … step_011990.npz`(약 40%, 60 GB)를 지우면 5 가 남은 파일
+  기준으로 split 을 만듭니다. 다만 원래 서버의 정규화 통계와 앵커는 초기 스냅샷까지 포함해
+  계산됐으므로, 지우면 그 둘이 원래와 조금 달라집니다. **원래 조건을 그대로 재현하려면 지우지 마세요.**
+- **처음부터 학습할지, 이 서버 모델에서 시작할지**: 새로 만든 데이터는 가우시안 분포가 미세하게
+  다르므로 처음부터가 깔끔합니다. 시간이 없으면 이 서버의 `ckpt_best.pt`(§9)를 옮겨 가중치
+  초기값으로 쓸 수 있습니다. 이 파일은 모델 가중치만 있고 옵티마이저 상태가 없어서 `--resume` 이
+  아니라 `--set init_from=<경로>/ckpt_best.pt` 로 줍니다 (step 0 부터 스케줄을 다시 탑니다).
+  그 경우 원래 서버 결과와 수치를 직접 비교하면 안 됩니다.
+
+---
+
 ## 1. 저장소 구성
 
 | 경로 | 내용 |
@@ -53,7 +143,7 @@ replay npz(147 GB), COLMAP 원본(2 GB), 분석 그림(`mdmd/*.png`, 220 MB).
 | `train.py` | 진입점 (`can3tok.train.main` 호출) |
 | `configs/` | 재현용 학습 설정 스냅샷 (`args.json`) — §6.1 |
 | `scripts/` | 실행 스크립트. 새 서버에서는 `launch_from_config.sh` 하나면 됨 |
-| `tools/` | 자산 생성, 진단·오라클 도구, **경로 재배치 `relocate_assets.py`** |
+| `tools/` | **자산·설정 생성 `prepare_dataset.py`**, 경로 재배치 `relocate_assets.py`, 렌더 `render_one.py`, 진단·오라클 도구 |
 | `assets/` | 정규화 통계, 앵커, split, 사진 매핑, view pool |
 | `data_pipeline/3dgs_replay/` | Inria 3DGS 에 얹는 패치 + 추가 파일 (npz 덤프용) — §4 |
 | `environment/` | conda / pip 명세 — §3 |
@@ -208,7 +298,8 @@ TRAIN_SRC=/path/to/train_colmap TRUCK_SRC=/path/to/truck_colmap \
 bash data_pipeline/3dgs_replay/run_dump_compact_npz.sh
 ```
 
-train 은 GPU 0, truck 은 GPU 1 에서 동시에 돕니다. 결과:
+train 은 GPU 0, truck 은 GPU 1 에서 동시에 돕니다. 원래 서버에서 train 1 시간, truck 1 시간
+52 분 걸렸습니다 (truck 이 가우시안이 두 배라 덤프가 더 무겁습니다). 결과:
 
 ```
 $OUT_ROOT/train/replay/step_000010.npz … step_030000.npz   (3,000개, 약 50 GB)
@@ -288,18 +379,49 @@ python tools/relocate_assets.py --assets configs --backup configs_orig $MAPS
 끝나면 "모든 절대경로가 새 경로 아래로 옮겨졌습니다" 가 나와야 합니다. speedy 데이터를
 안 쓰면 그 `--map` 은 빼도 되고, 그 경우 남은 speedy 경로를 알려 줍니다.
 
-### 5.3 자산을 새로 만들 때
+### 5.3 자산을 새로 만들 때 — `tools/prepare_dataset.py`
 
-replay npz 를 새로 만들었다면 (가우시안 분포가 달라지므로) 자산도 다시 만드는 게 맞습니다.
+3DGS 를 다시 학습해 npz 를 만들었다면 가우시안 분포가 달라지므로 자산을 **반드시 다시
+만들어야** 합니다 (§5.2 의 경로 재배치는 이 서버의 npz 를 그대로 복사해 쓸 때만 해당).
+스크립트 하나가 통계 · cap 통계 · 앵커 · 사진 매칭 · 병합 · blockB split · 실행 설정을 모두
+만듭니다.
 
 ```bash
-# scripts/build_vanilla_c1_assets.sh 상단의 경로 6개를 새 서버 경로로 바꾼 뒤
-bash scripts/build_vanilla_c1_assets.sh
+conda activate can3tok
+cd <repo>
+python tools/prepare_dataset.py \
+    --names   train,truck \
+    --replays /새/vanilla-3dgs/output/train/replay,/새/vanilla-3dgs/output/truck/replay \
+    --colmaps /새/train_colmap,/새/truck_colmap \
+    --gs_root /새/gaussian-splatting \
+    --tag     v2 \
+    --check
 ```
 
-이 스크립트는 통계 → k-means 앵커(1024, GPU) → truck 사진 매칭 → 두 씬 병합 → blockB
-split 순으로 만들고, 마지막에 7개 파일이 다 있는지 검사합니다. 이미 있는 파일은 재사용하므로
-다시 만들려면 먼저 지우세요. 그 다음 §5.4 를 한 번 더 돌립니다.
+만드는 것 (`--tag v2`): `assets/{stats,stats_…_cap,anchors_…_n1024,npz_to_image,view_pool}_v2_<씬>.*`,
+병합본 `assets/{npz_to_image,view_pool}_v2_both.json`, `assets/split_v2_both_blockB.json`,
+기록 `assets/dataset_v2.json`, 실행 설정 **`configs/v2.args.json`**.
+
+기본값이 현재 학습 설정과 맞춰져 있습니다:
+
+| 항목 | 기본값 | 근거 |
+|---|---|---|
+| 앵커 수 | `max_points / group_size` = 1024 | 셀 1024 개와 같아야 함 (다르면 로더가 오류) |
+| cap | 2.0 | §5.4 |
+| split | blockB: val 구간 13000–13500, 18000–18500, 23500–24000, 28500–29000 / 여유 200 step / `min_snapshot_step` 미만 제외 / 자기 사진이 `train:00004.jpg` 인 train 스냅샷 제외 | 무작위 split 은 val 의 98% 가 train 과 10 step 이내라 누수였음 |
+| 사진 매칭 | 파일명이 아니라 카메라 외부행렬로, 허용 오차 1e-3. 하나라도 안 맞으면 중단 | 엉뚱한 사진으로 학습하는 것을 막음 |
+
+`--check` 는 끝에 학습 로더를 실제로 만들어 스냅샷을 읽어 봅니다.
+
+**검증**: 원래 서버의 vanilla npz 에 돌려서 기존 자산과 대조했습니다. blockB split(train·val
+목록), 사진 매핑 6,000 개, view pool, 통계(center · cap scale)가 **완전히 동일**하고, 앵커는
+GPU k-means 부동소수 오차(씬 크기의 0.02 ~ 0.16%) 안에서 같습니다. 전체 약 3 분 (GPU 1 장).
+
+이미 있는 통계·앵커는 재사용합니다. 3DGS 를 다시 돌린 뒤라면 **`--force`** 를 주거나 새 `--tag`
+를 쓰세요. 자세한 옵션은 `python tools/prepare_dataset.py -h`.
+
+`scripts/build_vanilla_c1_assets.sh` 는 원래 서버에서 쓰던 옛 방식입니다 (경로 하드코딩, truck
+사진만 매칭, blockB 를 speedy 에서 복사). 새로 만들 때는 쓰지 마세요.
 
 ### 5.4 배경 클리핑 수정 (`*_cap.json`) — 반드시 쓸 것
 
@@ -351,8 +473,14 @@ split 순으로 만들고, 마지막에 7개 파일이 다 있는지 검사합�
 
 ### 6.2 실행
 
-`scripts/launch_from_config.sh` 하나로 처음부터·재개 모두 됩니다. 실행 전에 설정에
-계약 플래그 8개가 모두 있는지 검사하고, 없으면 거부합니다 (§8.1).
+`scripts/launch_from_config.sh` 하나로 처음부터·재개 모두 됩니다. 실행 전에 매번 다음을
+검사하고, 하나라도 걸리면 학습을 띄우지 않고 멈춥니다 (`--dry-run` 은 보고만 함):
+
+- 계약 플래그 8 개가 모두 있는가 (§8.1)
+- 데이터 · 자산 경로가 모두 있는가 — 특히 `split_path` (§8.8)
+- split 의 `n_total` 이 지금 npz 개수와 같고, split 의 `roots` 가 설정의 `root` 와 같은가 (§8.8)
+
+`--set` 으로 덮어쓴 값도 반영해서 검사합니다.
 
 ```bash
 conda activate can3tok
@@ -463,11 +591,25 @@ PSNR 이 20.8 에서 12 로 떨어졌습니다. `near_detach_frac`, `grad_spike_
 
 ### 8.5 자기 사진 누수
 
-`holdout_own_photo=0` 이면 스냅샷의 자기 사진이 보류 목록을 우회해 학습에 들어갑니다.
-`blockB` 학습셋에도 `00004.jpg` 를 자기 사진으로 갖는 스냅샷이 7개 있습니다
-(016190, 021160, 021960, 022570, 024230, 024470, 024900). `holdout_own_photo=1` 이 런타임에
-이를 막습니다. 옛 런(T16k 등)은 이 플래그가 생기기 전이라 새었습니다 — 그 런들의 `00004.jpg`
-수치는 일반화가 아니라 적합입니다.
+보류 사진 `train_colmap/images/00004.jpg`(view pool 인덱스 3)가 학습에 들어가는 길은 두 가지입니다.
+
+1. **다른 train 스냅샷의 자기 사진으로** — 스냅샷마다 3DGS 가 그 iteration 에 쓴 카메라의 사진이
+   붙습니다. train 씬에서 자기 사진이 00004.jpg 인 스냅샷이 7 개 있습니다
+   (014330, 014640, 017140, 022950, 024340, 027320, 027900). **blockB split 이 이 7 개를
+   train 에서 뺍니다.** `prepare_dataset.py` 도 같은 규칙으로 뺍니다.
+2. **보류 목록 우회** — `holdout_own_photo=0` 이면 자기 사진은 `view_exclude` 를 무시하고 쓰입니다.
+   `holdout_own_photo=1` 이 이를 막는 두 번째 방어선입니다.
+
+그래서 blockB 를 쓴 런(T16k, Q16kD, B1 계열)은 00004.jpg 를 학습에서 보지 않았고, 그 사진에서
+잰 값은 **보류 사진 평가(일반화)** 입니다. 무작위 split 을 쓴 옛 런(L16k 등)만 적합입니다.
+
+> 2026-09-28 정정: 이 절의 이전 판은 "blockB 학습셋에 00004.jpg 스냅샷이 7 개 남아 있다
+> (016190 …)" 고 했는데 틀렸습니다. 검사를 `endswith("00004.jpg")` 로 해서 truck 의
+> `000004.jpg`(보류 사진 아님)까지 걸린 것입니다. 사진은 반드시 씬과 파일명을 함께 비교하세요.
+
+덧붙여, 같은 코드와 같은 COLMAP 으로 3DGS 를 다시 돌리면 step → 카메라 순서가 같게 나옵니다
+(speedy 와 vanilla 가 위 7 개 스냅샷에서 똑같이 00004.jpg 를 썼음 — 3DGS 가 난수 시드를 고정함).
+그래도 매핑은 항상 `prepare_dataset.py` 로 카메라를 대조해 새로 만드세요.
 
 ### 8.6 PSNR 은 가는 구조를 못 봅니다
 
@@ -478,6 +620,19 @@ PSNR 이 20.8 에서 12 로 떨어졌습니다. `near_detach_frac`, `grad_spike_
 
 원래 서버는 다른 사용자와 GPU 를 나눠 씁니다. 프로세스를 멈출 때는 `ps -o user,args` 와
 `--out_dir` 를 먼저 확인하고 본인 것만 PID 로 멈추세요. `pkill -f` 는 쓰지 마세요.
+
+### 8.8 split 은 조용히 틀어질 수 있습니다
+
+`train.py` 의 split 처리에는 경고 없이 틀어지는 경우가 둘 있습니다.
+
+- **`split_path` 가 없으면 무작위 split 으로 바꿉니다.** 상대경로를 잘못 주거나 다른 디렉터리에서
+  실행하면 그렇게 됩니다 (실제로 겪었습니다: train 2867 / val 408 대신 3421 / 181 로 학습).
+  무작위 split 은 val 의 98% 가 train 과 10 step 이내라 누수입니다.
+- **split 은 파일 목록의 순번이라, 자산을 만든 뒤 npz 를 추가·삭제하면 인덱스가 다른 파일을
+  가리킵니다.** `train.py` 는 `n_total` 을 실제 파일 수와 대조하지 않습니다.
+
+로그 첫머리의 `[data] mature snapshot filter >= 12000: train=… val=…` 가 기대값(2867 / 408)인지
+확인하세요. `launch_from_config.sh` 는 두 경우 모두 실행 전에 막습니다.
 
 ---
 
