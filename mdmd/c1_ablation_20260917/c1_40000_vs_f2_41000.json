@@ -1,0 +1,42 @@
+{
+  "same_camera": true,
+  "cam": [580.06, 582.6, 488.5],
+  "index": 166,
+  "name": "step_028630.npz",
+  "verdict": "FAIL_H2_SMEAR_STOP",
+  "delta_40000_to_f2_41000": {
+    "psnr_vs_gtg": -2.43,
+    "psnr_vs_photo": -3.79,
+    "hood_gtg": -3.82,
+    "front_gtg": -2.55,
+    "letters_gtg": -1.43,
+    "aniso_p50": 0.34,
+    "aniso_lt4_pct": -3.40,
+    "rot_p50_deg": -0.24,
+    "rot_gt_aniso_gt8": -0.46,
+    "xyz_nn_p50": 0.000012,
+    "swap_minus_pred_gtg": 2.83
+  },
+  "eval_heldout": {
+    "40000_photo": 19.56,
+    "f2_41000_photo": 16.77,
+    "40000_teacher": 19.46,
+    "f2_41000_teacher": 17.62,
+    "sobel_42000_photo": 19.72
+  },
+  "gate": {
+    "success_need": "aniso_p50>=6, high-aniso rot drop >=10deg, hood posts as lines, xyz holds",
+    "observed": "aniso 3.88->4.22 (not 6), rot 41.4->41.1 stuck, xyz holds, hood/front/letters smear",
+    "stop": "H2 replay: aniso slightly up + rot stuck + smear. Photometric cannot fix scale/rot (dsr=1). Remaining 1000 steps will not recover 2.8dB attribute damage."
+  },
+  "train_batch": {
+    "aniso_p50_40050": 4.39,
+    "aniso_p50_41000": 4.91,
+    "rot_hi_40050": 40,
+    "rot_hi_41000": 36,
+    "rattr_40050": 0.0968,
+    "rattr_41000": 0.1197,
+    "aset_40050": 1.88,
+    "aset_41000": 1.40
+  }
+}

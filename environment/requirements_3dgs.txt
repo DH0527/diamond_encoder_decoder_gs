@@ -1,0 +1,14 @@
+# 3DGS 학습 + replay npz 덤프 환경 (conda env: 3dgs)
+# graphdeco-inria/gaussian-splatting @ 54c035f 의 environment.yml 과 같은 계열.
+#   pip install -r requirements_3dgs.txt --extra-index-url https://download.pytorch.org/whl/cu121
+torch==2.2.0
+torchvision==0.17.0
+numpy==1.26.4
+plyfile==1.1.2
+opencv-python==4.10.0.84
+tqdm==4.67.1
+
+# 소스 빌드 (gaussian-splatting 서브모듈):
+#   submodules/diff-gaussian-rasterization @ 9c5c2028f6fbee2be239bc4c9421ff894fe4fbe0
+#   submodules/simple-knn                  @ 86710c2d4b46680c02301765dd79e465819c8f19
+#   submodules/fused-ssim                  @ 1272e21a282342e89537159e4bad508b19b34157

@@ -1,0 +1,1050 @@
+{
+  "B1_30000": {
+    "train": {
+      "index": 166,
+      "file": "/data/daeho/aaaa_proj/seondo/vanilla-3dgs/output/train/replay/step_028630.npz",
+      "camera_scope": "own camera, not necessarily held out",
+      "render_mask": "prediction presence > 0; target uses dataset mask",
+      "predicted_live": 234022,
+      "mask_disagreement": 2935,
+      "raw_rotation_head_norm": {
+        "min": 0.4449180066585541,
+        "p01": 1.8026208877563477,
+        "p50": 3.5166501998901367,
+        "p99": 6.519808769226074,
+        "max": 13.148755073547363
+      },
+      "num_points_original": 775959,
+      "num_points_valid": 774041,
+      "num_points_used": 236737,
+      "aniso_pred": {
+        "min": 1.0016144514083862,
+        "p01": 1.1842305660247803,
+        "p50": 4.982264518737793,
+        "p99": 74.55558013916016,
+        "max": 452.6097717285156
+      },
+      "aniso_target": {
+        "min": 1.0007297992706299,
+        "p01": 1.5610865354537964,
+        "p50": 14.219869613647461,
+        "p99": 2075.73388671875,
+        "max": 1162693.0
+      },
+      "group_scale": {
+        "min": 9.999999747378752e-06,
+        "p01": 0.0002612003590911627,
+        "p50": 0.0010016250889748335,
+        "p99": 0.039018355309963226,
+        "max": 0.1068335697054863
+      },
+      "encoder_target_center_gap_over_target_extent": {
+        "min": 0.0055245570838451385,
+        "p01": 0.02329286001622677,
+        "p50": 0.2318573296070099,
+        "p99": 1.1863431930541992,
+        "max": 2.3743607997894287
+      },
+      "photo_psnr": 21.269025802612305,
+      "target_photo_psnr": 20.656309127807617,
+      "teacher_psnr": 20.473674774169922,
+      "guard": {
+        "all_fraction": 0.18371349573135376,
+        "near_fraction": 0.1349787712097168,
+        "fat_fraction": 0.18370923399925232,
+        "visible_count": 181348,
+        "visible_detach_fraction": 0.016167810186743736,
+        "depth": {
+          "min": -88.91187286376953,
+          "p01": -71.17937469482422,
+          "p50": 4.393077850341797,
+          "p99": 19.713359832763672,
+          "max": 65.38277435302734
+        },
+        "actual_visible_radius": {
+          "min": 3.0,
+          "p01": 3.0,
+          "p50": 3.0,
+          "p99": 15.0,
+          "max": 1140.0
+        },
+        "proxy_radius": {
+          "min": 0.0516335591673851,
+          "p01": 0.11673184484243393,
+          "p50": 0.7634843587875366,
+          "p99": 58691.94921875,
+          "max": 553754.75
+        }
+      },
+      "splat_hinge_saturated_visible_fraction": 0.0029391006100922823,
+      "render_leaf": {
+        "0.0": {
+          "weighted_loss": 5.138757228851318,
+          "norms": {
+            "all": 435.3730773925781,
+            "xyz": 435.3707580566406,
+            "logscale": 0.7116997838020325,
+            "quaternion": 1.0954070091247559,
+            "opacity": 0.48784106969833374,
+            "dc": 0.2787286639213562
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.5437906980514526
+        },
+        "0.1": {
+          "weighted_loss": 5.138757228851318,
+          "norms": {
+            "all": 335.2748718261719,
+            "xyz": 335.27484130859375,
+            "logscale": 0.03233340382575989,
+            "quaternion": 0.04105004295706749,
+            "opacity": 0.012336649931967258,
+            "dc": 0.03564883768558502
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.31067222356796265
+        }
+      },
+      "raw_target_cov3d": {
+        "weighted_loss": 672.1353149414062,
+        "norms": {
+          "all": 1056.0865478515625,
+          "xyz": 0.0,
+          "logscale": 1056.0865478515625,
+          "quaternion": 0.0918966680765152,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      },
+      "sinkhorn_target_cov3d": {
+        "weighted_loss": 0.7986457943916321,
+        "norms": {
+          "all": 0.06415363401174545,
+          "xyz": 0.0,
+          "logscale": 0.06411884725093842,
+          "quaternion": 0.002112553920596838,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      }
+    },
+    "truck": {
+      "index": 382,
+      "file": "/data/daeho/aaaa_proj/seondo/vanilla-3dgs/output/truck/replay/step_028750.npz",
+      "camera_scope": "own camera, not necessarily held out",
+      "render_mask": "prediction presence > 0; target uses dataset mask",
+      "predicted_live": 235052,
+      "mask_disagreement": 2073,
+      "raw_rotation_head_norm": {
+        "min": 0.4083314836025238,
+        "p01": 1.8404396772384644,
+        "p50": 3.7216365337371826,
+        "p99": 7.642939567565918,
+        "max": 11.500175476074219
+      },
+      "num_points_original": 1432861,
+      "num_points_valid": 1432763,
+      "num_points_used": 236981,
+      "aniso_pred": {
+        "min": 1.000101089477539,
+        "p01": 1.1830729246139526,
+        "p50": 7.125743865966797,
+        "p99": 113.05851745605469,
+        "max": 442.8192138671875
+      },
+      "aniso_target": {
+        "min": 1.001613974571228,
+        "p01": 1.3320343494415283,
+        "p50": 18.018404006958008,
+        "p99": 20600.244140625,
+        "max": 1725344.375
+      },
+      "group_scale": {
+        "min": 9.999999747378752e-06,
+        "p01": 0.0005430168239399791,
+        "p50": 0.005668637342751026,
+        "p99": 0.030989723280072212,
+        "max": 0.05957862734794617
+      },
+      "encoder_target_center_gap_over_target_extent": {
+        "min": 0.0108519671484828,
+        "p01": 0.021353404968976974,
+        "p50": 0.22480100393295288,
+        "p99": 1.4034970998764038,
+        "max": 2.252894639968872
+      },
+      "photo_psnr": 21.972198486328125,
+      "target_photo_psnr": 16.803518295288086,
+      "teacher_psnr": 17.23967933654785,
+      "guard": {
+        "all_fraction": 0.3818346858024597,
+        "near_fraction": 0.36276230216026306,
+        "fat_fraction": 0.3818304240703583,
+        "visible_count": 83757,
+        "visible_detach_fraction": 0.007665031123906374,
+        "depth": {
+          "min": -75.98844909667969,
+          "p01": -45.77992248535156,
+          "p50": 2.474517345428467,
+          "p99": 47.03618621826172,
+          "max": 65.84927368164062
+        },
+        "actual_visible_radius": {
+          "min": 3.0,
+          "p01": 3.0,
+          "p50": 4.0,
+          "p99": 25.0,
+          "max": 976.0
+        },
+        "proxy_radius": {
+          "min": 0.01752980425953865,
+          "p01": 0.19966718554496765,
+          "p50": 2.4658470153808594,
+          "p99": 45844.3046875,
+          "max": 459645.25
+        }
+      },
+      "splat_hinge_saturated_visible_fraction": 0.0013849588576704264,
+      "render_leaf": {
+        "0.0": {
+          "weighted_loss": 4.381444454193115,
+          "norms": {
+            "all": 431.420166015625,
+            "xyz": 431.4193115234375,
+            "logscale": 0.36303701996803284,
+            "quaternion": 0.7616838216781616,
+            "opacity": 0.07963316142559052,
+            "dc": 0.19239555299282074
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.4865027070045471
+        },
+        "0.1": {
+          "weighted_loss": 4.381444454193115,
+          "norms": {
+            "all": 401.768310546875,
+            "xyz": 401.76824951171875,
+            "logscale": 0.09350430220365524,
+            "quaternion": 0.1664978712797165,
+            "opacity": 0.027067994698882103,
+            "dc": 0.0757359117269516
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.4469808042049408
+        }
+      },
+      "raw_target_cov3d": {
+        "weighted_loss": 5473.68017578125,
+        "norms": {
+          "all": 9272.7958984375,
+          "xyz": 0.0,
+          "logscale": 9272.7958984375,
+          "quaternion": 0.19295182824134827,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      },
+      "sinkhorn_target_cov3d": {
+        "weighted_loss": 0.703818678855896,
+        "norms": {
+          "all": 0.052036359906196594,
+          "xyz": 0.0,
+          "logscale": 0.051982004195451736,
+          "quaternion": 0.0023778125178068876,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      }
+    }
+  },
+  "B1_34000": {
+    "train": {
+      "index": 166,
+      "file": "/data/daeho/aaaa_proj/seondo/vanilla-3dgs/output/train/replay/step_028630.npz",
+      "camera_scope": "own camera, not necessarily held out",
+      "render_mask": "prediction presence > 0; target uses dataset mask",
+      "predicted_live": 233658,
+      "mask_disagreement": 3747,
+      "raw_rotation_head_norm": {
+        "min": 0.5114298462867737,
+        "p01": 1.951194167137146,
+        "p50": 3.8569624423980713,
+        "p99": 7.049582481384277,
+        "max": 12.880866050720215
+      },
+      "num_points_original": 775959,
+      "num_points_valid": 774041,
+      "num_points_used": 236737,
+      "aniso_pred": {
+        "min": 1.000040054321289,
+        "p01": 1.1808024644851685,
+        "p50": 4.680427074432373,
+        "p99": 75.51030731201172,
+        "max": 457.5843811035156
+      },
+      "aniso_target": {
+        "min": 1.0007297992706299,
+        "p01": 1.5610865354537964,
+        "p50": 14.219869613647461,
+        "p99": 2075.73388671875,
+        "max": 1162693.0
+      },
+      "group_scale": {
+        "min": 9.999999747378752e-06,
+        "p01": 0.0002612003590911627,
+        "p50": 0.0010016250889748335,
+        "p99": 0.039018355309963226,
+        "max": 0.1068335697054863
+      },
+      "encoder_target_center_gap_over_target_extent": {
+        "min": 0.0055245570838451385,
+        "p01": 0.02329286001622677,
+        "p50": 0.2318573296070099,
+        "p99": 1.1863431930541992,
+        "max": 2.3743607997894287
+      },
+      "photo_psnr": 20.411710739135742,
+      "target_photo_psnr": 20.656309127807617,
+      "teacher_psnr": 19.661760330200195,
+      "guard": {
+        "all_fraction": 0.1823006272315979,
+        "near_fraction": 0.13381095230579376,
+        "fat_fraction": 0.1823006272315979,
+        "visible_count": 181383,
+        "visible_detach_fraction": 0.017559528350830078,
+        "depth": {
+          "min": -87.25992584228516,
+          "p01": -71.13195037841797,
+          "p50": 4.400434494018555,
+          "p99": 19.683839797973633,
+          "max": 62.30052947998047
+        },
+        "actual_visible_radius": {
+          "min": 3.0,
+          "p01": 3.0,
+          "p50": 3.0,
+          "p99": 15.0,
+          "max": 1128.0
+        },
+        "proxy_radius": {
+          "min": 0.05171988159418106,
+          "p01": 0.11187446862459183,
+          "p50": 0.752680778503418,
+          "p99": 55538.23046875,
+          "max": 590362.25
+        }
+      },
+      "splat_hinge_saturated_visible_fraction": 0.0029991785995662212,
+      "render_leaf": {
+        "0.0": {
+          "weighted_loss": 5.788788795471191,
+          "norms": {
+            "all": 479.76239013671875,
+            "xyz": 479.759033203125,
+            "logscale": 0.9851726293563843,
+            "quaternion": 1.395344614982605,
+            "opacity": 0.4634428918361664,
+            "dc": 0.2837027907371521
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.6239305734634399
+        },
+        "0.1": {
+          "weighted_loss": 5.788788795471191,
+          "norms": {
+            "all": 332.59454345703125,
+            "xyz": 332.5945129394531,
+            "logscale": 0.03255379572510719,
+            "quaternion": 0.04202781990170479,
+            "opacity": 0.013676307164132595,
+            "dc": 0.03300090134143829
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.306270569562912
+        }
+      },
+      "raw_target_cov3d": {
+        "weighted_loss": 856.9052734375,
+        "norms": {
+          "all": 1482.3433837890625,
+          "xyz": 0.0,
+          "logscale": 1482.3433837890625,
+          "quaternion": 0.12583594024181366,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      },
+      "sinkhorn_target_cov3d": {
+        "weighted_loss": 0.8552221059799194,
+        "norms": {
+          "all": 0.06295020878314972,
+          "xyz": 0.0,
+          "logscale": 0.06291239708662033,
+          "quaternion": 0.0021817234810441732,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      }
+    },
+    "truck": {
+      "index": 382,
+      "file": "/data/daeho/aaaa_proj/seondo/vanilla-3dgs/output/truck/replay/step_028750.npz",
+      "camera_scope": "own camera, not necessarily held out",
+      "render_mask": "prediction presence > 0; target uses dataset mask",
+      "predicted_live": 235318,
+      "mask_disagreement": 1875,
+      "raw_rotation_head_norm": {
+        "min": 0.2473154217004776,
+        "p01": 1.9926700592041016,
+        "p50": 4.028428077697754,
+        "p99": 8.177162170410156,
+        "max": 12.174697875976562
+      },
+      "num_points_original": 1432861,
+      "num_points_valid": 1432763,
+      "num_points_used": 236981,
+      "aniso_pred": {
+        "min": 1.0000410079956055,
+        "p01": 1.1773035526275635,
+        "p50": 7.066768646240234,
+        "p99": 110.39600372314453,
+        "max": 453.2343444824219
+      },
+      "aniso_target": {
+        "min": 1.001613974571228,
+        "p01": 1.3320343494415283,
+        "p50": 18.018404006958008,
+        "p99": 20600.244140625,
+        "max": 1725344.375
+      },
+      "group_scale": {
+        "min": 9.999999747378752e-06,
+        "p01": 0.0005430168239399791,
+        "p50": 0.005668637342751026,
+        "p99": 0.030989723280072212,
+        "max": 0.05957862734794617
+      },
+      "encoder_target_center_gap_over_target_extent": {
+        "min": 0.0108519671484828,
+        "p01": 0.021353404968976974,
+        "p50": 0.22480100393295288,
+        "p99": 1.4034970998764038,
+        "max": 2.252894639968872
+      },
+      "photo_psnr": 21.841175079345703,
+      "target_photo_psnr": 16.803518295288086,
+      "teacher_psnr": 16.692039489746094,
+      "guard": {
+        "all_fraction": 0.38199371099472046,
+        "near_fraction": 0.36264118552207947,
+        "fat_fraction": 0.3819809556007385,
+        "visible_count": 83850,
+        "visible_detach_fraction": 0.00810971949249506,
+        "depth": {
+          "min": -76.15077209472656,
+          "p01": -45.789024353027344,
+          "p50": 2.4728994369506836,
+          "p99": 47.00680923461914,
+          "max": 65.9000244140625
+        },
+        "actual_visible_radius": {
+          "min": 3.0,
+          "p01": 3.0,
+          "p50": 4.0,
+          "p99": 26.0,
+          "max": 1555.0
+        },
+        "proxy_radius": {
+          "min": 0.01801685243844986,
+          "p01": 0.19244281947612762,
+          "p50": 2.4254937171936035,
+          "p99": 45323.17578125,
+          "max": 469027.25
+        }
+      },
+      "splat_hinge_saturated_visible_fraction": 0.0015146094374358654,
+      "render_leaf": {
+        "0.0": {
+          "weighted_loss": 4.571831703186035,
+          "norms": {
+            "all": 424.77593994140625,
+            "xyz": 424.7755432128906,
+            "logscale": 0.29614052176475525,
+            "quaternion": 0.43100911378860474,
+            "opacity": 0.08215684443712234,
+            "dc": 0.2228611260652542
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.5108981728553772
+        },
+        "0.1": {
+          "weighted_loss": 4.571831703186035,
+          "norms": {
+            "all": 383.5180358886719,
+            "xyz": 383.51800537109375,
+            "logscale": 0.087458536028862,
+            "quaternion": 0.15600889921188354,
+            "opacity": 0.02737249992787838,
+            "dc": 0.07645561546087265
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.4482307732105255
+        }
+      },
+      "raw_target_cov3d": {
+        "weighted_loss": 4483.36767578125,
+        "norms": {
+          "all": 6699.94189453125,
+          "xyz": 0.0,
+          "logscale": 6699.94140625,
+          "quaternion": 0.2174273282289505,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      },
+      "sinkhorn_target_cov3d": {
+        "weighted_loss": 0.7545974254608154,
+        "norms": {
+          "all": 0.06734269112348557,
+          "xyz": 0.0,
+          "logscale": 0.06729944795370102,
+          "quaternion": 0.0024131678510457277,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      }
+    }
+  },
+  "B1_36000": {
+    "train": {
+      "index": 166,
+      "file": "/data/daeho/aaaa_proj/seondo/vanilla-3dgs/output/train/replay/step_028630.npz",
+      "camera_scope": "own camera, not necessarily held out",
+      "render_mask": "prediction presence > 0; target uses dataset mask",
+      "predicted_live": 208172,
+      "mask_disagreement": 39017,
+      "raw_rotation_head_norm": {
+        "min": 1.5328305959701538,
+        "p01": 3.2773523330688477,
+        "p50": 6.305202484130859,
+        "p99": 10.05159854888916,
+        "max": 19.263954162597656
+      },
+      "num_points_original": 775959,
+      "num_points_valid": 774041,
+      "num_points_used": 236737,
+      "aniso_pred": {
+        "min": 1.0000314712524414,
+        "p01": 1.0642277002334595,
+        "p50": 1.7001749277114868,
+        "p99": 18.996753692626953,
+        "max": 131.7228546142578
+      },
+      "aniso_target": {
+        "min": 1.0007297992706299,
+        "p01": 1.5610865354537964,
+        "p50": 14.219869613647461,
+        "p99": 2075.73388671875,
+        "max": 1162693.0
+      },
+      "group_scale": {
+        "min": 9.999999747378752e-06,
+        "p01": 0.0002612003590911627,
+        "p50": 0.0010016250889748335,
+        "p99": 0.039018355309963226,
+        "max": 0.1068335697054863
+      },
+      "encoder_target_center_gap_over_target_extent": {
+        "min": 0.0055245570838451385,
+        "p01": 0.02329286001622677,
+        "p50": 0.2318573296070099,
+        "p99": 1.1863431930541992,
+        "max": 2.3743607997894287
+      },
+      "photo_psnr": 11.093626976013184,
+      "target_photo_psnr": 20.656309127807617,
+      "teacher_psnr": 11.322351455688477,
+      "guard": {
+        "all_fraction": 0.15950752794742584,
+        "near_fraction": 0.1205301359295845,
+        "fat_fraction": 0.15950752794742584,
+        "visible_count": 166688,
+        "visible_detach_fraction": 0.014440151862800121,
+        "depth": {
+          "min": -101.21428680419922,
+          "p01": -71.112548828125,
+          "p50": 4.520726203918457,
+          "p99": 19.92571258544922,
+          "max": 62.476383209228516
+        },
+        "actual_visible_radius": {
+          "min": 3.0,
+          "p01": 3.0,
+          "p50": 3.0,
+          "p99": 9.0,
+          "max": 1290.0
+        },
+        "proxy_radius": {
+          "min": 0.043232936412096024,
+          "p01": 0.09749995172023773,
+          "p50": 0.5041816830635071,
+          "p99": 38561.4296875,
+          "max": 254600.15625
+        }
+      },
+      "splat_hinge_saturated_visible_fraction": 0.0018597620073705912,
+      "render_leaf": {
+        "0.0": {
+          "weighted_loss": 18.676149368286133,
+          "norms": {
+            "all": 134.48199462890625,
+            "xyz": 134.4786834716797,
+            "logscale": 0.4198217988014221,
+            "quaternion": 0.1257505565881729,
+            "opacity": 0.02426004782319069,
+            "dc": 0.8354214429855347
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.8411446809768677
+        },
+        "0.1": {
+          "weighted_loss": 18.676149368286133,
+          "norms": {
+            "all": 61.897186279296875,
+            "xyz": 61.89718246459961,
+            "logscale": 0.005173909477889538,
+            "quaternion": 0.002461121417582035,
+            "opacity": 0.0035726488567888737,
+            "dc": 0.007958746515214443
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.3250123858451843
+        }
+      },
+      "raw_target_cov3d": {
+        "weighted_loss": 296.6136474609375,
+        "norms": {
+          "all": 273.1990051269531,
+          "xyz": 0.0,
+          "logscale": 273.1990051269531,
+          "quaternion": 0.0387582927942276,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      },
+      "sinkhorn_target_cov3d": {
+        "weighted_loss": 2.651599168777466,
+        "norms": {
+          "all": 0.7146341800689697,
+          "xyz": 0.0,
+          "logscale": 0.7146304845809937,
+          "quaternion": 0.002294243313372135,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      }
+    },
+    "truck": {
+      "index": 382,
+      "file": "/data/daeho/aaaa_proj/seondo/vanilla-3dgs/output/truck/replay/step_028750.npz",
+      "camera_scope": "own camera, not necessarily held out",
+      "render_mask": "prediction presence > 0; target uses dataset mask",
+      "predicted_live": 193407,
+      "mask_disagreement": 49212,
+      "raw_rotation_head_norm": {
+        "min": 1.4392577409744263,
+        "p01": 3.320587396621704,
+        "p50": 6.1190385818481445,
+        "p99": 15.404529571533203,
+        "max": 21.536832809448242
+      },
+      "num_points_original": 1432861,
+      "num_points_valid": 1432763,
+      "num_points_used": 236981,
+      "aniso_pred": {
+        "min": 1.0000314712524414,
+        "p01": 1.0582560300827026,
+        "p50": 1.9480410814285278,
+        "p99": 65.96122741699219,
+        "max": 142.80152893066406
+      },
+      "aniso_target": {
+        "min": 1.001613974571228,
+        "p01": 1.3320343494415283,
+        "p50": 18.018404006958008,
+        "p99": 20600.244140625,
+        "max": 1725344.375
+      },
+      "group_scale": {
+        "min": 9.999999747378752e-06,
+        "p01": 0.0005430168239399791,
+        "p50": 0.005668637342751026,
+        "p99": 0.030989723280072212,
+        "max": 0.05957862734794617
+      },
+      "encoder_target_center_gap_over_target_extent": {
+        "min": 0.0108519671484828,
+        "p01": 0.021353404968976974,
+        "p50": 0.22480100393295288,
+        "p99": 1.4034970998764038,
+        "max": 2.252894639968872
+      },
+      "photo_psnr": 11.306934356689453,
+      "target_photo_psnr": 16.803518295288086,
+      "teacher_psnr": 12.070237159729004,
+      "guard": {
+        "all_fraction": 0.3987859785556793,
+        "near_fraction": 0.37660476565361023,
+        "fat_fraction": 0.3987859785556793,
+        "visible_count": 64424,
+        "visible_detach_fraction": 0.009049423038959503,
+        "depth": {
+          "min": -77.56417846679688,
+          "p01": -45.17459487915039,
+          "p50": 2.4493350982666016,
+          "p99": 47.90754699707031,
+          "max": 71.11593627929688
+        },
+        "actual_visible_radius": {
+          "min": 3.0,
+          "p01": 3.0,
+          "p50": 3.0,
+          "p99": 17.76953125,
+          "max": 625.0
+        },
+        "proxy_radius": {
+          "min": 0.025291740894317627,
+          "p01": 0.11438991874456406,
+          "p50": 1.4916818141937256,
+          "p99": 24098.767578125,
+          "max": 357165.65625
+        }
+      },
+      "splat_hinge_saturated_visible_fraction": 0.0008381969528272748,
+      "render_leaf": {
+        "0.0": {
+          "weighted_loss": 20.135347366333008,
+          "norms": {
+            "all": 314.6160583496094,
+            "xyz": 314.6156005859375,
+            "logscale": 0.42460179328918457,
+            "quaternion": 0.11613687872886658,
+            "opacity": 0.026455851271748543,
+            "dc": 0.2879524528980255
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.5516241192817688
+        },
+        "0.1": {
+          "weighted_loss": 20.135347366333008,
+          "norms": {
+            "all": 267.5369873046875,
+            "xyz": 267.5369567871094,
+            "logscale": 0.08541522920131683,
+            "quaternion": 0.03648445010185242,
+            "opacity": 0.0202680341899395,
+            "dc": 0.08875357359647751
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.4320452809333801
+        }
+      },
+      "raw_target_cov3d": {
+        "weighted_loss": 441.3531799316406,
+        "norms": {
+          "all": 156.35902404785156,
+          "xyz": 0.0,
+          "logscale": 156.35902404785156,
+          "quaternion": 0.031446296721696854,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      },
+      "sinkhorn_target_cov3d": {
+        "weighted_loss": 3.2816264629364014,
+        "norms": {
+          "all": 3.080538034439087,
+          "xyz": 0.0,
+          "logscale": 3.0805366039276123,
+          "quaternion": 0.002864537527784705,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      }
+    }
+  },
+  "B1g_42000": {
+    "train": {
+      "index": 166,
+      "file": "/data/daeho/aaaa_proj/seondo/vanilla-3dgs/output/train/replay/step_028630.npz",
+      "camera_scope": "own camera, not necessarily held out",
+      "render_mask": "prediction presence > 0; target uses dataset mask",
+      "predicted_live": 234415,
+      "mask_disagreement": 2560,
+      "raw_rotation_head_norm": {
+        "min": 0.686877429485321,
+        "p01": 1.8312511444091797,
+        "p50": 3.559328079223633,
+        "p99": 6.491293430328369,
+        "max": 10.24002742767334
+      },
+      "num_points_original": 775959,
+      "num_points_valid": 774041,
+      "num_points_used": 236737,
+      "aniso_pred": {
+        "min": 1.0037416219711304,
+        "p01": 1.1219403743743896,
+        "p50": 4.521998405456543,
+        "p99": 116.14739227294922,
+        "max": 389.7918701171875
+      },
+      "aniso_target": {
+        "min": 1.0007297992706299,
+        "p01": 1.5610865354537964,
+        "p50": 14.219869613647461,
+        "p99": 2075.73388671875,
+        "max": 1162693.0
+      },
+      "group_scale": {
+        "min": 9.999999747378752e-06,
+        "p01": 0.0002612003590911627,
+        "p50": 0.0010016250889748335,
+        "p99": 0.039018355309963226,
+        "max": 0.1068335697054863
+      },
+      "encoder_target_center_gap_over_target_extent": {
+        "min": 0.0055245570838451385,
+        "p01": 0.02329286001622677,
+        "p50": 0.2318573296070099,
+        "p99": 1.1863431930541992,
+        "max": 2.3743607997894287
+      },
+      "photo_psnr": 14.856375694274902,
+      "target_photo_psnr": 20.656309127807617,
+      "teacher_psnr": 14.467209815979004,
+      "guard": {
+        "all_fraction": 0.18353773653507233,
+        "near_fraction": 0.13486765325069427,
+        "fat_fraction": 0.18353773653507233,
+        "visible_count": 181776,
+        "visible_detach_fraction": 0.015673136338591576,
+        "depth": {
+          "min": -88.64659118652344,
+          "p01": -71.24223327636719,
+          "p50": 4.396308422088623,
+          "p99": 19.69058609008789,
+          "max": 65.52723693847656
+        },
+        "actual_visible_radius": {
+          "min": 3.0,
+          "p01": 3.0,
+          "p50": 3.0,
+          "p99": 14.0,
+          "max": 293.0
+        },
+        "proxy_radius": {
+          "min": 0.050744060426950455,
+          "p01": 0.12734264135360718,
+          "p50": 0.8451360464096069,
+          "p99": 75218.4375,
+          "max": 383848.625
+        }
+      },
+      "splat_hinge_saturated_visible_fraction": 0.0013863217318430543,
+      "render_leaf": {
+        "0.0": {
+          "weighted_loss": 9.870682716369629,
+          "norms": {
+            "all": 518.33056640625,
+            "xyz": 518.3286743164062,
+            "logscale": 0.7129263877868652,
+            "quaternion": 1.1744632720947266,
+            "opacity": 0.21433016657829285,
+            "dc": 0.19328732788562775
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.6695693731307983
+        },
+        "0.1": {
+          "weighted_loss": 9.870682716369629,
+          "norms": {
+            "all": 334.21142578125,
+            "xyz": 334.2113952636719,
+            "logscale": 0.06018981337547302,
+            "quaternion": 0.04357278347015381,
+            "opacity": 0.016948210075497627,
+            "dc": 0.05038231611251831
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.32247689366340637
+        }
+      },
+      "raw_target_cov3d": {
+        "weighted_loss": 523.7899780273438,
+        "norms": {
+          "all": 559.9072265625,
+          "xyz": 0.0,
+          "logscale": 559.9072265625,
+          "quaternion": 0.07848376780748367,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      },
+      "sinkhorn_target_cov3d": {
+        "weighted_loss": 0.9128254652023315,
+        "norms": {
+          "all": 0.07517252117395401,
+          "xyz": 0.0,
+          "logscale": 0.07514137774705887,
+          "quaternion": 0.0021634043660014868,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      }
+    },
+    "truck": {
+      "index": 382,
+      "file": "/data/daeho/aaaa_proj/seondo/vanilla-3dgs/output/truck/replay/step_028750.npz",
+      "camera_scope": "own camera, not necessarily held out",
+      "render_mask": "prediction presence > 0; target uses dataset mask",
+      "predicted_live": 235334,
+      "mask_disagreement": 1857,
+      "raw_rotation_head_norm": {
+        "min": 0.32511743903160095,
+        "p01": 1.8774163722991943,
+        "p50": 3.7653393745422363,
+        "p99": 7.563318729400635,
+        "max": 11.133090019226074
+      },
+      "num_points_original": 1432861,
+      "num_points_valid": 1432763,
+      "num_points_used": 236981,
+      "aniso_pred": {
+        "min": 1.0026031732559204,
+        "p01": 1.1631056070327759,
+        "p50": 7.449434757232666,
+        "p99": 193.4201202392578,
+        "max": 497.8370361328125
+      },
+      "aniso_target": {
+        "min": 1.001613974571228,
+        "p01": 1.3320343494415283,
+        "p50": 18.018404006958008,
+        "p99": 20600.244140625,
+        "max": 1725344.375
+      },
+      "group_scale": {
+        "min": 9.999999747378752e-06,
+        "p01": 0.0005430168239399791,
+        "p50": 0.005668637342751026,
+        "p99": 0.030989723280072212,
+        "max": 0.05957862734794617
+      },
+      "encoder_target_center_gap_over_target_extent": {
+        "min": 0.0108519671484828,
+        "p01": 0.021353404968976974,
+        "p50": 0.22480100393295288,
+        "p99": 1.4034970998764038,
+        "max": 2.252894639968872
+      },
+      "photo_psnr": 21.745708465576172,
+      "target_photo_psnr": 16.803518295288086,
+      "teacher_psnr": 16.47372817993164,
+      "guard": {
+        "all_fraction": 0.3809351921081543,
+        "near_fraction": 0.36274826526641846,
+        "fat_fraction": 0.38093093037605286,
+        "visible_count": 83872,
+        "visible_detach_fraction": 0.004161102697253227,
+        "depth": {
+          "min": -75.94219207763672,
+          "p01": -45.762691497802734,
+          "p50": 2.4722790718078613,
+          "p99": 47.02999496459961,
+          "max": 65.84761810302734
+        },
+        "actual_visible_radius": {
+          "min": 3.0,
+          "p01": 3.0,
+          "p50": 4.0,
+          "p99": 24.0,
+          "max": 90.0
+        },
+        "proxy_radius": {
+          "min": 0.01097125094383955,
+          "p01": 0.20526105165481567,
+          "p50": 2.5566654205322266,
+          "p99": 51657.60546875,
+          "max": 304893.875
+        }
+      },
+      "splat_hinge_saturated_visible_fraction": 4.76917193736881e-05,
+      "render_leaf": {
+        "0.0": {
+          "weighted_loss": 4.507569313049316,
+          "norms": {
+            "all": 436.8373107910156,
+            "xyz": 436.8371276855469,
+            "logscale": 0.2425001561641693,
+            "quaternion": 0.22423329949378967,
+            "opacity": 0.09310395270586014,
+            "dc": 0.18730735778808594
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.46022090315818787
+        },
+        "0.1": {
+          "weighted_loss": 4.507569313049316,
+          "norms": {
+            "all": 423.703857421875,
+            "xyz": 423.70379638671875,
+            "logscale": 0.12365933507680893,
+            "quaternion": 0.17392855882644653,
+            "opacity": 0.03999735042452812,
+            "dc": 0.11755726486444473
+          },
+          "top_0.1pct_gradient_energy_fraction": 0.4551207423210144
+        }
+      },
+      "raw_target_cov3d": {
+        "weighted_loss": 3529.169189453125,
+        "norms": {
+          "all": 3969.507568359375,
+          "xyz": 0.0,
+          "logscale": 3969.5078125,
+          "quaternion": 0.16825929284095764,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      },
+      "sinkhorn_target_cov3d": {
+        "weighted_loss": 0.7867969274520874,
+        "norms": {
+          "all": 0.04297787696123123,
+          "xyz": 0.0,
+          "logscale": 0.04290562495589256,
+          "quaternion": 0.00249101547524333,
+          "opacity": 0.0,
+          "dc": 0.0
+        },
+        "weight": 1.0,
+        "weight_note": "Original probe log used configured weight 2; JSON linearly rescaled to effective scheduled weight. probe_frozen.py now applies scheduled weight directly."
+      }
+    }
+  }
+}

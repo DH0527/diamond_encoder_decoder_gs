@@ -1,0 +1,637 @@
+diff --git a/scene/gaussian_model.py b/scene/gaussian_model.py
+index 473887d..4c63402 100644
+--- a/scene/gaussian_model.py
++++ b/scene/gaussian_model.py
+@@ -63,9 +63,12 @@ class GaussianModel:
+         self.optimizer = None
+         self.percent_dense = 0
+         self.spatial_lr_scale = 0
+-        self.setup_functions()
+-
+-    def capture(self):
++        self.setup_functions()  
++        # [Replay/ID fields]
++        self.ids = torch.empty(0, dtype=torch.long)   # 영구 ID 저장
++        self._next_id = 0
++        self._events = []                              # 구조 이벤트 버퍼
++    def capture(self):      
+         return (
+             self.active_sh_degree,
+             self._xyz,
+@@ -111,6 +114,13 @@ class GaussianModel:
+     def get_xyz(self):
+         return self._xyz
+     
++    # --- 추가: 가우시안 ID 접근용 프로퍼티 ---
++    @property
++    def get_ids(self):
++        """Replay 및 외부 유틸리티가 gaussians.get_ids로 접근할 수 있도록 반환."""
++        return self.ids
++    # --- 추가 끝 ---
++
+     @property
+     def get_features(self):
+         features_dc = self._features_dc
+@@ -132,7 +142,25 @@ class GaussianModel:
+     @property
+     def get_exposure(self):
+         return self._exposure
+-
++    
++    #클래스 “메서드”로 유틸 추가
++    def _init_ids(self):
++        self.ids = torch.arange(self.get_xyz.shape[0], device=self._xyz.device, dtype=torch.long)
++        self._next_id = int(self.ids.max().item()) + 1 if self.ids.numel() > 0 else 0
++
++    def _assign_ids_to_new_points(self, new_count:int):
++        if new_count <= 0: return
++        new_ids = torch.arange(self._next_id, self._next_id + new_count, device=self._xyz.device, dtype=torch.long)
++        self._next_id += new_count
++        self.ids = torch.cat([self.ids, new_ids], dim=0)
++
++    def _push_event(self, kind:str, payload:dict):
++        self._events.append({"kind": kind, **payload})
++
++    def pop_events(self):
++        ev = self._events
++        self._events = []
++        return ev
+     def get_exposure_from_name(self, image_name):
+         if self.pretrained_exposures is None:
+             return self._exposure[self.exposure_mapping[image_name]]
+@@ -174,6 +202,7 @@ class GaussianModel:
+         self.pretrained_exposures = None
+         exposure = torch.eye(3, 4, device="cuda")[None].repeat(len(cam_infos), 1, 1)
+         self._exposure = nn.Parameter(exposure.requires_grad_(True))
++        self._init_ids()   # <<< 추가
+ 
+     def training_setup(self, training_args):
+         self.percent_dense = training_args.percent_dense
+@@ -312,6 +341,7 @@ class GaussianModel:
+         self._rotation = nn.Parameter(torch.tensor(rots, dtype=torch.float, device="cuda").requires_grad_(True))
+ 
+         self.active_sh_degree = self.max_sh_degree
++        self._init_ids()   # <<< 추가
+ 
+     def replace_tensor_to_optimizer(self, tensor, name):
+         optimizable_tensors = {}
+@@ -347,6 +377,8 @@ class GaussianModel:
+         return optimizable_tensors
+ 
+     def prune_points(self, mask):
++        # 삭제될 ID를 먼저 백업
++        removed_ids = self.ids[mask].detach().clone()
+         valid_points_mask = ~mask
+         optimizable_tensors = self._prune_optimizer(valid_points_mask)
+ 
+@@ -362,7 +394,12 @@ class GaussianModel:
+         self.denom = self.denom[valid_points_mask]
+         self.max_radii2D = self.max_radii2D[valid_points_mask]
+         self.tmp_radii = self.tmp_radii[valid_points_mask]
++        # ids도 같은 마스크로 갱신 + death 이벤트 푸시
++        self.ids = self.ids[valid_points_mask]
++        if removed_ids.numel() > 0:
++            self._push_event("death", {"removed": removed_ids.to("cpu").tolist()})
+ 
++        
+     def cat_tensors_to_optimizer(self, tensors_dict):
+         optimizable_tensors = {}
+         for group in self.optimizer.param_groups:
+@@ -405,7 +442,8 @@ class GaussianModel:
+         self.xyz_gradient_accum = torch.zeros((self.get_xyz.shape[0], 1), device="cuda")
+         self.denom = torch.zeros((self.get_xyz.shape[0], 1), device="cuda")
+         self.max_radii2D = torch.zeros((self.get_xyz.shape[0]), device="cuda")
+-
++        self._assign_ids_to_new_points(new_xyz.shape[0])  # <<< 추가
++        
+     def densify_and_split(self, grads, grad_threshold, scene_extent, N=2):
+         n_init_points = self.get_xyz.shape[0]
+         # Extract points that satisfy the gradient condition
+@@ -428,7 +466,20 @@ class GaussianModel:
+         new_tmp_radii = self.tmp_radii[selected_pts_mask].repeat(N)
+ 
+         self.densification_postfix(new_xyz, new_features_dc, new_features_rest, new_opacity, new_scaling, new_rotation, new_tmp_radii)
+-
++        #  split 이벤트 기록 (부모/자식 ID)
++        num_new = int(selected_pts_mask.sum().item()) * N
++        if num_new > 0:
++            old_N = self.ids.shape[0] - num_new
++
++            parents  = self.ids[:old_N][selected_pts_mask]
++            children = self.ids[-num_new:]
++            self._push_event(
++                "split",
++                {
++                    "parents":  parents.detach().to("cpu").tolist(),
++                    "children": children.detach().to("cpu").tolist()
++                }
++            )
+         prune_filter = torch.cat((selected_pts_mask, torch.zeros(N * selected_pts_mask.sum(), device="cuda", dtype=bool)))
+         self.prune_points(prune_filter)
+ 
+@@ -448,6 +499,21 @@ class GaussianModel:
+         new_tmp_radii = self.tmp_radii[selected_pts_mask]
+ 
+         self.densification_postfix(new_xyz, new_features_dc, new_features_rest, new_opacities, new_scaling, new_rotation, new_tmp_radii)
++        # birth(=clone) 이벤트 기록
++        num_new = int(selected_pts_mask.sum().item())
++        if num_new > 0:
++            # densify 직전 포인트 개수
++            old_N = self.ids.shape[0] - num_new
++
++            parents  = self.ids[:old_N][selected_pts_mask]
++            children = self.ids[-num_new:]
++            self._push_event(
++                "birth",   # 필요하면 "clone"으로 바꾸고 kind="birth", "mode":"clone" 같이 저장해도 OK
++                {
++                    "parents":  parents.detach().to("cpu").tolist(),
++                    "children": children.detach().to("cpu").tolist()
++                }
++            )
+ 
+     def densify_and_prune(self, max_grad, min_opacity, extent, max_screen_size, radii):
+         grads = self.xyz_gradient_accum / self.denom
+diff --git a/train.py b/train.py
+index 8206903..49f5517 100644
+--- a/train.py
++++ b/train.py
+@@ -22,11 +22,21 @@ from tqdm import tqdm
+ from utils.image_utils import psnr
+ from argparse import ArgumentParser, Namespace
+ from arguments import ModelParams, PipelineParams, OptimizationParams
++import numpy as np
++from pathlib import Path
+ try:
+     from torch.utils.tensorboard import SummaryWriter
+     TENSORBOARD_FOUND = True
+ except ImportError:
+     TENSORBOARD_FOUND = False
++    
++from replay_utils import (
++    snapshot_state, snapshot_state_compact, CompactReplayLogger,
++    diff_action, estimate_visible_gaussians,
++    compute_reward_quality_efficiency, _count_gaussians, ReplayLogger
++)
++
++from replay_utils import zero_action_from_state
+ 
+ try:
+     from fused_ssim import fused_ssim
+@@ -54,11 +64,28 @@ def training(dataset, opt, pipe, testing_iterations, saving_iterations, checkpoi
+         (model_params, first_iter) = torch.load(checkpoint)
+         gaussians.restore(model_params, opt)
+ 
++    # ---- Replay Logger ----
++    replay_dir = os.path.join(scene.model_path, "replay")
++    compact_npz = bool(getattr(opt, "compact_npz", False))
++    if compact_npz:
++        logger = CompactReplayLogger(replay_dir, flush_every=50, async_write=True)
++        print(f"[compact_npz] dumping float16 zip-npz every log_every steps -> {replay_dir}", flush=True)
++    else:
++        logger = ReplayLogger(replay_dir, flush_every=100, async_write=True)
++    LOG_EVERY  = getattr(opt, "log_every", 10)
++    ACTION_MODE = getattr(opt, "action_mode", "aggregate")  # "aggregate" | "per_step"
++
++    prev_logged_state = None    # 직전 '로그 시점' 스냅샷(예: iter=10)
++    prev_logged_iter  = None    # 직전 로그 iteration(예: 10)
++    prev_logged_loss  = None     # ← 직전 로그 시점 loss
++    prev_logged_count = None     # ← 직전 로그 시점 가우시안 개수
++    # ------------------------
++
+     bg_color = [1, 1, 1] if dataset.white_background else [0, 0, 0]
+     background = torch.tensor(bg_color, dtype=torch.float32, device="cuda")
+ 
+-    iter_start = torch.cuda.Event(enable_timing = True)
+-    iter_end = torch.cuda.Event(enable_timing = True)
++    iter_start = torch.cuda.Event(enable_timing=True)
++    iter_end = torch.cuda.Event(enable_timing=True)
+ 
+     use_sparse_adam = opt.optimizer_type == "sparse_adam" and SPARSE_ADAM_AVAILABLE 
+     depth_l1_weight = get_expon_lr_func(opt.depth_l1_weight_init, opt.depth_l1_weight_final, max_steps=opt.iterations)
+@@ -68,126 +95,246 @@ def training(dataset, opt, pipe, testing_iterations, saving_iterations, checkpoi
+     ema_loss_for_log = 0.0
+     ema_Ll1depth_for_log = 0.0
+ 
+-    progress_bar = tqdm(range(first_iter, opt.iterations), desc="Training progress")
+-    first_iter += 1
+-    for iteration in range(first_iter, opt.iterations + 1):
+-        if network_gui.conn == None:
+-            network_gui.try_connect()
+-        while network_gui.conn != None:
+-            try:
+-                net_image_bytes = None
+-                custom_cam, do_training, pipe.convert_SHs_python, pipe.compute_cov3D_python, keep_alive, scaling_modifer = network_gui.receive()
+-                if custom_cam != None:
+-                    net_image = render(custom_cam, gaussians, pipe, background, scaling_modifier=scaling_modifer, use_trained_exp=dataset.train_test_exp, separate_sh=SPARSE_ADAM_AVAILABLE)["render"]
+-                    net_image_bytes = memoryview((torch.clamp(net_image, min=0, max=1.0) * 255).byte().permute(1, 2, 0).contiguous().cpu().numpy())
+-                network_gui.send(net_image_bytes, dataset.source_path)
+-                if do_training and ((iteration < int(opt.iterations)) or not keep_alive):
+-                    break
+-            except Exception as e:
+-                network_gui.conn = None
+-
+-        iter_start.record()
+-
+-        gaussians.update_learning_rate(iteration)
+-
+-        # Every 1000 its we increase the levels of SH up to a maximum degree
+-        if iteration % 1000 == 0:
+-            gaussians.oneupSHdegree()
+-
+-        # Pick a random Camera
+-        if not viewpoint_stack:
+-            viewpoint_stack = scene.getTrainCameras().copy()
+-            viewpoint_indices = list(range(len(viewpoint_stack)))
+-        rand_idx = randint(0, len(viewpoint_indices) - 1)
+-        viewpoint_cam = viewpoint_stack.pop(rand_idx)
+-        vind = viewpoint_indices.pop(rand_idx)
+-
+-        # Render
+-        if (iteration - 1) == debug_from:
+-            pipe.debug = True
+-
+-        bg = torch.rand((3), device="cuda") if opt.random_background else background
+-
+-        render_pkg = render(viewpoint_cam, gaussians, pipe, bg, use_trained_exp=dataset.train_test_exp, separate_sh=SPARSE_ADAM_AVAILABLE)
+-        image, viewspace_point_tensor, visibility_filter, radii = render_pkg["render"], render_pkg["viewspace_points"], render_pkg["visibility_filter"], render_pkg["radii"]
+-
+-        if viewpoint_cam.alpha_mask is not None:
+-            alpha_mask = viewpoint_cam.alpha_mask.cuda()
+-            image *= alpha_mask
+-
+-        # Loss
+-        gt_image = viewpoint_cam.original_image.cuda()
+-        Ll1 = l1_loss(image, gt_image)
+-        if FUSED_SSIM_AVAILABLE:
+-            ssim_value = fused_ssim(image.unsqueeze(0), gt_image.unsqueeze(0))
+-        else:
+-            ssim_value = ssim(image, gt_image)
++    # ---- Decoder and action integration ----
++    decoder = None
++    if opt.decoder_ckpt:
++        from decoder_factory import build_decoder
++        decoder = build_decoder(opt.decoder_kind, opt.decoder_ckpt)
++        print(f"Loaded decoder of kind {opt.decoder_kind} from {opt.decoder_ckpt}")
+ 
+-        loss = (1.0 - opt.lambda_dssim) * Ll1 + opt.lambda_dssim * (1.0 - ssim_value)
++    action_files = []
++    if opt.action_dir:
++        action_dir = Path(opt.action_dir)
++        action_files = sorted(action_dir.glob("*.npy")) + sorted(action_dir.glob("*.npz"))
++        print(f"Found {len(action_files)} action files in {opt.action_dir}")
++    # -----------------------------------------
+ 
+-        # Depth regularization
+-        Ll1depth_pure = 0.0
+-        if depth_l1_weight(iteration) > 0 and viewpoint_cam.depth_reliable:
+-            invDepth = render_pkg["depth"]
+-            mono_invdepth = viewpoint_cam.invdepthmap.cuda()
+-            depth_mask = viewpoint_cam.depth_mask.cuda()
++    progress_bar = tqdm(range(first_iter, opt.iterations), desc="Training progress")
++    first_iter += 1
+ 
+-            Ll1depth_pure = torch.abs((invDepth  - mono_invdepth) * depth_mask).mean()
+-            Ll1depth = depth_l1_weight(iteration) * Ll1depth_pure 
+-            loss += Ll1depth
+-            Ll1depth = Ll1depth.item()
+-        else:
+-            Ll1depth = 0
+-
+-        loss.backward()
+-
+-        iter_end.record()
+-
+-        with torch.no_grad():
+-            # Progress bar
+-            ema_loss_for_log = 0.4 * loss.item() + 0.6 * ema_loss_for_log
+-            ema_Ll1depth_for_log = 0.4 * Ll1depth + 0.6 * ema_Ll1depth_for_log
+-
+-            if iteration % 10 == 0:
+-                progress_bar.set_postfix({"Loss": f"{ema_loss_for_log:.{7}f}", "Depth Loss": f"{ema_Ll1depth_for_log:.{7}f}"})
+-                progress_bar.update(10)
+-            if iteration == opt.iterations:
+-                progress_bar.close()
+-
+-            # Log and save
+-            training_report(tb_writer, iteration, Ll1, loss, l1_loss, iter_start.elapsed_time(iter_end), testing_iterations, scene, render, (pipe, background, 1., SPARSE_ADAM_AVAILABLE, None, dataset.train_test_exp), dataset.train_test_exp)
+-            if (iteration in saving_iterations):
+-                print("\n[ITER {}] Saving Gaussians".format(iteration))
+-                scene.save(iteration)
+-
+-            # Densification
+-            if iteration < opt.densify_until_iter:
+-                # Keep track of max radii in image-space for pruning
+-                gaussians.max_radii2D[visibility_filter] = torch.max(gaussians.max_radii2D[visibility_filter], radii[visibility_filter])
+-                gaussians.add_densification_stats(viewspace_point_tensor, visibility_filter)
+-
+-                if iteration > opt.densify_from_iter and iteration % opt.densification_interval == 0:
+-                    size_threshold = 20 if iteration > opt.opacity_reset_interval else None
+-                    gaussians.densify_and_prune(opt.densify_grad_threshold, 0.005, scene.cameras_extent, size_threshold, radii)
+-                
+-                if iteration % opt.opacity_reset_interval == 0 or (dataset.white_background and iteration == opt.densify_from_iter):
+-                    gaussians.reset_opacity()
+-
+-            # Optimizer step
+-            if iteration < opt.iterations:
+-                gaussians.exposure_optimizer.step()
+-                gaussians.exposure_optimizer.zero_grad(set_to_none = True)
+-                if use_sparse_adam:
+-                    visible = radii > 0
+-                    gaussians.optimizer.step(visible, radii.shape[0])
+-                    gaussians.optimizer.zero_grad(set_to_none = True)
+-                else:
+-                    gaussians.optimizer.step()
+-                    gaussians.optimizer.zero_grad(set_to_none = True)
+-
+-            if (iteration in checkpoint_iterations):
+-                print("\n[ITER {}] Saving Checkpoint".format(iteration))
+-                torch.save((gaussians.capture(), iteration), scene.model_path + "/chkpnt" + str(iteration) + ".pth")
++    try:
++        for iteration in range(first_iter, opt.iterations + 1):
++            if network_gui.conn == None:
++                network_gui.try_connect()
++            while network_gui.conn != None:
++                try:
++                    net_image_bytes = None
++                    custom_cam, do_training, pipe.convert_SHs_python, pipe.compute_cov3D_python, keep_alive, scaling_modifer = network_gui.receive()
++                    if custom_cam != None:
++                        net_image = render(custom_cam, gaussians, pipe, background,
++                                           scaling_modifier=scaling_modifer,
++                                           use_trained_exp=dataset.train_test_exp,
++                                           separate_sh=SPARSE_ADAM_AVAILABLE)["render"]
++                        net_image_bytes = memoryview(
++                            (torch.clamp(net_image, min=0, max=1.0) * 255).byte()
++                            .permute(1, 2, 0).contiguous().cpu().numpy()
++                        )
++                    network_gui.send(net_image_bytes, dataset.source_path)
++                    if do_training and ((iteration < int(opt.iterations)) or not keep_alive):
++                        break
++                except Exception:
++                    network_gui.conn = None
++
++            iter_start.record()
++            gaussians.update_learning_rate(iteration)
++
++            # Every 1000 iters → SH degree 증가
++            if iteration % 1000 == 0:
++                gaussians.oneupSHdegree()
++
++            # Pick a random Camera
++            if not viewpoint_stack:
++                viewpoint_stack = scene.getTrainCameras().copy()
++                viewpoint_indices = list(range(len(viewpoint_stack)))
++            rand_idx = randint(0, len(viewpoint_indices) - 1)
++            viewpoint_cam = viewpoint_stack.pop(rand_idx)
++            vind = viewpoint_indices.pop(rand_idx)
++
++            # ---- Apply external actions ----
++            if decoder and action_files:
++                action_file = action_files[(iteration - 1) % len(action_files)]
++                print(f"Applying action from {action_file}")
++                action_data = np.load(action_file)
++                decoder.apply_action(gaussians, action_data)
++            # ---------------------------------
++
++            # Render
++            if (iteration - 1) == debug_from:
++                pipe.debug = True
++
++            bg = torch.rand((3), device="cuda") if opt.random_background else background
++
++            render_pkg = render(viewpoint_cam, gaussians, pipe, bg,
++                                use_trained_exp=dataset.train_test_exp,
++                                separate_sh=SPARSE_ADAM_AVAILABLE)
++            image, viewspace_point_tensor, visibility_filter, radii = (
++                render_pkg["render"], render_pkg["viewspace_points"],
++                render_pkg["visibility_filter"], render_pkg["radii"]
++            )
++
++            if viewpoint_cam.alpha_mask is not None:
++                alpha_mask = viewpoint_cam.alpha_mask.cuda()
++                image *= alpha_mask
++
++            # Loss
++            gt_image = viewpoint_cam.original_image.cuda()
++            Ll1 = l1_loss(image, gt_image)
++            if FUSED_SSIM_AVAILABLE:
++                ssim_value = fused_ssim(image.unsqueeze(0), gt_image.unsqueeze(0))
++            else:
++                ssim_value = ssim(image, gt_image)
++
++            loss = (1.0 - opt.lambda_dssim) * Ll1 + opt.lambda_dssim * (1.0 - ssim_value)
++
++            # Depth regularization
++            Ll1depth_pure = 0.0
++            if depth_l1_weight(iteration) > 0 and viewpoint_cam.depth_reliable:
++                invDepth = render_pkg["depth"]
++                mono_invdepth = viewpoint_cam.invdepthmap.cuda()
++                depth_mask = viewpoint_cam.depth_mask.cuda()
++                Ll1depth_pure = torch.abs((invDepth - mono_invdepth) * depth_mask).mean()
++                Ll1depth = depth_l1_weight(iteration) * Ll1depth_pure
++                loss += Ll1depth
++                Ll1depth = Ll1depth.item()
++            else:
++                Ll1depth = 0
++
++            loss.backward()
++            iter_end.record()
++
++            with torch.no_grad():
++                # Progress bar
++                ema_loss_for_log = 0.4 * loss.item() + 0.6 * ema_loss_for_log
++                ema_Ll1depth_for_log = 0.4 * Ll1depth + 0.6 * ema_Ll1depth_for_log
++
++                if iteration % 10 == 0:
++                    progress_bar.set_postfix({
++                        "Loss": f"{ema_loss_for_log:.7f}",
++                        "Depth Loss": f"{ema_Ll1depth_for_log:.7f}"
++                    })
++                    progress_bar.update(10)
++                if iteration == opt.iterations:
++                    progress_bar.close()
++
++                # Log + save
++                training_report(tb_writer, iteration, Ll1, loss, l1_loss,
++                                iter_start.elapsed_time(iter_end),
++                                testing_iterations, scene, render,
++                                (pipe, background, 1., SPARSE_ADAM_AVAILABLE, None, dataset.train_test_exp),
++                                dataset.train_test_exp)
++
++                if (iteration in saving_iterations):
++                    print(f"\n[ITER {iteration}] Saving Gaussians")
++                    scene.save(iteration)
++
++                # Densification
++                if iteration < opt.densify_until_iter:
++                    gaussians.max_radii2D[visibility_filter] = torch.max(
++                        gaussians.max_radii2D[visibility_filter], radii[visibility_filter]
++                    )
++                    gaussians.add_densification_stats(viewspace_point_tensor, visibility_filter)
++
++                    if iteration > opt.densify_from_iter and iteration % opt.densification_interval == 0:
++                        size_threshold = 20 if iteration > opt.opacity_reset_interval else None
++                        gaussians.densify_and_prune(
++                            opt.densify_grad_threshold, 0.005,
++                            scene.cameras_extent, size_threshold, radii
++                        )
++
++                    if iteration % opt.opacity_reset_interval == 0 or (
++                        dataset.white_background and iteration == opt.densify_from_iter
++                    ):
++                        gaussians.reset_opacity()
++
++                # Optimizer step
++                if iteration < opt.iterations:
++                    gaussians.exposure_optimizer.step()
++                    gaussians.exposure_optimizer.zero_grad(set_to_none=True)
++                    if use_sparse_adam:
++                        visible = radii > 0
++                        gaussians.optimizer.step(visible, radii.shape[0])
++                        gaussians.optimizer.zero_grad(set_to_none=True)
++                    else:
++                        gaussians.optimizer.step()
++                        gaussians.optimizer.zero_grad(set_to_none=True)
++
++                # ---- Replay 후 상태 + 저장 ----
++                if (iteration % LOG_EVERY) == 0:
++                    if compact_npz:
++                        curr_state = snapshot_state_compact(gaussians, viewpoint_cam)
++                        n_now = int(curr_state["gaussians"]["xyz"].shape[0])
++                        loss_now = float(loss.detach().item())
++                        reward_t = compute_reward_quality_efficiency(
++                            loss_t=loss_now,
++                            prev_loss_t=prev_logged_loss,
++                            n_t=n_now,
++                            n_prev=prev_logged_count,
++                            quality_weight=getattr(opt, "reward_quality_w", 1.0),
++                            eff_delta_weight=getattr(opt, "reward_eff_delta_w", 0.1),
++                            eff_abs_weight=getattr(opt, "reward_eff_abs_w", 0.0),
++                            n_ref=getattr(opt, "reward_n_ref", None),
++                            squash_tanh_scale=getattr(opt, "reward_tanh_scale", 0.1)
++                        )
++                        gaussians.pop_events()
++                        logger.add_step(iteration, curr_state, reward_t=reward_t)
++                        prev_logged_loss = loss_now
++                        prev_logged_count = n_now
++                    else:
++                        # 현재 '로그 시점'(예: 20)의 스냵샷
++                        curr_state = snapshot_state(gaussians, viewpoint_cam, to_cpu=False)
++
++                        # dt = 두 로그 시점 사이 실제 간격(보통 LOG_EVERY)
++                        dt = LOG_EVERY if prev_logged_iter is None else max(1, iteration - prev_logged_iter)
++
++                        # 액션 = '직전 로그 시점' ↔ '현재 로그 시점'의 변화
++                        if prev_logged_state is None:
++                            # 첫 로그 시점: 전체를 birth로 간주하는 0-액션
++                            action_t = zero_action_from_state(curr_state, dt=0, mode=ACTION_MODE)
++                            state_from = curr_state
++                        else:
++                            # 이후 로그: 직전 로그 ↔ 현재 로그의 Δ
++                            action_t = diff_action(prev_logged_state, curr_state, dt=dt, mode=ACTION_MODE)
++                            state_from = prev_logged_state
++
++                        # 위에서 계산한 총 loss를 그대로 사용 ( (1-λ)L1 + λ(1-SSIM) )
++                        loss_now = float(loss.detach().item())
++                        n_now = _count_gaussians(curr_state)
++                        reward_t = compute_reward_quality_efficiency(
++                            loss_t=loss_now,
++                            prev_loss_t=prev_logged_loss,
++                            n_t=n_now,
++                            n_prev=prev_logged_count,
++                            quality_weight=getattr(opt, "reward_quality_w", 1.0),
++                            eff_delta_weight=getattr(opt, "reward_eff_delta_w", 0.1),
++                            eff_abs_weight=getattr(opt, "reward_eff_abs_w", 0.0),
++                            n_ref=getattr(opt, "reward_n_ref", None),
++                            squash_tanh_scale=getattr(opt, "reward_tanh_scale", 0.1)
++                        )
++
++                        events = gaussians.pop_events()
++                        meta = {
++                            "scene": scene.model_path,
++                            "iter": int(iteration),
++                            "dt": int(dt),
++                            "log_every": int(LOG_EVERY)
++                        }
++                        logger.add_step(iteration, state_from, action_t, reward_t, events, meta)
++
++                        prev_logged_state = curr_state
++                        prev_logged_iter  = iteration
++                        prev_logged_loss  = loss_now
++                        prev_logged_count = n_now
++
++                # -----------------------
++                # 주기적으로 checkpoint 저장 (1000마다, 덮어쓰기)
++                if iteration % 1000 == 0:
++                    ckpt_path = os.path.join(scene.model_path, "chkpnt_latest.pth")
++                    print(f"\n[ITER {iteration}] Saving checkpoint → {ckpt_path}")
++                    torch.save((gaussians.capture(), iteration), ckpt_path)
++
++    finally:
++        # 안전하게 종료
++        logger.close()
+ 
+ def prepare_output_and_logger(args):    
+     if not args.model_path:
+@@ -267,6 +414,14 @@ if __name__ == "__main__":
+     parser.add_argument('--disable_viewer', action='store_true', default=False)
+     parser.add_argument("--checkpoint_iterations", nargs="+", type=int, default=[])
+     parser.add_argument("--start_checkpoint", type=str, default = None)
++    # Decoder / real-env action integration
++    parser.add_argument('--decoder_ckpt', type=str, default=None, help='Path to decoder state_dict (.pth) to load')
++    parser.add_argument('--decoder_kind', type=str, default='mlp', choices=['stub','mlp','perpoint'], help='Decoder kind')
++    parser.add_argument('--action_dir', type=str, default=None, help='Optional directory with action .npy/.npz files to apply via decoder')
++    # Replay logging interval (how often to write step_*.npz replay files)
++    parser.add_argument('--log_every', type=int, default=10, help='Write replay step_*.npz every N iterations')
++    parser.add_argument('--compact_npz', action='store_true', default=False,
++                        help='Dump float16 zip-compressed npz (xyz/scale/rot/opacity/DC/reward, no SH-rest, no action)')
+     args = parser.parse_args(sys.argv[1:])
+     args.save_iterations.append(args.iterations)
+     
+@@ -279,7 +434,18 @@ if __name__ == "__main__":
+     if not args.disable_viewer:
+         network_gui.init(args.ip, args.port)
+     torch.autograd.set_detect_anomaly(args.detect_anomaly)
+-    training(lp.extract(args), op.extract(args), pp.extract(args), args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
+ 
+-    # All done
++    # Ensure decoder/action CLI options are attached to the extracted config objects
++    lp_obj = lp.extract(args)
++    op_obj = op.extract(args)
++    pp_obj = pp.extract(args)
++    # Attach optional CLI-only fields so training() can access them via opt
++    setattr(op_obj, 'decoder_ckpt', getattr(args, 'decoder_ckpt', None))
++    setattr(op_obj, 'decoder_kind', getattr(args, 'decoder_kind', None))
++    setattr(op_obj, 'action_dir', getattr(args, 'action_dir', None))
++    setattr(op_obj, 'log_every', getattr(args, 'log_every', 10))
++    setattr(op_obj, 'compact_npz', getattr(args, 'compact_npz', False))
++
++    training(lp_obj, op_obj, pp_obj, args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
++
+     print("\nTraining complete.")
+diff --git a/utils/camera_utils.py b/utils/camera_utils.py
+index 590b1e6..addd81e 100644
+--- a/utils/camera_utils.py
++++ b/utils/camera_utils.py
+@@ -60,11 +60,17 @@ def loadCam(args, id, cam_info, resolution_scale, is_nerf_synthetic, is_test_dat
+         scale = float(global_down) * float(resolution_scale)
+         resolution = (int(orig_w / scale), int(orig_h / scale))
+ 
+-    return Camera(resolution, colmap_id=cam_info.uid, R=cam_info.R, T=cam_info.T, 
+-                  FoVx=cam_info.FovX, FoVy=cam_info.FovY, depth_params=cam_info.depth_params,
+-                  image=image, invdepthmap=invdepthmap,
+-                  image_name=cam_info.image_name, uid=id, data_device=args.data_device,
+-                  train_test_exp=args.train_test_exp, is_test_dataset=is_test_dataset, is_test_view=cam_info.is_test)
++    cam = Camera(resolution, colmap_id=cam_info.uid, R=cam_info.R, T=cam_info.T,
++                 FoVx=cam_info.FovX, FoVy=cam_info.FovY, depth_params=cam_info.depth_params,
++                 image=image, invdepthmap=invdepthmap,
++                 image_name=cam_info.image_name, uid=id, data_device=args.data_device,
++                 train_test_exp=args.train_test_exp, is_test_dataset=is_test_dataset, is_test_view=cam_info.is_test)
++    # Preserve the original image file path so replay logging can record it
++    try:
++        cam.image_path = cam_info.image_path
++    except Exception:
++        cam.image_path = None
++    return cam
+ 
+ def cameraList_from_camInfos(cam_infos, resolution_scale, args, is_nerf_synthetic, is_test_dataset):
+     camera_list = []

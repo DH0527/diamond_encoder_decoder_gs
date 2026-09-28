@@ -1,0 +1,264 @@
+{
+  "source_args": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/runs/S16k_20260910_012456/args.json",
+  "description": "CPU dataset geometry only; no training/model; no image-quality claim from point counts",
+  "flags": {
+    "normalize_pooler_xyz": 0,
+    "count_aware_template": 0,
+    "attr_slot_mask": 0,
+    "shared_cell_owner": 1,
+    "holdout_own_photo": 1,
+    "keep_extra_fullres": 1,
+    "reuse_prev_vis": 0,
+    "eval_pred_mask": 1
+  },
+  "rows": [
+    {
+      "val_index": 25,
+      "snapshot": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_013250.npz",
+      "valid": 284597,
+      "old_used": 227640,
+      "shared_used": 212236,
+      "old_sources_removed": 32086,
+      "shared_sources_added": 16682,
+      "encoder_live": 284597,
+      "ownership_mismatches": 0,
+      "overfull_cells": 526,
+      "within_owner_truncated_points": 72361,
+      "saturated_count_encoder_p50": 363.5,
+      "saturated_centroid_gap_over_mean_axis_std_p50": 0.2327309597141921
+    },
+    {
+      "val_index": 76,
+      "snapshot": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_018250.npz",
+      "valid": 227622,
+      "old_used": 209395,
+      "shared_used": 190886,
+      "old_sources_removed": 18509,
+      "shared_sources_added": 0,
+      "encoder_live": 227622,
+      "ownership_mismatches": 0,
+      "overfull_cells": 350,
+      "within_owner_truncated_points": 36736,
+      "saturated_count_encoder_p50": 340.5,
+      "saturated_centroid_gap_over_mean_axis_std_p50": 0.2062802583813769
+    },
+    {
+      "val_index": 127,
+      "snapshot": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_023750.npz",
+      "valid": 162033,
+      "old_used": 160638,
+      "shared_used": 153005,
+      "old_sources_removed": 7633,
+      "shared_sources_added": 0,
+      "encoder_live": 162033,
+      "ownership_mismatches": 0,
+      "overfull_cells": 157,
+      "within_owner_truncated_points": 9028,
+      "saturated_count_encoder_p50": 295.0,
+      "saturated_centroid_gap_over_mean_axis_std_p50": 0.1651065901861341
+    },
+    {
+      "val_index": 166,
+      "snapshot": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_028630.npz",
+      "valid": 79821,
+      "old_used": 79821,
+      "shared_used": 79756,
+      "old_sources_removed": 65,
+      "shared_sources_added": 0,
+      "encoder_live": 79821,
+      "ownership_mismatches": 0,
+      "overfull_cells": 3,
+      "within_owner_truncated_points": 65,
+      "saturated_count_encoder_p50": 274.0,
+      "saturated_centroid_gap_over_mean_axis_std_p50": 0.11230720621957847
+    },
+    {
+      "val_index": 229,
+      "snapshot": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_013250.npz",
+      "valid": 654114,
+      "old_used": 227052,
+      "shared_used": 242433,
+      "old_sources_removed": 129487,
+      "shared_sources_added": 144868,
+      "encoder_live": 654114,
+      "ownership_mismatches": 0,
+      "overfull_cells": 881,
+      "within_owner_truncated_points": 411681,
+      "saturated_count_encoder_p50": 665.0,
+      "saturated_centroid_gap_over_mean_axis_std_p50": 0.29005285563233857
+    },
+    {
+      "val_index": 280,
+      "snapshot": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_018250.npz",
+      "valid": 489289,
+      "old_used": 229134,
+      "shared_used": 238529,
+      "old_sources_removed": 101123,
+      "shared_sources_added": 110518,
+      "encoder_live": 489289,
+      "ownership_mismatches": 0,
+      "overfull_cells": 831,
+      "within_owner_truncated_points": 250760,
+      "saturated_count_encoder_p50": 504.0,
+      "saturated_centroid_gap_over_mean_axis_std_p50": 0.28735338211267386
+    },
+    {
+      "val_index": 331,
+      "snapshot": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_023750.npz",
+      "valid": 343475,
+      "old_used": 227166,
+      "shared_used": 223024,
+      "old_sources_removed": 56777,
+      "shared_sources_added": 52635,
+      "encoder_live": 343475,
+      "ownership_mismatches": 0,
+      "overfull_cells": 667,
+      "within_owner_truncated_points": 120451,
+      "saturated_count_encoder_p50": 395.0,
+      "saturated_centroid_gap_over_mean_axis_std_p50": 0.256633465943695
+    },
+    {
+      "val_index": 382,
+      "snapshot": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_028750.npz",
+      "valid": 171023,
+      "old_used": 158577,
+      "shared_used": 150623,
+      "old_sources_removed": 7954,
+      "shared_sources_added": 0,
+      "encoder_live": 171023,
+      "ownership_mismatches": 0,
+      "overfull_cells": 207,
+      "within_owner_truncated_points": 20400,
+      "saturated_count_encoder_p50": 326.0,
+      "saturated_centroid_gap_over_mean_axis_std_p50": 0.2000832035519911
+    }
+  ],
+  "schedule": [
+    {
+      "step": 8000,
+      "lr_horizon_64000": 0.00019353483146224628,
+      "lr_horizon_16000": 0.00010981167103967772,
+      "flags": {
+        "phase": "joint",
+        "run_decode": true,
+        "run_gen": false,
+        "encoder_residual": true,
+        "with_attrs": true,
+        "render_downscale": 2,
+        "attr_detach_geometry": true,
+        "shortcut_alpha": 0.0,
+        "folding_res_gain": 1.0,
+        "decoder_refine_alpha": 1.0,
+        "attr_teacher_prob": 0.0
+      }
+    },
+    {
+      "step": 12000,
+      "lr_horizon_64000": 0.00018503438448196896,
+      "lr_horizon_16000": 3.954814268780977e-05,
+      "flags": {
+        "phase": "joint",
+        "run_decode": true,
+        "run_gen": false,
+        "encoder_residual": true,
+        "with_attrs": true,
+        "render_downscale": 2,
+        "attr_detach_geometry": false,
+        "shortcut_alpha": 0.0,
+        "folding_res_gain": 1.0,
+        "decoder_refine_alpha": 1.0,
+        "attr_teacher_prob": 0.0
+      }
+    },
+    {
+      "step": 16000,
+      "lr_horizon_64000": 0.00017340979324121205,
+      "lr_horizon_16000": 1e-05,
+      "flags": {
+        "phase": "joint",
+        "run_decode": true,
+        "run_gen": false,
+        "encoder_residual": true,
+        "with_attrs": true,
+        "render_downscale": 2,
+        "attr_detach_geometry": false,
+        "shortcut_alpha": 0.0,
+        "folding_res_gain": 1.0,
+        "decoder_refine_alpha": 1.0,
+        "attr_teacher_prob": 0.0
+      }
+    },
+    {
+      "step": 24000,
+      "lr_horizon_64000": 0.00014270748112837428,
+      "lr_horizon_16000": 1e-05,
+      "flags": {
+        "phase": "joint",
+        "run_decode": true,
+        "run_gen": false,
+        "encoder_residual": true,
+        "with_attrs": true,
+        "render_downscale": 2,
+        "attr_detach_geometry": false,
+        "shortcut_alpha": 0.0,
+        "folding_res_gain": 1.0,
+        "decoder_refine_alpha": 1.0,
+        "attr_teacher_prob": 0.0
+      }
+    },
+    {
+      "step": 40000,
+      "lr_horizon_64000": 6.946079881254465e-05,
+      "lr_horizon_16000": 1e-05,
+      "flags": {
+        "phase": "joint",
+        "run_decode": true,
+        "run_gen": false,
+        "encoder_residual": true,
+        "with_attrs": true,
+        "render_downscale": 2,
+        "attr_detach_geometry": false,
+        "shortcut_alpha": 0.0,
+        "folding_res_gain": 1.0,
+        "decoder_refine_alpha": 1.0,
+        "attr_teacher_prob": 0.0
+      }
+    },
+    {
+      "step": 43000,
+      "lr_horizon_64000": 5.682323293237155e-05,
+      "lr_horizon_16000": 1e-05,
+      "flags": {
+        "phase": "joint",
+        "run_decode": true,
+        "run_gen": false,
+        "encoder_residual": true,
+        "with_attrs": true,
+        "render_downscale": 1,
+        "attr_detach_geometry": false,
+        "shortcut_alpha": 0.0,
+        "folding_res_gain": 1.0,
+        "decoder_refine_alpha": 1.0,
+        "attr_teacher_prob": 0.0
+      }
+    },
+    {
+      "step": 48000,
+      "lr_horizon_64000": 3.824156473134595e-05,
+      "lr_horizon_16000": 1e-05,
+      "flags": {
+        "phase": "joint",
+        "run_decode": true,
+        "run_gen": false,
+        "encoder_residual": true,
+        "with_attrs": true,
+        "render_downscale": 1,
+        "attr_detach_geometry": false,
+        "shortcut_alpha": 0.0,
+        "folding_res_gain": 1.0,
+        "decoder_refine_alpha": 1.0,
+        "attr_teacher_prob": 0.0
+      }
+    }
+  ]
+}

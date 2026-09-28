@@ -1,0 +1,634 @@
+{
+  "device": "cuda:0",
+  "val_indices": [
+    166,
+    382
+  ],
+  "runs": [
+    {
+      "name": "T16k_70k",
+      "checkpoint": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/runs/T16k_20260913_093332/ckpt_step00070000.pt",
+      "step": 70000,
+      "saved_best_score": -14.281422863403957,
+      "saved_score_metric": "psnr_gap_worst",
+      "saved_eval_fingerprint": null,
+      "current_eval_fingerprint": {
+        "contract": "scene_tagged_v1",
+        "score_metric": "psnr_gap_worst",
+        "held_views": [
+          3,
+          26,
+          42,
+          65,
+          93,
+          229,
+          238,
+          239,
+          243
+        ],
+        "eval_val_indices": "25,76,127,166,229,280,331,382",
+        "eval_pred_mask": 0,
+        "eval_view_force": "3",
+        "eval_view_count": 8,
+        "eval_view_seed": 1234
+      },
+      "best_score_would_reset": true,
+      "cfg_flags": {
+        "normalize_pooler_xyz": false,
+        "count_aware_template": false,
+        "attr_slot_mask": false,
+        "use_fixed_anchor_center": false
+      },
+      "dataset_flags": {
+        "shared_cell_owner": false,
+        "holdout_own_photo": false,
+        "keep_extra_fullres": false
+      },
+      "eval_schedule": {
+        "decoder_refine_alpha": 1.0,
+        "folding_res_gain": 1.0,
+        "attr_detach_geometry": false
+      },
+      "load_missing": [],
+      "snapshots": [
+        {
+          "val_index": 166,
+          "scene_key": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores",
+          "name": "step_028630.npz",
+          "path": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_028630.npz",
+          "decode": {
+            "attr_pred_in_decode": true,
+            "xyz_max_vs_forward": 0.0,
+            "attr_mae_vs_forward": 0.0,
+            "attr_max_vs_forward": 0.0,
+            "normalized_xyz_max_vs_forward": 0.04832625389099121,
+            "unnormalized_encode_xyz_max": 0.968395471572876
+          },
+          "render": {
+            "own_gtmask": {
+              "psnr_teacher": 20.03930515713162,
+              "ssim_teacher": 0.6796098152796427,
+              "psnr_photo": 18.327055401272244,
+              "ssim_photo": 0.6088581052091386,
+              "psnr_gt_photo": 20.075293646918404,
+              "ssim_gt_photo": 0.7762033409542508,
+              "n_eval_views": 9.0,
+              "psnr_gap": 1.74823824564616
+            },
+            "own_predmask": {
+              "psnr_teacher": 20.044435924953884,
+              "ssim_teacher": 0.6799464027086893,
+              "psnr_photo": 18.32546869913737,
+              "ssim_photo": 0.6090729865762923,
+              "psnr_gt_photo": 20.075293646918404,
+              "ssim_gt_photo": 0.7762033409542508,
+              "n_eval_views": 9.0,
+              "psnr_gap": 1.7498249477810326
+            },
+            "foreign_gtmask": {
+              "psnr_teacher": 15.982474856906467,
+              "ssim_teacher": 0.48996326989597744,
+              "psnr_photo": 9.739312966664633,
+              "ssim_photo": 0.15826475620269775,
+              "psnr_gt_photo": 9.88825798034668,
+              "ssim_gt_photo": 0.14745429903268814,
+              "n_eval_views": 9.0,
+              "psnr_gap": 0.14894501368204693
+            },
+            "mixed_gtmask": {
+              "psnr_gap": 0.9485916296641036,
+              "psnr_gt_photo": 14.981775813632542,
+              "ssim_gt_photo": 0.4618288199934695,
+              "ssim_photo": 0.3835614307059182,
+              "psnr_teacher": 18.010890007019043,
+              "psnr_photo": 14.033184183968437,
+              "ssim_teacher": 0.58478654258781,
+              "n_eval_views": 9.0
+            },
+            "n_own_views": 9,
+            "n_foreign_views": 9,
+            "n_mixed_views": 18,
+            "own_view_ids": [
+              "/data/daeho/train_colmap/images/00004.jpg",
+              "/data/daeho/train_colmap/images/00027.jpg",
+              "/data/daeho/train_colmap/images/00043.jpg",
+              "/data/daeho/train_colmap/images/00066.jpg"
+            ]
+          },
+          "figs": {
+            "own": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/mdmd/verify_20260916/figs/T16k_70k_step_028630_own_photo_pred.png",
+            "foreign": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/mdmd/verify_20260916/figs/T16k_70k_step_028630_foreign_photo_pred.png"
+          },
+          "fig_psnr": {
+            "own": 21.523651123046875,
+            "foreign": 7.7345781326293945
+          }
+        },
+        {
+          "val_index": 382,
+          "scene_key": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores",
+          "name": "step_028750.npz",
+          "path": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_028750.npz",
+          "decode": {
+            "attr_pred_in_decode": true,
+            "xyz_max_vs_forward": 0.0,
+            "attr_mae_vs_forward": 0.0,
+            "attr_max_vs_forward": 0.0,
+            "normalized_xyz_max_vs_forward": 0.0007455348968505859,
+            "unnormalized_encode_xyz_max": 2.4353270530700684
+          },
+          "render": {
+            "own_gtmask": {
+              "psnr_teacher": 21.05200237698025,
+              "ssim_teacher": 0.7838470141092936,
+              "psnr_photo": 21.50772942437066,
+              "ssim_photo": 0.7763966255717807,
+              "psnr_gt_photo": 20.603782229953342,
+              "ssim_gt_photo": 0.8154650727907816,
+              "n_eval_views": 9.0,
+              "psnr_gap": -0.9039471944173165
+            },
+            "own_predmask": {
+              "psnr_teacher": 21.05352274576823,
+              "ssim_teacher": 0.7839295731650459,
+              "psnr_photo": 21.510913213094074,
+              "ssim_photo": 0.7764965891838074,
+              "psnr_gt_photo": 20.603782229953342,
+              "ssim_gt_photo": 0.8154650727907816,
+              "n_eval_views": 9.0,
+              "psnr_gap": -0.9071309831407319
+            },
+            "foreign_gtmask": {
+              "psnr_teacher": 16.515169037712944,
+              "ssim_teacher": 0.6245368089940813,
+              "psnr_photo": 9.311168405744764,
+              "ssim_photo": 0.17899368620581096,
+              "psnr_gt_photo": 8.960746977064344,
+              "ssim_gt_photo": 0.16077150818374422,
+              "n_eval_views": 9.0,
+              "psnr_gap": -0.3504214286804199
+            },
+            "mixed_gtmask": {
+              "psnr_gap": -0.6271843115488682,
+              "psnr_gt_photo": 14.782264603508843,
+              "ssim_gt_photo": 0.48811829048726296,
+              "ssim_photo": 0.47769515588879585,
+              "psnr_teacher": 18.7835857073466,
+              "psnr_photo": 15.409448915057713,
+              "ssim_teacher": 0.7041919115516875,
+              "n_eval_views": 9.0
+            },
+            "n_own_views": 9,
+            "n_foreign_views": 9,
+            "n_mixed_views": 18,
+            "own_view_ids": [
+              "/data/daeho/truck_colmap/images/000004.jpg",
+              "/data/daeho/truck_colmap/images/000027.jpg",
+              "/data/daeho/truck_colmap/images/000043.jpg",
+              "/data/daeho/truck_colmap/images/000066.jpg"
+            ]
+          },
+          "figs": {
+            "own": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/mdmd/verify_20260916/figs/T16k_70k_step_028750_own_photo_pred.png",
+            "foreign": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/mdmd/verify_20260916/figs/T16k_70k_step_028750_foreign_photo_pred.png"
+          },
+          "fig_psnr": {
+            "own": 21.445449829101562,
+            "foreign": 8.334300994873047
+          }
+        }
+      ]
+    },
+    {
+      "name": "S16k_62k",
+      "checkpoint": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/runs/S16k_20260910_012456/ckpt_step00062000.pt",
+      "step": 62000,
+      "saved_best_score": -14.832874463664162,
+      "saved_score_metric": "psnr",
+      "saved_eval_fingerprint": null,
+      "current_eval_fingerprint": {
+        "contract": "scene_tagged_v1",
+        "score_metric": "psnr",
+        "held_views": [
+          3,
+          26,
+          42,
+          65,
+          93,
+          229,
+          238,
+          239,
+          243
+        ],
+        "eval_val_indices": "25,76,127,166,229,280,331,382",
+        "eval_pred_mask": 0,
+        "eval_view_force": "3",
+        "eval_view_count": 8,
+        "eval_view_seed": 1234
+      },
+      "best_score_would_reset": true,
+      "cfg_flags": {
+        "normalize_pooler_xyz": false,
+        "count_aware_template": false,
+        "attr_slot_mask": false,
+        "use_fixed_anchor_center": false
+      },
+      "dataset_flags": {
+        "shared_cell_owner": false,
+        "holdout_own_photo": false,
+        "keep_extra_fullres": false
+      },
+      "eval_schedule": {
+        "decoder_refine_alpha": 1.0,
+        "folding_res_gain": 1.0,
+        "attr_detach_geometry": false
+      },
+      "load_missing": [],
+      "snapshots": [
+        {
+          "val_index": 166,
+          "scene_key": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores",
+          "name": "step_028630.npz",
+          "path": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_028630.npz",
+          "decode": {
+            "attr_pred_in_decode": true,
+            "xyz_max_vs_forward": 0.0,
+            "attr_mae_vs_forward": 0.0,
+            "attr_max_vs_forward": 0.0,
+            "normalized_xyz_max_vs_forward": 0.0021276473999023438,
+            "unnormalized_encode_xyz_max": 1.0166758298873901
+          },
+          "render": {
+            "own_gtmask": {
+              "psnr_teacher": 20.131813049316406,
+              "ssim_teacher": 0.6668622626198663,
+              "psnr_photo": 18.47517681121826,
+              "ssim_photo": 0.5980633331669701,
+              "psnr_gt_photo": 20.075293646918404,
+              "ssim_gt_photo": 0.7762033409542508,
+              "n_eval_views": 9.0,
+              "psnr_gap": 1.6001168357001418
+            },
+            "own_predmask": {
+              "psnr_teacher": 20.153437508477104,
+              "ssim_teacher": 0.6670923233032227,
+              "psnr_photo": 18.481523937649197,
+              "ssim_photo": 0.5983079440063901,
+              "psnr_gt_photo": 20.075293646918404,
+              "ssim_gt_photo": 0.7762033409542508,
+              "n_eval_views": 9.0,
+              "psnr_gap": 1.593769709269207
+            },
+            "foreign_gtmask": {
+              "psnr_teacher": 16.326759974161785,
+              "ssim_teacher": 0.4918946425120036,
+              "psnr_photo": 9.711989826626247,
+              "ssim_photo": 0.1630621999502182,
+              "psnr_gt_photo": 9.88825798034668,
+              "ssim_gt_photo": 0.14745429903268814,
+              "n_eval_views": 9.0,
+              "psnr_gap": 0.17626815372043225
+            },
+            "mixed_gtmask": {
+              "psnr_gap": 0.888192494710287,
+              "psnr_gt_photo": 14.981775813632542,
+              "ssim_gt_photo": 0.4618288199934695,
+              "ssim_photo": 0.38056276655859417,
+              "psnr_teacher": 18.229286511739094,
+              "psnr_photo": 14.093583318922255,
+              "ssim_teacher": 0.5793784525659349,
+              "n_eval_views": 9.0
+            },
+            "n_own_views": 9,
+            "n_foreign_views": 9,
+            "n_mixed_views": 18,
+            "own_view_ids": [
+              "/data/daeho/train_colmap/images/00004.jpg",
+              "/data/daeho/train_colmap/images/00027.jpg",
+              "/data/daeho/train_colmap/images/00043.jpg",
+              "/data/daeho/train_colmap/images/00066.jpg"
+            ]
+          },
+          "figs": {
+            "own": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/mdmd/verify_20260916/figs/S16k_62k_step_028630_own_photo_pred.png",
+            "foreign": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/mdmd/verify_20260916/figs/S16k_62k_step_028630_foreign_photo_pred.png"
+          },
+          "fig_psnr": {
+            "own": 19.493457794189453,
+            "foreign": 7.69622278213501
+          }
+        },
+        {
+          "val_index": 382,
+          "scene_key": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores",
+          "name": "step_028750.npz",
+          "path": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_028750.npz",
+          "decode": {
+            "attr_pred_in_decode": true,
+            "xyz_max_vs_forward": 0.0,
+            "attr_mae_vs_forward": 0.0,
+            "attr_max_vs_forward": 0.0,
+            "normalized_xyz_max_vs_forward": 0.04435969889163971,
+            "unnormalized_encode_xyz_max": 1.2275879383087158
+          },
+          "render": {
+            "own_gtmask": {
+              "psnr_teacher": 20.946366628011067,
+              "ssim_teacher": 0.7757494648297628,
+              "psnr_photo": 21.39899910820855,
+              "ssim_photo": 0.7662572860717773,
+              "psnr_gt_photo": 20.603782229953342,
+              "ssim_gt_photo": 0.8154650727907816,
+              "n_eval_views": 9.0,
+              "psnr_gap": -0.7952168782552071
+            },
+            "own_predmask": {
+              "psnr_teacher": 20.945215649074978,
+              "ssim_teacher": 0.7757789492607117,
+              "psnr_photo": 21.39785279168023,
+              "ssim_photo": 0.7663117051124573,
+              "psnr_gt_photo": 20.603782229953342,
+              "ssim_gt_photo": 0.8154650727907816,
+              "n_eval_views": 9.0,
+              "psnr_gap": -0.7940705617268868
+            },
+            "foreign_gtmask": {
+              "psnr_teacher": 16.639600859747993,
+              "ssim_teacher": 0.6125431127018399,
+              "psnr_photo": 9.481625239054361,
+              "ssim_photo": 0.18336939977275002,
+              "psnr_gt_photo": 8.960746977064344,
+              "ssim_gt_photo": 0.16077150818374422,
+              "n_eval_views": 9.0,
+              "psnr_gap": -0.520878261990017
+            },
+            "mixed_gtmask": {
+              "psnr_gap": -0.6580475701226121,
+              "psnr_gt_photo": 14.782264603508843,
+              "ssim_gt_photo": 0.48811829048726296,
+              "ssim_photo": 0.4748133429222637,
+              "psnr_teacher": 18.79298374387953,
+              "psnr_photo": 15.440312173631456,
+              "ssim_teacher": 0.6941462887658013,
+              "n_eval_views": 9.0
+            },
+            "n_own_views": 9,
+            "n_foreign_views": 9,
+            "n_mixed_views": 18,
+            "own_view_ids": [
+              "/data/daeho/truck_colmap/images/000004.jpg",
+              "/data/daeho/truck_colmap/images/000027.jpg",
+              "/data/daeho/truck_colmap/images/000043.jpg",
+              "/data/daeho/truck_colmap/images/000066.jpg"
+            ]
+          },
+          "figs": {
+            "own": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/mdmd/verify_20260916/figs/S16k_62k_step_028750_own_photo_pred.png",
+            "foreign": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/mdmd/verify_20260916/figs/S16k_62k_step_028750_foreign_photo_pred.png"
+          },
+          "fig_psnr": {
+            "own": 21.278034210205078,
+            "foreign": 8.349410057067871
+          }
+        }
+      ]
+    },
+    {
+      "name": "E1_16k",
+      "checkpoint": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/runs/E1_20260915_041813/ckpt_step00016000.pt",
+      "step": 16000,
+      "saved_best_score": 2.394843035274082,
+      "saved_score_metric": "psnr_gap_worst",
+      "saved_eval_fingerprint": null,
+      "current_eval_fingerprint": {
+        "contract": "scene_tagged_v1",
+        "score_metric": "psnr_gap_worst",
+        "held_views": [
+          3,
+          26,
+          42,
+          65,
+          93,
+          229,
+          238,
+          239,
+          243
+        ],
+        "eval_val_indices": "25,76,127,166,229,280,331,382",
+        "eval_pred_mask": 0,
+        "eval_view_force": "3",
+        "eval_view_count": 8,
+        "eval_view_seed": 1234
+      },
+      "best_score_would_reset": true,
+      "cfg_flags": {
+        "normalize_pooler_xyz": false,
+        "count_aware_template": false,
+        "attr_slot_mask": false,
+        "use_fixed_anchor_center": false
+      },
+      "dataset_flags": {
+        "shared_cell_owner": false,
+        "holdout_own_photo": false,
+        "keep_extra_fullres": false
+      },
+      "eval_schedule": {
+        "decoder_refine_alpha": 1.0,
+        "folding_res_gain": 1.0,
+        "attr_detach_geometry": false
+      },
+      "load_missing": [],
+      "snapshots": [
+        {
+          "val_index": 166,
+          "scene_key": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores",
+          "name": "step_028630.npz",
+          "path": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_028630.npz",
+          "decode": {
+            "attr_pred_in_decode": true,
+            "xyz_max_vs_forward": 0.0,
+            "attr_mae_vs_forward": 0.0,
+            "attr_max_vs_forward": 0.0,
+            "normalized_xyz_max_vs_forward": 0.0006911754608154297,
+            "unnormalized_encode_xyz_max": 2.4609375
+          },
+          "render": {
+            "own_gtmask": {
+              "psnr_teacher": 16.554748323228623,
+              "ssim_teacher": 0.38697144720289445,
+              "psnr_photo": 15.209099875556099,
+              "ssim_photo": 0.34391749898592633,
+              "psnr_gt_photo": 20.075293646918404,
+              "ssim_gt_photo": 0.7762033409542508,
+              "n_eval_views": 9.0,
+              "psnr_gap": 4.866193771362305
+            },
+            "own_predmask": {
+              "psnr_teacher": 16.561677932739258,
+              "ssim_teacher": 0.38687082793977523,
+              "psnr_photo": 15.214299519856771,
+              "ssim_photo": 0.3437699046399858,
+              "psnr_gt_photo": 20.075293646918404,
+              "ssim_gt_photo": 0.7762033409542508,
+              "n_eval_views": 9.0,
+              "psnr_gap": 4.860994127061632
+            },
+            "foreign_gtmask": {
+              "psnr_teacher": 13.49606736501058,
+              "ssim_teacher": 0.2872269219822354,
+              "psnr_photo": 9.171357101864285,
+              "ssim_photo": 0.14527571946382523,
+              "psnr_gt_photo": 9.88825798034668,
+              "ssim_gt_photo": 0.14745429903268814,
+              "n_eval_views": 9.0,
+              "psnr_gap": 0.7169008784823951
+            },
+            "mixed_gtmask": {
+              "psnr_gap": 2.79154732492235,
+              "psnr_gt_photo": 14.981775813632542,
+              "ssim_gt_photo": 0.4618288199934695,
+              "ssim_photo": 0.24459660922487578,
+              "psnr_teacher": 15.025407844119602,
+              "psnr_photo": 12.190228488710192,
+              "ssim_teacher": 0.3370991845925649,
+              "n_eval_views": 9.0
+            },
+            "n_own_views": 9,
+            "n_foreign_views": 9,
+            "n_mixed_views": 18,
+            "own_view_ids": [
+              "/data/daeho/train_colmap/images/00004.jpg",
+              "/data/daeho/train_colmap/images/00027.jpg",
+              "/data/daeho/train_colmap/images/00043.jpg",
+              "/data/daeho/train_colmap/images/00066.jpg"
+            ]
+          },
+          "figs": {
+            "own": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/mdmd/verify_20260916/figs/E1_16k_step_028630_own_photo_pred.png",
+            "foreign": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/mdmd/verify_20260916/figs/E1_16k_step_028630_foreign_photo_pred.png"
+          },
+          "fig_psnr": {
+            "own": 15.567928314208984,
+            "foreign": 7.033142566680908
+          }
+        },
+        {
+          "val_index": 382,
+          "scene_key": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores",
+          "name": "step_028750.npz",
+          "path": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_028750.npz",
+          "decode": {
+            "attr_pred_in_decode": true,
+            "xyz_max_vs_forward": 0.0,
+            "attr_mae_vs_forward": 0.0,
+            "attr_max_vs_forward": 0.0,
+            "normalized_xyz_max_vs_forward": 0.014115691184997559,
+            "unnormalized_encode_xyz_max": 2.0995497703552246
+          },
+          "render": {
+            "own_gtmask": {
+              "psnr_teacher": 17.600773069593643,
+              "ssim_teacher": 0.5393784046173096,
+              "psnr_photo": 17.304877599080402,
+              "ssim_photo": 0.5210251874393887,
+              "psnr_gt_photo": 20.603782229953342,
+              "ssim_gt_photo": 0.8154650727907816,
+              "n_eval_views": 9.0,
+              "psnr_gap": 3.29890463087294
+            },
+            "own_predmask": {
+              "psnr_teacher": 17.601401223076714,
+              "ssim_teacher": 0.5394390689002143,
+              "psnr_photo": 17.30779880947537,
+              "ssim_photo": 0.5211276610692342,
+              "psnr_gt_photo": 20.603782229953342,
+              "ssim_gt_photo": 0.8154650727907816,
+              "n_eval_views": 9.0,
+              "psnr_gap": 3.295983420477974
+            },
+            "foreign_gtmask": {
+              "psnr_teacher": 14.983256234063042,
+              "ssim_teacher": 0.4942385454972585,
+              "psnr_photo": 9.132948504553902,
+              "ssim_photo": 0.18636031531625324,
+              "psnr_gt_photo": 8.960746977064344,
+              "ssim_gt_photo": 0.16077150818374422,
+              "n_eval_views": 9.0,
+              "psnr_gap": -0.1722015274895572
+            },
+            "mixed_gtmask": {
+              "psnr_gap": 1.5633515516916914,
+              "psnr_gt_photo": 14.782264603508843,
+              "ssim_gt_photo": 0.48811829048726296,
+              "ssim_photo": 0.35369275137782097,
+              "psnr_teacher": 16.292014651828342,
+              "psnr_photo": 13.218913051817152,
+              "ssim_teacher": 0.516808475057284,
+              "n_eval_views": 9.0
+            },
+            "n_own_views": 9,
+            "n_foreign_views": 9,
+            "n_mixed_views": 18,
+            "own_view_ids": [
+              "/data/daeho/truck_colmap/images/000004.jpg",
+              "/data/daeho/truck_colmap/images/000027.jpg",
+              "/data/daeho/truck_colmap/images/000043.jpg",
+              "/data/daeho/truck_colmap/images/000066.jpg"
+            ]
+          },
+          "figs": {
+            "own": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/mdmd/verify_20260916/figs/E1_16k_step_028750_own_photo_pred.png",
+            "foreign": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/mdmd/verify_20260916/figs/E1_16k_step_028750_foreign_photo_pred.png"
+          },
+          "fig_psnr": {
+            "own": 18.041284561157227,
+            "foreign": 9.31298828125
+          }
+        }
+      ]
+    }
+  ],
+  "eval_views": {
+    "n": 18,
+    "held": [
+      3,
+      26,
+      42,
+      65,
+      93,
+      229,
+      238,
+      239,
+      243
+    ],
+    "tagged": true,
+    "scenes": [
+      "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores",
+      "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores"
+    ]
+  },
+  "holdout_own_photo_leak_if_flag_off": {
+    "held_pool_indices": [
+      3,
+      26,
+      42,
+      65,
+      93,
+      229,
+      238,
+      239,
+      243
+    ],
+    "n_photo_map": 6000,
+    "own_photo_would_leak": 238,
+    "leak_by_scene": {
+      "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores": 120,
+      "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores": 118
+    },
+    "n_eval_views": 18,
+    "eval_scenes": [
+      "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores",
+      "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores"
+    ]
+  }
+}

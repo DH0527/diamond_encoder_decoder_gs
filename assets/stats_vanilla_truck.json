@@ -1,0 +1,22 @@
+{
+  "num_files": 3000,
+  "sample_stride": 50,
+  "quantile": 0.02,
+  "center": [
+    -7.8125,
+    -5.138671875,
+    -7.125
+  ],
+  "scale": 41.573437500000004,
+  "lo": [
+    -38.15625,
+    -13.375,
+    -46.71875
+  ],
+  "hi": [
+    22.53125,
+    3.09765625,
+    32.46875
+  ],
+  "root": "/data/daeho/aaaa_proj/seondo/vanilla-3dgs/output/truck/replay"
+}

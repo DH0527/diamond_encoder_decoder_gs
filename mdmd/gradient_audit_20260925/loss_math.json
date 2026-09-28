@@ -1,0 +1,84 @@
+{
+  "covariance_scale_ratios": [
+    {
+      "k": 1,
+      "loss": 0.0,
+      "d_loss_d_uniform_logscale": 0.0
+    },
+    {
+      "k": 2,
+      "loss": 9.000000953674316,
+      "d_loss_d_uniform_logscale": 48.00000762939453
+    },
+    {
+      "k": 5,
+      "loss": 576.0,
+      "d_loss_d_uniform_logscale": 2400.0
+    },
+    {
+      "k": 10,
+      "loss": 9801.0,
+      "d_loss_d_uniform_logscale": 39600.0
+    },
+    {
+      "k": 30,
+      "loss": 808201.0,
+      "d_loss_d_uniform_logscale": 3236400.5
+    }
+  ],
+  "splat_clamped_hinge": [
+    {
+      "radius_over_ref": 1.0,
+      "loss": 0.0,
+      "d_loss_d_logratio": 0.0
+    },
+    {
+      "radius_over_ref": 2.0,
+      "loss": 1.0,
+      "d_loss_d_logratio": 4.0
+    },
+    {
+      "radius_over_ref": 4.0,
+      "loss": 9.0,
+      "d_loss_d_logratio": 24.0
+    },
+    {
+      "radius_over_ref": 6.0,
+      "loss": 16.0,
+      "d_loss_d_logratio": 0.0
+    },
+    {
+      "radius_over_ref": 10.0,
+      "loss": 16.0,
+      "d_loss_d_logratio": 0.0
+    },
+    {
+      "radius_over_ref": 100.0,
+      "loss": 16.0,
+      "d_loss_d_logratio": 0.0
+    }
+  ],
+  "quaternion_normalization": [
+    {
+      "raw_norm": 1.0,
+      "jacobian_component": 1.0
+    },
+    {
+      "raw_norm": 0.01,
+      "jacobian_component": 100.0
+    },
+    {
+      "raw_norm": 0.0001,
+      "jacobian_component": 10000.0
+    },
+    {
+      "raw_norm": 1e-06,
+      "jacobian_component": 1000000.0
+    }
+  ],
+  "notes": "Synthetic checks. These do not establish which term triggered a historical batch.",
+  "equivalent_covariance_axis_permutation": {
+    "covariance_loss": 5.938642183263634e-14,
+    "attribute_set_loss": 4.521006107330322
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "checkpoint": "runs/S16k_20260910_012456/ckpt_step00062000.pt",
+    "step": 62000,
+    "saved_best_score": -14.832874463664162,
+    "score_metric": "psnr",
+    "strict_load": "<All keys matched successfully>",
+    "latent_scale": 0.9113897681236267,
+    "cfg_target_dim": 14,
+    "cfg_sh_dim": 0
+  },
+  "results": [
+    {
+      "val_index": 166,
+      "path": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_028630.npz",
+      "ranks": {
+        "pooler": {
+          "rows": 1024,
+          "width": 1024,
+          "covariance_entropy_rank": 1.702004075050354,
+          "top_variance_fraction": 0.8173195719718933,
+          "rms": 44.54680252075195
+        },
+        "pack": {
+          "rows": 1024,
+          "width": 1024,
+          "covariance_entropy_rank": 1.635513186454773,
+          "top_variance_fraction": 0.8339093327522278,
+          "rms": 533.107177734375
+        },
+        "token_merge": {
+          "rows": 1024,
+          "width": 448,
+          "covariance_entropy_rank": 2.264448881149292,
+          "top_variance_fraction": 0.5944562554359436,
+          "rms": 3.833789587020874
+        },
+        "mid": {
+          "rows": 1024,
+          "width": 256,
+          "covariance_entropy_rank": 3.1948471069335938,
+          "top_variance_fraction": 0.5685757398605347,
+          "rms": 0.20577697455883026
+        },
+        "pre_merge": {
+          "rows": 1024,
+          "width": 14336,
+          "covariance_entropy_rank": 1.7546344995498657,
+          "top_variance_fraction": 0.831407368183136,
+          "rms": 333.8384094238281
+        }
+      },
+      "ranks_nonempty": {
+        "pooler": {
+          "rows": 993,
+          "width": 1024,
+          "covariance_entropy_rank": 1.7145159244537354,
+          "top_variance_fraction": 0.8128964900970459,
+          "rms": 44.657535552978516
+        },
+        "pack": {
+          "rows": 993,
+          "width": 1024,
+          "covariance_entropy_rank": 1.648361325263977,
+          "top_variance_fraction": 0.8296487927436829,
+          "rms": 534.2369384765625
+        },
+        "token_merge": {
+          "rows": 993,
+          "width": 448,
+          "covariance_entropy_rank": 2.268179178237915,
+          "top_variance_fraction": 0.595073938369751,
+          "rms": 3.815549850463867
+        },
+        "mid": {
+          "rows": 993,
+          "width": 256,
+          "covariance_entropy_rank": 3.2165160179138184,
+          "top_variance_fraction": 0.5630254149436951,
+          "rms": 0.20580726861953735
+        },
+        "pre_merge": {
+          "rows": 993,
+          "width": 14336,
+          "covariance_entropy_rank": 1.7594901323318481,
+          "top_variance_fraction": 0.8280113339424133,
+          "rms": 334.40655517578125
+        }
+      }
+    },
+    {
+      "val_index": 382,
+      "path": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_028750.npz",
+      "ranks": {
+        "pooler": {
+          "rows": 1024,
+          "width": 1024,
+          "covariance_entropy_rank": 1.629013180732727,
+          "top_variance_fraction": 0.8363836407661438,
+          "rms": 44.165687561035156
+        },
+        "pack": {
+          "rows": 1024,
+          "width": 1024,
+          "covariance_entropy_rank": 1.5669095516204834,
+          "top_variance_fraction": 0.8520187139511108,
+          "rms": 527.882568359375
+        },
+        "token_merge": {
+          "rows": 1024,
+          "width": 448,
+          "covariance_entropy_rank": 2.262446403503418,
+          "top_variance_fraction": 0.5905892848968506,
+          "rms": 4.038862228393555
+        },
+        "mid": {
+          "rows": 1024,
+          "width": 256,
+          "covariance_entropy_rank": 3.1359896659851074,
+          "top_variance_fraction": 0.5670608282089233,
+          "rms": 0.20644113421440125
+        },
+        "pre_merge": {
+          "rows": 1024,
+          "width": 14336,
+          "covariance_entropy_rank": 1.690786361694336,
+          "top_variance_fraction": 0.8495555520057678,
+          "rms": 329.8399963378906
+        }
+      },
+      "ranks_nonempty": {
+        "pooler": {
+          "rows": 978,
+          "width": 1024,
+          "covariance_entropy_rank": 1.639603853225708,
+          "top_variance_fraction": 0.8324654698371887,
+          "rms": 44.49982833862305
+        },
+        "pack": {
+          "rows": 978,
+          "width": 1024,
+          "covariance_entropy_rank": 1.5783289670944214,
+          "top_variance_fraction": 0.8481155633926392,
+          "rms": 531.5491333007812
+        },
+        "token_merge": {
+          "rows": 978,
+          "width": 448,
+          "covariance_entropy_rank": 2.241649866104126,
+          "top_variance_fraction": 0.6118704080581665,
+          "rms": 4.0332136154174805
+        },
+        "mid": {
+          "rows": 978,
+          "width": 256,
+          "covariance_entropy_rank": 3.1560020446777344,
+          "top_variance_fraction": 0.5601186156272888,
+          "rms": 0.2069864422082901
+        },
+        "pre_merge": {
+          "rows": 978,
+          "width": 14336,
+          "covariance_entropy_rank": 1.6912492513656616,
+          "top_variance_fraction": 0.8467232584953308,
+          "rms": 331.8692321777344
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "device": "cuda:0",
+  "val_indices": [
+    166,
+    382
+  ],
+  "runs": [],
+  "eval_views": {
+    "n": 18,
+    "held": [
+      3,
+      26,
+      42,
+      65,
+      93,
+      229,
+      238,
+      239,
+      243
+    ],
+    "tagged": true,
+    "scenes": [
+      "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores",
+      "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores"
+    ]
+  },
+  "holdout_own_photo_leak_if_flag_off": {
+    "held_pool_indices": [
+      3,
+      26,
+      42,
+      65,
+      93,
+      229,
+      238,
+      239,
+      243
+    ],
+    "n_photo_map": 6000,
+    "own_photo_would_leak": 238,
+    "leak_by_scene": {
+      "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores": 120,
+      "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores": 118
+    },
+    "n_eval_views": 18,
+    "eval_scenes": [
+      "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores",
+      "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores"
+    ]
+  }
+}

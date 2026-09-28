@@ -1,0 +1,51 @@
+{
+  "camera": "step_028630 index 166",
+  "c1_40000": {
+    "vs_gtg": 19.08,
+    "hood": 20.86,
+    "front": 18.30,
+    "letters": 21.29,
+    "aniso_p50": 3.88,
+    "lt4_pct": 51.2,
+    "rot_p50": 41.4,
+    "rot_gt_aniso_gt8": 38.6,
+    "xyz_nn_p50": 4.73e-4,
+    "swap_minus_pred": -0.012,
+    "eval_photo": 19.56,
+    "eval_teacher": 19.46
+  },
+  "sobel_42000": {
+    "vs_gtg": 19.81,
+    "hood": 22.47,
+    "front": 19.04,
+    "letters": 23.24,
+    "aniso_p50": 3.48,
+    "lt4_pct": 55.2,
+    "rot_p50": 40.9,
+    "rot_gt_aniso_gt8": 38.1,
+    "xyz_nn_p50": 4.52e-4,
+    "swap_minus_pred": 0.190
+  },
+  "l1_51000": {
+    "vs_gtg": 19.51,
+    "hood": 22.26,
+    "front": 19.25,
+    "letters": 24.21,
+    "aniso_p50": 4.27,
+    "lt4_pct": 47.6,
+    "rot_p50": 38.3,
+    "rot_gt_aniso_gt8": 35.1,
+    "xyz_nn_p50": 4.31e-4,
+    "swap_minus_pred": 0.218,
+    "eval_photo": 19.90,
+    "eval_teacher": 20.06
+  },
+  "gate": {
+    "aniso_p50_target": 6.0,
+    "smear": false,
+    "more_spherical_than_c1": false,
+    "rails_visible": false,
+    "letters_readable": false,
+    "verdict": "continue_to_64000_not_success"
+  }
+}

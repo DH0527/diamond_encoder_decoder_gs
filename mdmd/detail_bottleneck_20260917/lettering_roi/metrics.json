@@ -1,0 +1,31 @@
+{
+  "box_x0x1y0y1": [
+    615,
+    855,
+    205,
+    322
+  ],
+  "name": "step_028630.npz",
+  "full": {
+    "gtg": 19.214536666870117,
+    "R1": 21.306894302368164,
+    "C1": 16.781570434570312
+  },
+  "C_lettering": {
+    "gtg": 23.11459732055664,
+    "R1": 21.995956420898438,
+    "C1": 18.08791732788086
+  },
+  "R1_step": 70500,
+  "R1_flags": {
+    "normalize_pooler_xyz": 0,
+    "shared_cell_owner": 0,
+    "holdout_own_photo": 0
+  },
+  "C1_step": 22000,
+  "C1_flags": {
+    "normalize_pooler_xyz": 1,
+    "shared_cell_owner": 0,
+    "holdout_own_photo": 1
+  }
+}

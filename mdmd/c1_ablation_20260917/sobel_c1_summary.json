@@ -1,0 +1,85 @@
+{
+  "note": "C1 ckpt 40000, index 166, holdout_own_photo=0, extra_view_seed=0. Same MAIN and extra cameras across all 6 runs.",
+  "ckpt": "runs/C1_detail_20260916_021829/ckpt_step00040000.pt",
+  "t16k_reference": {
+    "loss": "plain L1 + w_sobel (real_loss=0)",
+    "hood": {
+      "base": 21.89,
+      "e0": 21.15,
+      "e1": 25.61,
+      "e5": 27.14
+    },
+    "letters": {
+      "base": 21.92,
+      "e0": 21.01,
+      "e1": 24.08,
+      "e5": 26.56
+    },
+    "held": {
+      "e0": "18.99->20.51",
+      "e1": "19.57->21.54",
+      "e5": "19.40->19.89"
+    },
+    "claim": "without Sobel, supervised views rise but held-out crops do not"
+  },
+  "c1_hf": {
+    "e0": {
+      "MAIN_gtg": 22.63,
+      "A_hood_rail": 24.05,
+      "B_front_rail": 23.72,
+      "D_letters": 24.06,
+      "fit_gtg": 24.7,
+      "held_gtg": 20.28
+    },
+    "e1": {
+      "MAIN_gtg": 23.06,
+      "A_hood_rail": 24.1,
+      "B_front_rail": 24.46,
+      "D_letters": 23.3,
+      "fit_gtg": 24.87,
+      "held_gtg": 20.29
+    },
+    "e5": {
+      "MAIN_gtg": 23.32,
+      "A_hood_rail": 25.6,
+      "B_front_rail": 24.4,
+      "D_letters": 24.9,
+      "fit_gtg": 24.21,
+      "held_gtg": 20.58
+    }
+  },
+  "c1_ctl": {
+    "e0": {
+      "MAIN_gtg": 23.89,
+      "A_hood_rail": 25.73,
+      "B_front_rail": 24.9,
+      "D_letters": 24.22,
+      "fit_gtg": 25.24,
+      "held_gtg": 20.48
+    },
+    "e1": {
+      "MAIN_gtg": 23.96,
+      "A_hood_rail": 26.08,
+      "B_front_rail": 25.2,
+      "D_letters": 25.27,
+      "fit_gtg": 25.26,
+      "held_gtg": 20.55
+    },
+    "e2": {
+      "MAIN_gtg": 24.02,
+      "A_hood_rail": 25.71,
+      "B_front_rail": 24.96,
+      "D_letters": 25.66,
+      "fit_gtg": 24.86,
+      "held_gtg": 20.51
+    }
+  },
+  "base": {
+    "MAIN_gtg": 19.08,
+    "A_hood_rail": 20.86,
+    "B_front_rail": 18.3,
+    "D_letters": 21.29,
+    "fit_gtg": 18.69,
+    "held_gtg": 19.06
+  }
+}

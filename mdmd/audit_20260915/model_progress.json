@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "checkpoint": "runs/T16k_20260913_093332/ckpt_step00070000.pt",
+    "step": 70000,
+    "saved_best_score": -14.281422863403957,
+    "score_metric": "psnr_gap_worst",
+    "strict_load": "<All keys matched successfully>",
+    "latent_scale": 0.9125123620033264,
+    "cfg_target_dim": 14,
+    "cfg_sh_dim": 0
+  },
+  "val_index": 382,
+  "ranks": {
+    "pooler": {
+      "rows": 1024,
+      "width": 1024,
+      "covariance_entropy_rank": 1.6316851377487183,
+      "top_variance_fraction": 0.8365465402603149,
+      "rms": 43.28704833984375
+    },
+    "pack": {
+      "rows": 1024,
+      "width": 1024,
+      "covariance_entropy_rank": 1.54668390750885,
+      "top_variance_fraction": 0.8595536351203918,
+      "rms": 530.5630493164062
+    },
+    "token_merge": {
+      "rows": 1024,
+      "width": 448,
+      "covariance_entropy_rank": 2.3118131160736084,
+      "top_variance_fraction": 0.5905116200447083,
+      "rms": 4.03002405166626
+    },
+    "mid": {
+      "rows": 1024,
+      "width": 256,
+      "covariance_entropy_rank": 3.104780435562134,
+      "top_variance_fraction": 0.573779284954071,
+      "rms": 0.20547601580619812
+    },
+    "pre_merge": {
+      "rows": 1024,
+      "width": 14336,
+      "covariance_entropy_rank": 1.6963262557983398,
+      "top_variance_fraction": 0.8545761108398438,
+      "rms": 330.6148986816406
+    }
+  },
+  "ranks_nonempty": {
+    "pooler": {
+      "rows": 978,
+      "width": 1024,
+      "covariance_entropy_rank": 1.642415165901184,
+      "top_variance_fraction": 0.8325315117835999,
+      "rms": 43.60675048828125
+    },
+    "pack": {
+      "rows": 978,
+      "width": 1024,
+      "covariance_entropy_rank": 1.558167576789856,
+      "top_variance_fraction": 0.855701744556427,
+      "rms": 534.1056518554688
+    },
+    "token_merge": {
+      "rows": 978,
+      "width": 448,
+      "covariance_entropy_rank": 2.291628837585449,
+      "top_variance_fraction": 0.6102570295333862,
+      "rms": 4.02099609375
+    },
+    "mid": {
+      "rows": 978,
+      "width": 256,
+      "covariance_entropy_rank": 3.125664710998535,
+      "top_variance_fraction": 0.5666980743408203,
+      "rms": 0.2060014307498932
+    },
+    "pre_merge": {
+      "rows": 978,
+      "width": 14336,
+      "covariance_entropy_rank": 1.6946616172790527,
+      "top_variance_fraction": 0.8521214127540588,
+      "rms": 332.565185546875
+    }
+  },
+  "public_decode_difference": {
+    "xyz_max": 0.0,
+    "attributes_mae_vs_training": 1.5343527793884277,
+    "attr_pred_in_public": false
+  }
+}

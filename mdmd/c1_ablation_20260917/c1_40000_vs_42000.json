@@ -1,0 +1,33 @@
+{
+  "same_camera": true,
+  "cam": [
+    580.06,
+    582.6,
+    488.5
+  ],
+  "delta_40000_to_42000": {
+    "psnr_vs_gtg": 0.73,
+    "psnr_vs_photo": 0.49,
+    "hood_gtg": 1.61,
+    "front_gtg": 0.75,
+    "letters_gtg": 1.95,
+    "aniso_p50": -0.4,
+    "aniso_lt4_pct": 4.0,
+    "rot_p50_deg": -0.46
+  },
+  "eval_heldout": {
+    "40000_photo": 19.56,
+    "41000_photo": 19.6,
+    "42000_photo": 19.72,
+    "40000_teacher": 19.46,
+    "42000_teacher": 19.93
+  },
+  "train": {
+    "rsobel_40050": 0.182,
+    "rsobel_42000": 0.141,
+    "wsobel_42000": 0.658,
+    "render_attr_share_40050": "21%",
+    "render_attr_share_42000": "34%",
+    "aniso_p50_batch": "5.04 -> 4.39"
+  }
+}

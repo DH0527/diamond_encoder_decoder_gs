@@ -1,0 +1,22 @@
+{
+  "num_files": 3000,
+  "sample_stride": 50,
+  "quantile": 0.02,
+  "center": [
+    -7.8828125,
+    -5.029296875,
+    -3.96875
+  ],
+  "scale": 40.589062500000004,
+  "lo": [
+    -38.5625,
+    -13.515625,
+    -42.625
+  ],
+  "hi": [
+    22.796875,
+    3.45703125,
+    34.6875
+  ],
+  "root": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg"
+}

@@ -1,0 +1,527 @@
+{
+  "held_indices": [
+    3,
+    26,
+    42,
+    65,
+    93,
+    229,
+    238,
+    239,
+    243
+  ],
+  "pool_sizes": {
+    "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores": 301,
+    "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores": 251
+  },
+  "eval_views": 18,
+  "scene_tag_in_view_tuple": false,
+  "own_photo_leak_count": 101,
+  "own_photo_leaks": [
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_012480.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00244.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_012750.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00230.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_014010.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_014120.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_014800.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_015090.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00066.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_015230.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00244.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_015300.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00066.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_015490.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00043.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_015630.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00230.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_016100.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00043.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_016510.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00230.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_016670.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00244.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_017040.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_017390.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_017420.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00244.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_018740.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_019290.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00230.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_019610.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_019650.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00027.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_019910.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00230.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_019980.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00043.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_020250.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00043.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_020810.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00066.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_020830.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_021470.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_021680.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_022040.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00027.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_022590.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_022960.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_023090.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00240.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_024390.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_025110.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_025140.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00066.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_025540.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_025660.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00043.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_025800.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00244.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_026090.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_026360.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00244.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_026580.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00244.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_026790.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_026970.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00240.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_027520.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00066.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_027890.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_027970.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_028070.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00244.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_029340.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00230.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_029760.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_029850.npz",
+      "scene": 0,
+      "image": "/data/daeho/train_colmap/images/00043.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_012430.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000027.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_014810.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000043.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_015320.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000240.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_015740.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000240.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_015830.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000066.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_016190.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000004.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_017770.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000230.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_018870.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000027.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_018980.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_019140.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000244.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_019590.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000066.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_019800.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000230.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_020000.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_020160.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000244.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_020200.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000066.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_020500.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000066.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_020560.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000230.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_020850.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000240.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_020940.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_021060.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000027.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_021160.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000004.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_021300.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000230.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_021360.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000066.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_021520.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_021590.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000240.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_021850.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_021960.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000004.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_022080.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000066.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_022120.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000244.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_022190.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000043.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_022290.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_022400.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000027.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_022420.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000244.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_022570.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000004.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_023170.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_023190.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_024230.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000004.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_024340.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000043.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_024470.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000004.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_024900.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000004.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_025040.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000043.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_025480.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000244.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_025540.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000240.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_026230.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000230.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_027670.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000066.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_027780.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000094.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_027980.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_028220.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000066.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_029460.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000239.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_029810.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000027.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_029820.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000066.jpg"
+    },
+    {
+      "npz": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_029960.npz",
+      "scene": 1,
+      "image": "/data/daeho/truck_colmap/images/000043.jpg"
+    }
+  ]
+}

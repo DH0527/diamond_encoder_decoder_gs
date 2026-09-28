@@ -1,0 +1,21 @@
+{
+  "source_files_checked": 107,
+  "source_files_changed": [],
+  "diagnostic_scripts_ast_valid": [
+    "probe_rail_detail.py",
+    "analyze_focus_and_figures.py",
+    "probe_pool_to_render.py",
+    "render_selected_sh.py"
+  ],
+  "json_files_strict_valid": [
+    "pool_sensitivity.json",
+    "decoder_stages.json",
+    "focused_geometry.json",
+    "rail_geometry.json",
+    "render_metrics.json",
+    "setup.json",
+    "pool_to_render.json"
+  ],
+  "local_doc_links_checked": 104,
+  "broken_local_links": []
+}

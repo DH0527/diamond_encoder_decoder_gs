@@ -1,0 +1,121 @@
+{
+  "description": "Native resolution, selected DC-only target renders, no model or training; columns photo / old target / shared-owner target",
+  "rows": [
+    {
+      "val_index": 25,
+      "path": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_013250.npz",
+      "used": [
+        227640,
+        212236
+      ],
+      "views": {
+        "3": {
+          "old_photo_psnr": 17.68465232849121,
+          "shared_photo_psnr": 15.828285217285156,
+          "old_shared_psnr": 21.001171112060547,
+          "full_resolution": [
+            544,
+            977
+          ],
+          "upper_rail_old_photo_psnr": 22.691591262817383,
+          "upper_rail_shared_photo_psnr": 21.664573669433594
+        },
+        "93": {
+          "old_photo_psnr": 17.077281951904297,
+          "shared_photo_psnr": 15.149970054626465,
+          "old_shared_psnr": 22.179298400878906,
+          "full_resolution": [
+            544,
+            977
+          ]
+        }
+      }
+    },
+    {
+      "val_index": 166,
+      "path": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_028630.npz",
+      "used": [
+        79821,
+        79756
+      ],
+      "views": {
+        "3": {
+          "old_photo_psnr": 19.214536666870117,
+          "shared_photo_psnr": 19.20189094543457,
+          "old_shared_psnr": 42.938140869140625,
+          "full_resolution": [
+            544,
+            977
+          ],
+          "upper_rail_old_photo_psnr": 23.813892364501953,
+          "upper_rail_shared_photo_psnr": 23.813892364501953
+        },
+        "93": {
+          "old_photo_psnr": 19.956958770751953,
+          "shared_photo_psnr": 19.935657501220703,
+          "old_shared_psnr": 44.0224494934082,
+          "full_resolution": [
+            544,
+            977
+          ]
+        }
+      }
+    },
+    {
+      "val_index": 229,
+      "path": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_013250.npz",
+      "used": [
+        227052,
+        242433
+      ],
+      "views": {
+        "3": {
+          "old_photo_psnr": 18.162805557250977,
+          "shared_photo_psnr": 11.307659149169922,
+          "old_shared_psnr": 12.447586059570312,
+          "full_resolution": [
+            545,
+            977
+          ]
+        },
+        "93": {
+          "old_photo_psnr": 19.798778533935547,
+          "shared_photo_psnr": 12.378925323486328,
+          "old_shared_psnr": 12.938841819763184,
+          "full_resolution": [
+            545,
+            977
+          ]
+        }
+      }
+    },
+    {
+      "val_index": 382,
+      "path": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores/replay_seg/step_028750.npz",
+      "used": [
+        158577,
+        150623
+      ],
+      "views": {
+        "3": {
+          "old_photo_psnr": 21.71685218811035,
+          "shared_photo_psnr": 21.07083511352539,
+          "old_shared_psnr": 29.7587890625,
+          "full_resolution": [
+            545,
+            977
+          ]
+        },
+        "93": {
+          "old_photo_psnr": 20.763999938964844,
+          "shared_photo_psnr": 19.637195587158203,
+          "old_shared_psnr": 26.179550170898438,
+          "full_resolution": [
+            545,
+            977
+          ]
+        }
+      }
+    }
+  ]
+}

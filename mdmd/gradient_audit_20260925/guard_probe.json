@@ -1,0 +1,38 @@
+{
+  "train": {
+    "full_psnr": 14.856375694274902,
+    "guarded_removed_psnr": 8.670782089233398,
+    "top30pct_psnr": 11.67609691619873,
+    "top30pct_guarded_removed_psnr": 4.6889214515686035,
+    "visible_gaussians_gated_fraction": 0.015673136338591576,
+    "pixels_changed_over_0.05_fraction": 0.5582660436630249,
+    "gradients": {
+      "all_detached": {
+        "guarded_opacity_norm": 0.0,
+        "guarded_color_norm": 0.0
+      },
+      "geometry_detached": {
+        "guarded_opacity_norm": 0.21365892887115479,
+        "guarded_color_norm": 0.18660548329353333
+      }
+    }
+  },
+  "truck": {
+    "full_psnr": 21.745708465576172,
+    "guarded_removed_psnr": 13.891090393066406,
+    "top30pct_psnr": 19.418275833129883,
+    "top30pct_guarded_removed_psnr": 18.03517723083496,
+    "visible_gaussians_gated_fraction": 0.004161102697253227,
+    "pixels_changed_over_0.05_fraction": 0.31640249490737915,
+    "gradients": {
+      "all_detached": {
+        "guarded_opacity_norm": 0.0,
+        "guarded_color_norm": 0.0
+      },
+      "geometry_detached": {
+        "guarded_opacity_norm": 0.08407468348741531,
+        "guarded_color_norm": 0.14582298696041107
+      }
+    }
+  }
+}

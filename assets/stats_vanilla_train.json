@@ -1,0 +1,22 @@
+{
+  "num_files": 3000,
+  "sample_stride": 50,
+  "quantile": 0.02,
+  "center": [
+    16.1796875,
+    -23.39013671875,
+    -34.5546875
+  ],
+  "scale": 48.505078125000004,
+  "lo": [
+    -22.171875,
+    -47.75,
+    -80.75
+  ],
+  "hi": [
+    54.53125,
+    0.9697265625,
+    11.640625
+  ],
+  "root": "/data/daeho/aaaa_proj/seondo/vanilla-3dgs/output/train/replay"
+}

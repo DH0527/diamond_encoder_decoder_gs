@@ -1,0 +1,7 @@
+{
+  "captured_utc": "2026-09-25T06:55:44.647883+00:00",
+  "last_train": "[joint] step 42950/80000 loss 34.6014 z_l1 0.7917 codec_xyz 0.0000 gen_xyz 0.0000 distill 0.0000 lat_std 1.76/2.07 lrank 3.0 res 0.4596 dfrac 1.16 z_res 0.0000 G[ch 0.0021 cov 0.0013 ich 0.1705 spc 0.0000 ot 0.2553 cen 0.1217 tr 0.0000 mem 0.000 cmem 0.000] U[rad 0.044 c3d 0.973 aset 1.0649 aloc 1.3861 aspr 0.0000 aslp 0.0000 ahsc 0.0000 ahop 0.0000 ahrt 0.0000 dec 0.0000 p2g 0.160 eq 0.0005 gn 1455.78] TOP[render_attr:47% codec_proj_hist:13% codec_attr_local_set:12% codec_attr_set:9%] rattr 0.2223/0.301 cov 0.75 splat 0.13233 rperc 0.621 rsobel 0.1246 d[enco 5e-01 comp 1e+00 deco 1e+00 deco 3e+00 attr 5e-01 attr 9e-02] tf 0.00 A[sc 0.416 ani 0.288 rot 0.015 op 0.748 col 0.281] n 1041721 empty 0.00 a_sc 0.00 a_rf 1.00 dtch 0 fn 0 dsr 0 det[eg 3.90 perc 0.049 sob 0.975] shp[p50 5.11/12.17 <4 43/18% rot 37\u00b0] nx 4 lr 9.49e-05 4.91s/it 25.1GB",
+  "last_eval": null,
+  "grad_skip_lines": [],
+  "training_sources_unchanged": true
+}

@@ -1,0 +1,174 @@
+{
+  "checkpoint": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/runs/T16k_20260913_093332/ckpt_step00070000.pt",
+  "snapshot": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_028630.npz",
+  "precision": "CUDA BF16 autocast, FP32 render",
+  "patch_chunk": 24,
+  "pool_chunk": 8,
+  "all_arms_mask": "same target mask",
+  "analytic_anchors": "computed from original unchanged input in all arms",
+  "max_torch_allocated_gib": 1.4899163246154785,
+  "arms": {
+    "baseline": {
+      "xyz_change_world": {
+        "p10": 0.0,
+        "p50": 0.0,
+        "p90": 0.0,
+        "p99": 0.0
+      },
+      "compact_shape_relative_l2": 0.0,
+      "compact_app_relative_l2": 0.0,
+      "view_scores": {
+        "3": {
+          "photo_psnr": 21.48333740234375,
+          "target_psnr": 20.408430099487305,
+          "photo_ssim": 0.7026194930076599,
+          "rois": {
+            "upper_rail": {
+              "photo_psnr": 21.583539962768555,
+              "target_psnr": 22.08510398864746,
+              "photo_l1": 0.05632936209440231,
+              "gradient_l1": 0.025544773787260056
+            },
+            "front_rail": {
+              "photo_psnr": 18.704078674316406,
+              "target_psnr": 17.175798416137695,
+              "photo_l1": 0.0851244255900383,
+              "gradient_l1": 0.03125821426510811
+            },
+            "lettering": {
+              "photo_psnr": 22.000503540039062,
+              "target_psnr": 21.957958221435547,
+              "photo_l1": 0.06035546213388443,
+              "gradient_l1": 0.02948310226202011
+            }
+          },
+          "baseline_render_psnr": 120.0,
+          "baseline_image_mae": 0.0
+        },
+        "93": {
+          "photo_psnr": 15.349255561828613,
+          "target_psnr": 19.006906509399414,
+          "photo_ssim": 0.5767920613288879,
+          "rois": {
+            "near_rail": {
+              "photo_psnr": 12.714366912841797,
+              "target_psnr": 18.267261505126953,
+              "photo_l1": 0.18101148307323456,
+              "gradient_l1": 0.03828740119934082
+            }
+          },
+          "baseline_render_psnr": 120.0,
+          "baseline_image_mae": 0.0
+        }
+      }
+    },
+    "no_local_xyz": {
+      "xyz_change_world": {
+        "p10": 0.0003441928420215845,
+        "p50": 0.0009216499165631831,
+        "p90": 0.005121092777699232,
+        "p99": 0.040877877920866015
+      },
+      "compact_shape_relative_l2": 0.0020875856280326843,
+      "compact_app_relative_l2": 0.0023420113138854504,
+      "view_scores": {
+        "3": {
+          "photo_psnr": 21.47955322265625,
+          "target_psnr": 20.421764373779297,
+          "photo_ssim": 0.7026482224464417,
+          "rois": {
+            "upper_rail": {
+              "photo_psnr": 21.554443359375,
+              "target_psnr": 21.990436553955078,
+              "photo_l1": 0.05636292323470116,
+              "gradient_l1": 0.025600122287869453
+            },
+            "front_rail": {
+              "photo_psnr": 18.69593048095703,
+              "target_psnr": 17.17167091369629,
+              "photo_l1": 0.08541430532932281,
+              "gradient_l1": 0.03125990554690361
+            },
+            "lettering": {
+              "photo_psnr": 22.009084701538086,
+              "target_psnr": 21.940906524658203,
+              "photo_l1": 0.06029219552874565,
+              "gradient_l1": 0.029479598626494408
+            }
+          },
+          "baseline_render_psnr": 45.84418869018555,
+          "baseline_image_mae": 0.002746433950960636
+        },
+        "93": {
+          "photo_psnr": 15.341745376586914,
+          "target_psnr": 18.98450469970703,
+          "photo_ssim": 0.5766437649726868,
+          "rois": {
+            "near_rail": {
+              "photo_psnr": 12.75037670135498,
+              "target_psnr": 18.320446014404297,
+              "photo_l1": 0.18023696541786194,
+              "gradient_l1": 0.03826723247766495
+            }
+          },
+          "baseline_render_psnr": 43.94091033935547,
+          "baseline_image_mae": 0.0030653926078230143
+        }
+      }
+    },
+    "mean_local_attributes": {
+      "xyz_change_world": {
+        "p10": 0.00851112324744463,
+        "p50": 0.03326526656746864,
+        "p90": 0.27420949935913086,
+        "p99": 2.0042814731597907
+      },
+      "compact_shape_relative_l2": 0.32562562823295593,
+      "compact_app_relative_l2": 0.43511635065078735,
+      "view_scores": {
+        "3": {
+          "photo_psnr": 13.073554039001465,
+          "target_psnr": 14.034122467041016,
+          "photo_ssim": 0.3885573744773865,
+          "rois": {
+            "upper_rail": {
+              "photo_psnr": 13.089903831481934,
+              "target_psnr": 13.505453109741211,
+              "photo_l1": 0.17660941183567047,
+              "gradient_l1": 0.036705270409584045
+            },
+            "front_rail": {
+              "photo_psnr": 12.07144546508789,
+              "target_psnr": 14.066895484924316,
+              "photo_l1": 0.20683473348617554,
+              "gradient_l1": 0.03951959311962128
+            },
+            "lettering": {
+              "photo_psnr": 15.252813339233398,
+              "target_psnr": 15.313081741333008,
+              "photo_l1": 0.1289539635181427,
+              "gradient_l1": 0.04320613294839859
+            }
+          },
+          "baseline_render_psnr": 14.14225959777832,
+          "baseline_image_mae": 0.14821738004684448
+        },
+        "93": {
+          "photo_psnr": 12.629775047302246,
+          "target_psnr": 13.785442352294922,
+          "photo_ssim": 0.34464922547340393,
+          "rois": {
+            "near_rail": {
+              "photo_psnr": 10.579202651977539,
+              "target_psnr": 12.739358901977539,
+              "photo_l1": 0.2493840754032135,
+              "gradient_l1": 0.045016612857580185
+            }
+          },
+          "baseline_render_psnr": 13.928441047668457,
+          "baseline_image_mae": 0.15010973811149597
+        }
+      }
+    }
+  }
+}

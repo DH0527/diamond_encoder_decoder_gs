@@ -1,0 +1,19 @@
+# can3tok 학습 환경 (conda env: can3tok) — 실제로 import 하는 것만 고정.
+# 전체 freeze 는 pip_freeze_can3tok_full.txt (다른 프로젝트 패키지가 섞여 있음).
+#
+# torch 는 CUDA 12.1 휠을 명시적으로 받는다:
+#   pip install -r requirements_can3tok.txt --extra-index-url https://download.pytorch.org/whl/cu121
+torch==2.4.1+cu121
+torchvision==0.19.1+cu121
+numpy==2.4.5
+scipy==1.17.1
+pillow==12.2.0
+matplotlib==3.10.9
+tqdm==4.67.3
+
+# 래스터라이저는 PyPI 에 없다 — 소스에서 빌드 (SETUP_KR.md §3.3):
+#   graphdeco-inria/diff-gaussian-rasterization @ 9c5c2028f6fbee2be239bc4c9421ff894fe4fbe0 (branch dr_aa)
+
+# 선택: tools/make_*_slides.py 만 쓴다 (학습에는 불필요, 현재 서버 env 에도 없음)
+# python-pptx
+# lxml

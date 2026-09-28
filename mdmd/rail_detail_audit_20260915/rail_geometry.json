@@ -1,0 +1,277 @@
+{
+  "focus_gaussians": 471,
+  "focus_cells": 38,
+  "band_pixels": 5960,
+  "target_count": [
+    88.0,
+    153.0,
+    40.0,
+    77.0,
+    47.0,
+    103.0,
+    57.0,
+    22.0,
+    110.0,
+    96.0,
+    66.0,
+    125.0,
+    89.0,
+    60.0,
+    106.0,
+    92.0,
+    69.0,
+    67.0,
+    89.0,
+    51.0,
+    79.0,
+    100.0,
+    179.0,
+    103.0,
+    87.0,
+    62.0,
+    91.0,
+    100.0,
+    43.0,
+    91.0,
+    57.0,
+    12.0,
+    118.0,
+    94.0,
+    104.0,
+    101.0,
+    59.0,
+    68.0
+  ],
+  "matched_projected_error_px": {
+    "p10": 1.4337255954742432,
+    "p50": 5.437681198120117,
+    "p90": 25.95749855041504,
+    "p99": 1683.9118164062502
+  },
+  "nearest3d_projected_error_px": {
+    "p10": 0.92293781042099,
+    "p50": 2.706601858139038,
+    "p90": 15.707390785217285,
+    "p99": 220.55621643066408
+  },
+  "nearest3d_distance_world": {
+    "p10": 0.005456380177227859,
+    "p50": 0.013214226090882542,
+    "p90": 0.0708894653659545,
+    "p99": 0.23540040870217938
+  },
+  "target_sigma_min_px": {
+    "p10": 0.7261542677879333,
+    "p50": 1.3042712211608887,
+    "p90": 12.294595718383789,
+    "p99": 43.61413230895997
+  },
+  "pred_sigma_min_px": {
+    "p10": 0.8832737803459167,
+    "p50": 1.656502604484558,
+    "p90": 3.8458304405212402,
+    "p99": 41006.717767335525
+  },
+  "target_sigma_max_px": {
+    "p10": 2.406343460083008,
+    "p50": 8.50516128540039,
+    "p90": 26.176069259643555,
+    "p99": 95.78678970336955
+  },
+  "pred_sigma_max_px": {
+    "p10": 1.8804583549499512,
+    "p50": 3.24899959564209,
+    "p90": 8.846365928649902,
+    "p99": 192953588.07869384
+  },
+  "target_alpha": {
+    "p10": 0.417724609375,
+    "p50": 0.9111327528953552,
+    "p90": 0.999998927116394,
+    "p99": 0.999998927116394
+  },
+  "pred_alpha": {
+    "p10": 0.35309353470802307,
+    "p50": 0.9473810195922852,
+    "p90": 0.9969245791435242,
+    "p99": 0.999998128414154
+  },
+  "attention": [
+    {
+      "group": 537,
+      "input_count": 51,
+      "focus_count": 11,
+      "focus_fraction": 0.21568627655506134,
+      "focus_attention_mean": 0.21870042383670807,
+      "focus_attention_max_query": 0.4345472455024719,
+      "attention_effective_points_mean": 29.30792236328125,
+      "xyz_rms": 0.006851310841739178,
+      "standardized_attr_rms": 1.7393522262573242
+    },
+    {
+      "group": 1003,
+      "input_count": 59,
+      "focus_count": 46,
+      "focus_fraction": 0.7796609997749329,
+      "focus_attention_mean": 0.8355851769447327,
+      "focus_attention_max_query": 0.9278564453125,
+      "attention_effective_points_mean": 33.06004333496094,
+      "xyz_rms": 0.0009767133742570877,
+      "standardized_attr_rms": 1.1474601030349731
+    },
+    {
+      "group": 235,
+      "input_count": 47,
+      "focus_count": 10,
+      "focus_fraction": 0.21276596188545227,
+      "focus_attention_mean": 0.32215654850006104,
+      "focus_attention_max_query": 0.533689558506012,
+      "attention_effective_points_mean": 31.71969985961914,
+      "xyz_rms": 0.0011065470753237605,
+      "standardized_attr_rms": 1.0969457626342773
+    },
+    {
+      "group": 969,
+      "input_count": 101,
+      "focus_count": 32,
+      "focus_fraction": 0.31683167815208435,
+      "focus_attention_mean": 0.31567028164863586,
+      "focus_attention_max_query": 0.4739423990249634,
+      "attention_effective_points_mean": 55.729408264160156,
+      "xyz_rms": 0.0008201871532946825,
+      "standardized_attr_rms": 1.129616618156433
+    },
+    {
+      "group": 223,
+      "input_count": 40,
+      "focus_count": 28,
+      "focus_fraction": 0.699999988079071,
+      "focus_attention_mean": 0.631588876247406,
+      "focus_attention_max_query": 0.8191941380500793,
+      "attention_effective_points_mean": 22.556968688964844,
+      "xyz_rms": 0.0011637848801910877,
+      "standardized_attr_rms": 1.1750091314315796
+    },
+    {
+      "group": 432,
+      "input_count": 69,
+      "focus_count": 14,
+      "focus_fraction": 0.2028985470533371,
+      "focus_attention_mean": 0.2674652934074402,
+      "focus_attention_max_query": 0.37274399399757385,
+      "attention_effective_points_mean": 45.17688751220703,
+      "xyz_rms": 0.0008455713978037238,
+      "standardized_attr_rms": 1.2713425159454346
+    },
+    {
+      "group": 337,
+      "input_count": 96,
+      "focus_count": 24,
+      "focus_fraction": 0.25,
+      "focus_attention_mean": 0.2767910361289978,
+      "focus_attention_max_query": 0.3664470613002777,
+      "attention_effective_points_mean": 54.59355926513672,
+      "xyz_rms": 0.001064314041286707,
+      "standardized_attr_rms": 1.0964618921279907
+    },
+    {
+      "group": 630,
+      "input_count": 62,
+      "focus_count": 21,
+      "focus_fraction": 0.33870968222618103,
+      "focus_attention_mean": 0.4231397211551666,
+      "focus_attention_max_query": 0.6504943370819092,
+      "attention_effective_points_mean": 40.944580078125,
+      "xyz_rms": 0.002021431690081954,
+      "standardized_attr_rms": 1.1458624601364136
+    },
+    {
+      "group": 319,
+      "input_count": 22,
+      "focus_count": 20,
+      "focus_fraction": 0.9090909361839294,
+      "focus_attention_mean": 0.8945485353469849,
+      "focus_attention_max_query": 0.9762426614761353,
+      "attention_effective_points_mean": 14.592740058898926,
+      "xyz_rms": 0.0011721072951331735,
+      "standardized_attr_rms": 0.8735388517379761
+    },
+    {
+      "group": 933,
+      "input_count": 104,
+      "focus_count": 27,
+      "focus_fraction": 0.25961539149284363,
+      "focus_attention_mean": 0.2329329550266266,
+      "focus_attention_max_query": 0.3250361382961273,
+      "attention_effective_points_mean": 59.51710510253906,
+      "xyz_rms": 0.0009774761274456978,
+      "standardized_attr_rms": 1.0779314041137695
+    },
+    {
+      "group": 409,
+      "input_count": 89,
+      "focus_count": 24,
+      "focus_fraction": 0.26966291666030884,
+      "focus_attention_mean": 0.26350170373916626,
+      "focus_attention_max_query": 0.366120308637619,
+      "attention_effective_points_mean": 53.51572799682617,
+      "xyz_rms": 0.001238921657204628,
+      "standardized_attr_rms": 1.0684257745742798
+    },
+    {
+      "group": 929,
+      "input_count": 94,
+      "focus_count": 16,
+      "focus_fraction": 0.1702127605676651,
+      "focus_attention_mean": 0.18832744657993317,
+      "focus_attention_max_query": 0.2685081958770752,
+      "attention_effective_points_mean": 55.446842193603516,
+      "xyz_rms": 0.0016703081782907248,
+      "standardized_attr_rms": 1.1485345363616943
+    },
+    {
+      "group": 849,
+      "input_count": 91,
+      "focus_count": 14,
+      "focus_fraction": 0.1538461595773697,
+      "focus_attention_mean": 0.22191137075424194,
+      "focus_attention_max_query": 0.5178808569908142,
+      "attention_effective_points_mean": 56.110939025878906,
+      "xyz_rms": 0.0012184414081275463,
+      "standardized_attr_rms": 1.2822474241256714
+    },
+    {
+      "group": 863,
+      "input_count": 12,
+      "focus_count": 11,
+      "focus_fraction": 0.9166666865348816,
+      "focus_attention_mean": 0.953312337398529,
+      "focus_attention_max_query": 0.9990215301513672,
+      "attention_effective_points_mean": 9.604063034057617,
+      "xyz_rms": 0.0008342333021573722,
+      "standardized_attr_rms": 0.8911288380622864
+    },
+    {
+      "group": 1009,
+      "input_count": 68,
+      "focus_count": 15,
+      "focus_fraction": 0.22058823704719543,
+      "focus_attention_mean": 0.38727807998657227,
+      "focus_attention_max_query": 0.5321090221405029,
+      "attention_effective_points_mean": 36.0454216003418,
+      "xyz_rms": 0.0011603155871853232,
+      "standardized_attr_rms": 1.0007758140563965
+    },
+    {
+      "group": 799,
+      "input_count": 43,
+      "focus_count": 15,
+      "focus_fraction": 0.3488371968269348,
+      "focus_attention_mean": 0.3267819881439209,
+      "focus_attention_max_query": 0.49121689796447754,
+      "attention_effective_points_mean": 26.978515625,
+      "xyz_rms": 0.0009645435493439436,
+      "standardized_attr_rms": 1.041944980621338
+    }
+  ]
+}

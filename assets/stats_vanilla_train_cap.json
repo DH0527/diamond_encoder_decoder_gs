@@ -1,0 +1,25 @@
+{
+ "num_files": 3000,
+ "sample_stride": 50,
+ "quantile": 0.02,
+ "center": [
+  16.1796875,
+  -23.39013671875,
+  -34.5546875
+ ],
+ "scale": 97.01015625000001,
+ "lo": [
+  -22.171875,
+  -47.75,
+  -80.75
+ ],
+ "hi": [
+  54.53125,
+  0.9697265625,
+  11.640625
+ ],
+ "root": "/data/daeho/aaaa_proj/seondo/vanilla-3dgs/output/train/replay",
+ "raw_scale": 48.505078125000004,
+ "extent_cap": 2.0,
+ "note": "scale = raw_scale * extent_cap. Render saturation measured on 3 snapshots x 4 held-out views: train saturates at cap 1.25, truck at 1.5; 2.0 is a safety margin. cap 1.0 (the old value) cost -0.74 dB (train) / -1.00 dB (truck) on average and -2.61 dB on the view that shows the distant hill."
+}

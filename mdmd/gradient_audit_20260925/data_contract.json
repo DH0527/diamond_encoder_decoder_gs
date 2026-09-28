@@ -1,0 +1,66 @@
+{
+  "train": {
+    "file": "/data/daeho/aaaa_proj/seondo/vanilla-3dgs/output/train/replay/step_028630.npz",
+    "encoder_count": {
+      "min": 0.0,
+      "p01": 103.46000000000001,
+      "p50": 740.5,
+      "p99": 1581.4899999999993,
+      "max": 2038.0
+    },
+    "target_count": {
+      "min": 0.0,
+      "p01": 37.92,
+      "p50": 256.0,
+      "p99": 256.0,
+      "max": 256.0
+    },
+    "encoder_count_exceeds_256_fraction": 0.9375,
+    "target_partial_cell_fraction": 0.2509765625,
+    "encoder_full_but_target_partial_fraction": 0.1962890625,
+    "count_prior_abs_error_mean": 19.2978515625,
+    "raw_occupancy_anchor": {
+      "min": -1.0,
+      "p01": -0.19171875,
+      "p50": 4.78515625,
+      "p99": 11.355390624999995,
+      "max": 14.921875
+    },
+    "exact_row_channels": 14,
+    "exact_target_rows_found_fraction": 1.0,
+    "exact_target_rows_uniquely_found_fraction": 1.0,
+    "different_cell_among_unique_matches_fraction": 0.09306530031216076
+  },
+  "truck": {
+    "file": "/data/daeho/aaaa_proj/seondo/vanilla-3dgs/output/truck/replay/step_028750.npz",
+    "encoder_count": {
+      "min": 0.0,
+      "p01": 267.15,
+      "p50": 1393.0,
+      "p99": 2048.0,
+      "max": 2048.0
+    },
+    "target_count": {
+      "min": 0.0,
+      "p01": 57.230000000000004,
+      "p50": 256.0,
+      "p99": 256.0,
+      "max": 256.0
+    },
+    "encoder_count_exceeds_256_fraction": 0.9912109375,
+    "target_partial_cell_fraction": 0.29296875,
+    "encoder_full_but_target_partial_fraction": 0.28515625,
+    "count_prior_abs_error_mean": 23.8173828125,
+    "raw_occupancy_anchor": {
+      "min": -1.0,
+      "p01": 1.087109375,
+      "p50": 9.8828125,
+      "p99": 15.0,
+      "max": 15.0
+    },
+    "exact_row_channels": 14,
+    "exact_target_rows_found_fraction": 1.0,
+    "exact_target_rows_uniquely_found_fraction": 0.9999957802524253,
+    "different_cell_among_unique_matches_fraction": 0.08292260950291164
+  }
+}

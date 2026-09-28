@@ -1,0 +1,93 @@
+{
+  "checkpoint": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/runs/C1_detail_20260916_021829/ckpt_step00018000.pt",
+  "snapshot": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_028630.npz",
+  "strict_load": "<All keys matched successfully>",
+  "rois": {
+    "3": {
+      "upper_rail": [
+        395,
+        118,
+        620,
+        345
+      ],
+      "front_rail": [
+        275,
+        185,
+        350,
+        450
+      ],
+      "lettering": [
+        615,
+        205,
+        855,
+        322
+      ]
+    },
+    "93": {
+      "near_rail": [
+        470,
+        350,
+        725,
+        544
+      ]
+    }
+  },
+  "lines": [
+    [
+      [
+        411,
+        331
+      ],
+      [
+        412,
+        207
+      ],
+      [
+        450,
+        133
+      ],
+      [
+        462,
+        135
+      ],
+      [
+        610,
+        181
+      ]
+    ],
+    [
+      [
+        470,
+        145
+      ],
+      [
+        470,
+        318
+      ]
+    ],
+    [
+      [
+        523,
+        155
+      ],
+      [
+        524,
+        318
+      ]
+    ],
+    [
+      [
+        574,
+        170
+      ],
+      [
+        575,
+        323
+      ]
+    ]
+  ],
+  "mask_swap": "GT mask; per-cell xyz Hungarian assignment",
+  "attr_redecode_max": 0.0,
+  "inactive_shift_live_attribute_mae": 0.05056987702846527,
+  "note": "C1 (normalize_pooler_xyz=1) 18k. ROI/lines \ub294 T16k 70k \uac10\uc0ac\uc640 \ub3d9\uc77c\ud558\uac8c \uc720\uc9c0"
+}

@@ -1,0 +1,50 @@
+{
+  "grad_spike_abs": {
+    "C1_l1_vanilla_20260921_005556": "<absent>",
+    "B1_bgcap_20260922_024641": "<absent>",
+    "B1g_20260924_105249": "<absent>",
+    "B1g_20260925_053253": 6000.0
+  },
+  "grad_spike_mult": {
+    "C1_l1_vanilla_20260921_005556": "<absent>",
+    "B1_bgcap_20260922_024641": "<absent>",
+    "B1g_20260924_105249": 3.0,
+    "B1g_20260925_053253": 3.0
+  },
+  "init_from": {
+    "C1_l1_vanilla_20260921_005556": "\n",
+    "B1_bgcap_20260922_024641": "",
+    "B1g_20260924_105249": "\n",
+    "B1g_20260925_053253": "\n\n"
+  },
+  "near_detach_frac": {
+    "C1_l1_vanilla_20260921_005556": "<absent>",
+    "B1_bgcap_20260922_024641": "<absent>",
+    "B1g_20260924_105249": 0.1,
+    "B1g_20260925_053253": 0.1
+  },
+  "out_dir": {
+    "C1_l1_vanilla_20260921_005556": "runs/C1_l1_vanilla_20260921_005556",
+    "B1_bgcap_20260922_024641": "runs/B1_bgcap_20260922_024641",
+    "B1g_20260924_105249": "runs/B1g_20260924_105249",
+    "B1g_20260925_053253": "runs/B1g_20260925_053253"
+  },
+  "resume": {
+    "C1_l1_vanilla_20260921_005556": "",
+    "B1_bgcap_20260922_024641": "",
+    "B1g_20260924_105249": "runs/B1_bgcap_20260922_024641/ckpt_step00030000.pt",
+    "B1g_20260925_053253": "runs/B1g_20260924_105249/ckpt_step00042000.pt"
+  },
+  "stats_path": {
+    "C1_l1_vanilla_20260921_005556": "assets/stats_vanilla_train.json,assets/stats_vanilla_truck.json",
+    "B1_bgcap_20260922_024641": "assets/stats_vanilla_train_cap.json,assets/stats_vanilla_truck_cap.json",
+    "B1g_20260924_105249": "assets/stats_vanilla_train_cap.json,assets/stats_vanilla_truck_cap.json",
+    "B1g_20260925_053253": "assets/stats_vanilla_train_cap.json,assets/stats_vanilla_truck_cap.json"
+  },
+  "w_splat_area": {
+    "C1_l1_vanilla_20260921_005556": 0.0,
+    "B1_bgcap_20260922_024641": 0.0,
+    "B1g_20260924_105249": 1.0,
+    "B1g_20260925_053253": 1.0
+  }
+}

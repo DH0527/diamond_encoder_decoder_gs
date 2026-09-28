@@ -1,0 +1,1433 @@
+{
+  "C1_l1_vanilla_20260921_005556": {
+    "first": {
+      "run": "C1_l1_vanilla_20260921_005556",
+      "step": 50,
+      "loss": 98.0051,
+      "gn": 91.76,
+      "cov3d": 0.0,
+      "radius": 0.292,
+      "rattr": null,
+      "aniso": 0.0,
+      "aniso_gt": 0.0,
+      "ich": 10.9503,
+      "centroid": 15.9586,
+      "ramp_sobel": 0.0,
+      "lr": 2e-05
+    },
+    "last": {
+      "run": "C1_l1_vanilla_20260921_005556",
+      "step": 19600,
+      "loss": 40.9813,
+      "gn": 1375.33,
+      "cov3d": 0.851,
+      "radius": 0.067,
+      "rattr": 0.0791,
+      "aniso": 4.63,
+      "aniso_gt": 12.69,
+      "ich": 0.5845,
+      "centroid": 0.5783,
+      "ramp_sobel": 0.0,
+      "lr": 0.000174
+    },
+    "windows": {
+      "0-12000": {
+        "logged_windows": 240,
+        "gn": {
+          "median": 1955.0149999999999,
+          "max": 4645.07
+        },
+        "loss": {
+          "median": 70.21885,
+          "max": 250.5047
+        },
+        "aniso": {
+          "median": 1.77,
+          "max": 3.48
+        },
+        "rattr": {
+          "median": 0.15000000000000002,
+          "max": 0.3061
+        },
+        "ich": {
+          "median": 1.2272,
+          "max": 11.7594
+        }
+      },
+      "12000-20000": {
+        "logged_windows": 152,
+        "gn": {
+          "median": 1348.84,
+          "max": 2041.06
+        },
+        "loss": {
+          "median": 45.44855,
+          "max": 53.0661
+        },
+        "aniso": {
+          "median": 4.15,
+          "max": 4.66
+        },
+        "rattr": {
+          "median": 0.08975,
+          "max": 0.1189
+        },
+        "ich": {
+          "median": 0.7671,
+          "max": 1.1401
+        }
+      }
+    },
+    "evals": [
+      {
+        "step": 500,
+        "photo": 10.65,
+        "teacher": 11.62,
+        "train": 10.97,
+        "truck": 10.33,
+        "line": "  eval step 500: PSNR photo=10.65 (gt 16.81, gap 6.16) teacher=11.62 ssim=0.235 | s0 10.97(+6.92) | s1 10.33(+5.41) | codec_rmse=0.03843 gen_rmse=nan score[psnr]=-10.65046 uniq=0.408 eps=0.0800 ich=0.286 thr=1.069/1.497 relq=1.369 off=0.03134 cen=0.00996 chf=0.00565 empty=0.12 a_rf=0.12 hf=0.129/0.192 sstd=0.23-1.76 rad999=0.135 lam2=0.793/0.782 tmpl=3.5/22.2"
+      },
+      {
+        "step": 1000,
+        "photo": 9.77,
+        "teacher": 10.84,
+        "train": 9.75,
+        "truck": 9.79,
+        "line": "  eval step 1000: PSNR photo=9.77 (gt 16.81, gap 7.05) teacher=10.84 ssim=0.192 | s0 9.75(+8.14) | s1 9.79(+5.96) | codec_rmse=0.03661 gen_rmse=nan score[psnr]=-9.76785 uniq=0.330 eps=0.0800 ich=0.396 thr=0.923/1.497 relq=1.597 off=0.03148 cen=0.00984 chf=0.00581 empty=0.12 a_rf=0.75 hf=0.140/0.225 sstd=0.13-1.98 rad999=0.135 lam2=0.675/0.782 tmpl=3.1/22.2"
+      },
+      {
+        "step": 2000,
+        "photo": 9.18,
+        "teacher": 10.1,
+        "train": 7.6,
+        "truck": 10.77,
+        "line": "  eval step 2000: PSNR photo=9.18 (gt 16.81, gap 7.63) teacher=10.10 ssim=0.131 | s0 7.60(+10.29) | s1 10.77(+4.97) | codec_rmse=0.03533 gen_rmse=nan score[psnr]=-9.18308 uniq=0.402 eps=0.0800 ich=0.265 thr=0.579/1.497 relq=1.345 off=0.03077 cen=0.00886 chf=0.00519 empty=0.12 a_rf=1.00 hf=0.139/0.201 sstd=0.57-1.39 rad999=0.135 lam2=0.799/0.782 tmpl=6.0/22.2"
+      },
+      {
+        "step": 3000,
+        "photo": 9.37,
+        "teacher": 10.2,
+        "train": 7.4,
+        "truck": 11.34,
+        "line": "  eval step 3000: PSNR photo=9.37 (gt 16.81, gap 7.45) teacher=10.20 ssim=0.154 | s0 7.40(+10.49) | s1 11.34(+4.40) | codec_rmse=0.03524 gen_rmse=nan score[psnr]=-9.36797 uniq=0.425 eps=0.0800 ich=0.273 thr=0.674/1.497 relq=1.428 off=0.03097 cen=0.00850 chf=0.00511 empty=0.12 a_rf=1.00 hf=0.154/0.243 sstd=0.68-1.50 rad999=0.135 lam2=0.818/0.782 tmpl=5.9/22.2"
+      },
+      {
+        "step": 4000,
+        "photo": 9.67,
+        "teacher": 10.43,
+        "train": 8.05,
+        "truck": 11.3,
+        "line": "  eval step 4000: PSNR photo=9.67 (gt 16.81, gap 7.14) teacher=10.43 ssim=0.164 | s0 8.05(+9.84) | s1 11.30(+4.45) | codec_rmse=0.03500 gen_rmse=nan score[psnr]=-9.67341 uniq=0.408 eps=0.0800 ich=0.258 thr=0.547/1.497 relq=1.354 off=0.03095 cen=0.00797 chf=0.00478 empty=0.12 a_rf=1.00 hf=0.158/0.294 sstd=0.44-1.44 rad999=0.135 lam2=0.778/0.782 tmpl=6.8/22.2"
+      },
+      {
+        "step": 5000,
+        "photo": 10.4,
+        "teacher": 11.25,
+        "train": 8.78,
+        "truck": 12.03,
+        "line": "  eval step 5000: PSNR photo=10.40 (gt 16.81, gap 6.41) teacher=11.25 ssim=0.188 | s0 8.78(+9.11) | s1 12.03(+3.71) | codec_rmse=0.03531 gen_rmse=nan score[psnr]=-10.40466 uniq=0.421 eps=0.0800 ich=0.248 thr=0.524/1.497 relq=1.366 off=0.03131 cen=0.00774 chf=0.00456 empty=0.12 a_rf=1.00 hf=0.157/0.308 sstd=0.42-1.41 rad999=0.135 lam2=0.790/0.782 tmpl=10.4/22.2"
+      },
+      {
+        "step": 6000,
+        "photo": 11.39,
+        "teacher": 11.64,
+        "train": 8.99,
+        "truck": 13.78,
+        "line": "  eval step 6000: PSNR photo=11.39 (gt 16.81, gap 5.43) teacher=11.64 ssim=0.222 | s0 8.99(+8.89) | s1 13.78(+1.96) | codec_rmse=0.03538 gen_rmse=nan score[psnr]=-11.38809 uniq=0.428 eps=0.0800 ich=0.237 thr=0.551/1.497 relq=1.377 off=0.03150 cen=0.00735 chf=0.00435 empty=0.12 a_rf=1.00 hf=0.157/0.342 sstd=0.52-1.30 rad999=0.135 lam2=0.739/0.782 tmpl=11.1/22.2"
+      },
+      {
+        "step": 7000,
+        "photo": 13.97,
+        "teacher": 13.87,
+        "train": 12.82,
+        "truck": 15.13,
+        "line": "  eval step 7000: PSNR photo=13.97 (gt 16.81, gap 2.84) teacher=13.87 ssim=0.329 | s0 12.82(+5.07) | s1 15.13(+0.62) | codec_rmse=0.03529 gen_rmse=nan score[psnr]=-13.97146 uniq=0.430 eps=0.0800 ich=0.243 thr=0.565/1.497 relq=1.410 off=0.03145 cen=0.00724 chf=0.00427 empty=0.12 a_rf=1.00 hf=0.153/0.358 sstd=0.55-1.25 rad999=0.135 lam2=0.766/0.782 tmpl=13.8/22.2"
+      },
+      {
+        "step": 8000,
+        "photo": 14.9,
+        "teacher": 14.28,
+        "train": 13.68,
+        "truck": 16.11,
+        "line": "  eval step 8000: PSNR photo=14.90 (gt 16.81, gap 1.92) teacher=14.28 ssim=0.368 | s0 13.68(+4.20) | s1 16.11(-0.36) | codec_rmse=0.03479 gen_rmse=nan score[psnr]=-14.89562 uniq=0.427 eps=0.0800 ich=0.226 thr=0.524/1.497 relq=1.371 off=0.03091 cen=0.00704 chf=0.00404 empty=0.12 a_rf=1.00 hf=0.168/0.480 sstd=0.59-1.35 rad999=0.135 lam2=0.781/0.782 tmpl=14.8/22.2"
+      },
+      {
+        "step": 9000,
+        "photo": 15.58,
+        "teacher": 14.79,
+        "train": 14.51,
+        "truck": 16.66,
+        "line": "  eval step 9000: PSNR photo=15.58 (gt 16.81, gap 1.23) teacher=14.79 ssim=0.399 | s0 14.51(+3.38) | s1 16.66(-0.91) | codec_rmse=0.03506 gen_rmse=nan score[psnr]=-15.58451 uniq=0.431 eps=0.0800 ich=0.225 thr=0.493/1.497 relq=1.379 off=0.03125 cen=0.00679 chf=0.00396 empty=0.12 a_rf=1.00 hf=0.162/0.425 sstd=0.56-1.30 rad999=0.135 lam2=0.765/0.782 tmpl=16.8/22.2"
+      },
+      {
+        "step": 10000,
+        "photo": 16.33,
+        "teacher": 15.02,
+        "train": 15.03,
+        "truck": 17.63,
+        "line": "  eval step 10000: PSNR photo=16.33 (gt 16.81, gap 0.48) teacher=15.02 ssim=0.445 | s0 15.03(+2.85) | s1 17.63(-1.89) | codec_rmse=0.03511 gen_rmse=nan score[psnr]=-16.33086 uniq=0.450 eps=0.0800 ich=0.206 thr=0.462/1.497 relq=1.386 off=0.03131 cen=0.00666 chf=0.00380 empty=0.12 a_rf=1.00 hf=0.162/0.435 sstd=0.52-1.28 rad999=0.135 lam2=0.764/0.782 tmpl=21.3/22.2"
+      },
+      {
+        "step": 11000,
+        "photo": 16.0,
+        "teacher": 14.99,
+        "train": 15.0,
+        "truck": 16.99,
+        "line": "  eval step 11000: PSNR photo=16.00 (gt 16.81, gap 0.82) teacher=14.99 ssim=0.431 | s0 15.00(+2.88) | s1 16.99(-1.24) | codec_rmse=0.03539 gen_rmse=nan score[psnr]=-15.99531 uniq=0.443 eps=0.0800 ich=0.212 thr=0.461/1.497 relq=1.411 off=0.03165 cen=0.00658 chf=0.00383 empty=0.12 a_rf=1.00 hf=0.162/0.430 sstd=0.55-1.24 rad999=0.135 lam2=0.728/0.782 tmpl=22.7/22.2"
+      },
+      {
+        "step": 12000,
+        "photo": 17.0,
+        "teacher": 15.26,
+        "train": 15.96,
+        "truck": 18.04,
+        "line": "  eval step 12000: PSNR photo=17.00 (gt 16.81, gap -0.18) teacher=15.26 ssim=0.491 | s0 15.96(+1.93) | s1 18.04(-2.30) | codec_rmse=0.03515 gen_rmse=nan score[psnr]=-16.99915 uniq=0.450 eps=0.0800 ich=0.194 thr=0.379/1.497 relq=1.375 off=0.03142 cen=0.00656 chf=0.00367 empty=0.12 a_rf=1.00 hf=0.161/0.440 sstd=0.57-1.19 rad999=0.135 lam2=0.751/0.782 tmpl=25.9/22.2"
+      },
+      {
+        "step": 13000,
+        "photo": 17.39,
+        "teacher": 16.01,
+        "train": 16.05,
+        "truck": 18.73,
+        "line": "  eval step 13000: PSNR photo=17.39 (gt 16.81, gap -0.57) teacher=16.01 ssim=0.531 | s0 16.05(+1.84) | s1 18.73(-2.98) | codec_rmse=0.03518 gen_rmse=nan score[psnr]=-17.38517 uniq=0.467 eps=0.0800 ich=0.191 thr=0.425/1.497 relq=1.373 off=0.03149 cen=0.00653 chf=0.00367 empty=0.12 a_rf=1.00 hf=0.158/0.390 sstd=0.56-1.24 rad999=0.135 lam2=0.756/0.782 tmpl=27.1/22.2"
+      },
+      {
+        "step": 14000,
+        "photo": 17.54,
+        "teacher": 16.12,
+        "train": 16.24,
+        "truck": 18.85,
+        "line": "  eval step 14000: PSNR photo=17.54 (gt 16.81, gap -0.73) teacher=16.12 ssim=0.553 | s0 16.24(+1.65) | s1 18.85(-3.10) | codec_rmse=0.03540 gen_rmse=nan score[psnr]=-17.54117 uniq=0.474 eps=0.0800 ich=0.189 thr=0.434/1.497 relq=1.394 off=0.03167 cen=0.00654 chf=0.00362 empty=0.12 a_rf=1.00 hf=0.160/0.483 sstd=0.54-1.15 rad999=0.135 lam2=0.765/0.782 tmpl=28.5/22.2"
+      },
+      {
+        "step": 15000,
+        "photo": 17.74,
+        "teacher": 16.37,
+        "train": 16.4,
+        "truck": 19.08,
+        "line": "  eval step 15000: PSNR photo=17.74 (gt 16.81, gap -0.93) teacher=16.37 ssim=0.569 | s0 16.40(+1.49) | s1 19.08(-3.34) | codec_rmse=0.03541 gen_rmse=nan score[psnr]=-17.74164 uniq=0.477 eps=0.0800 ich=0.188 thr=0.413/1.497 relq=1.413 off=0.03172 cen=0.00646 chf=0.00359 empty=0.12 a_rf=1.00 hf=0.160/0.480 sstd=0.53-1.20 rad999=0.135 lam2=0.763/0.782 tmpl=30.9/22.2"
+      },
+      {
+        "step": 16000,
+        "photo": 18.33,
+        "teacher": 16.31,
+        "train": 17.03,
+        "truck": 19.62,
+        "line": "  eval step 16000: PSNR photo=18.33 (gt 16.81, gap -1.51) teacher=16.31 ssim=0.601 | s0 17.03(+0.85) | s1 19.62(-3.88) | codec_rmse=0.03531 gen_rmse=nan score[psnr]=-18.32634 uniq=0.480 eps=0.0800 ich=0.180 thr=0.400/1.497 relq=1.395 off=0.03162 cen=0.00642 chf=0.00351 empty=0.12 a_rf=1.00 hf=0.158/0.505 sstd=0.48-1.14 rad999=0.135 lam2=0.769/0.782 tmpl=31.3/22.2"
+      },
+      {
+        "step": 17000,
+        "photo": 18.57,
+        "teacher": 16.25,
+        "train": 17.26,
+        "truck": 19.89,
+        "line": "  eval step 17000: PSNR photo=18.57 (gt 16.81, gap -1.76) teacher=16.25 ssim=0.612 | s0 17.26(+0.63) | s1 19.89(-4.15) | codec_rmse=0.03526 gen_rmse=nan score[psnr]=-18.57388 uniq=0.483 eps=0.0800 ich=0.176 thr=0.405/1.497 relq=1.396 off=0.03158 cen=0.00635 chf=0.00350 empty=0.12 a_rf=1.00 hf=0.156/0.460 sstd=0.47-1.14 rad999=0.135 lam2=0.765/0.782 tmpl=32.3/22.2"
+      },
+      {
+        "step": 18000,
+        "photo": 18.36,
+        "teacher": 16.44,
+        "train": 17.06,
+        "truck": 19.65,
+        "line": "  eval step 18000: PSNR photo=18.36 (gt 16.81, gap -1.54) teacher=16.44 ssim=0.613 | s0 17.06(+0.83) | s1 19.65(-3.91) | codec_rmse=0.03520 gen_rmse=nan score[psnr]=-18.35601 uniq=0.479 eps=0.0800 ich=0.171 thr=0.366/1.497 relq=1.379 off=0.03152 cen=0.00638 chf=0.00349 empty=0.12 a_rf=1.00 hf=0.158/0.470 sstd=0.46-1.14 rad999=0.135 lam2=0.765/0.782 tmpl=34.4/22.2"
+      },
+      {
+        "step": 19000,
+        "photo": 18.46,
+        "teacher": 16.34,
+        "train": 17.27,
+        "truck": 19.64,
+        "line": "  eval step 19000: PSNR photo=18.46 (gt 16.81, gap -1.64) teacher=16.34 ssim=0.611 | s0 17.27(+0.61) | s1 19.64(-3.89) | codec_rmse=0.03533 gen_rmse=nan score[psnr]=-18.45541 uniq=0.480 eps=0.0800 ich=0.176 thr=0.381/1.497 relq=1.404 off=0.03169 cen=0.00624 chf=0.00348 empty=0.12 a_rf=1.00 hf=0.159/0.491 sstd=0.47-1.14 rad999=0.135 lam2=0.764/0.782 tmpl=33.9/22.2"
+      }
+    ],
+    "grad_skips": [],
+    "loss_skips": [],
+    "anchors": [],
+    "max_logged_norm": {
+      "run": "C1_l1_vanilla_20260921_005556",
+      "step": 2700,
+      "loss": 136.4976,
+      "gn": 4645.07,
+      "cov3d": 0.99,
+      "radius": 0.262,
+      "rattr": 0.1923,
+      "aniso": 1.39,
+      "aniso_gt": 12.37,
+      "ich": 2.1891,
+      "centroid": 3.0116,
+      "ramp_sobel": 0.0,
+      "lr": 0.0002
+    }
+  },
+  "B1_bgcap_20260922_024641": {
+    "first": {
+      "run": "B1_bgcap_20260922_024641",
+      "step": 50,
+      "loss": 63.8019,
+      "gn": 105.37,
+      "cov3d": 0.0,
+      "radius": 0.286,
+      "rattr": null,
+      "aniso": 0.0,
+      "aniso_gt": 0.0,
+      "ich": 0.5139,
+      "centroid": 0.4251,
+      "ramp_sobel": 0.0,
+      "lr": 2e-05
+    },
+    "last": {
+      "run": "B1_bgcap_20260922_024641",
+      "step": 40650,
+      "loss": 34.6128,
+      "gn": 482.38,
+      "cov3d": 0.875,
+      "radius": 0.075,
+      "rattr": 0.1312,
+      "aniso": 3.66,
+      "aniso_gt": 12.27,
+      "ich": 0.2793,
+      "centroid": 0.193,
+      "ramp_sobel": 0.208,
+      "lr": 0.000104
+    },
+    "windows": {
+      "0-12000": {
+        "logged_windows": 240,
+        "gn": {
+          "median": 149.12,
+          "max": 802.15
+        },
+        "loss": {
+          "median": 38.4555,
+          "max": 94.0796
+        },
+        "aniso": {
+          "median": 3.435,
+          "max": 4.63
+        },
+        "rattr": {
+          "median": 0.1014,
+          "max": 0.2946
+        },
+        "ich": {
+          "median": 0.2156,
+          "max": 0.5139
+        }
+      },
+      "12000-20000": {
+        "logged_windows": 160,
+        "gn": {
+          "median": 514.56,
+          "max": 626.44
+        },
+        "loss": {
+          "median": 26.530450000000002,
+          "max": 29.3154
+        },
+        "aniso": {
+          "median": 4.97,
+          "max": 5.39
+        },
+        "rattr": {
+          "median": 0.07225000000000001,
+          "max": 0.0901
+        },
+        "ich": {
+          "median": 0.1938,
+          "max": 0.2243
+        }
+      },
+      "20000-30000": {
+        "logged_windows": 200,
+        "gn": {
+          "median": 596.11,
+          "max": 977.57
+        },
+        "loss": {
+          "median": 24.76375,
+          "max": 25.888
+        },
+        "aniso": {
+          "median": 5.42,
+          "max": 5.87
+        },
+        "rattr": {
+          "median": 0.0654,
+          "max": 0.0743
+        },
+        "ich": {
+          "median": 0.1808,
+          "max": 0.1965
+        }
+      },
+      "30000-32000": {
+        "logged_windows": 40,
+        "gn": {
+          "median": 624.855,
+          "max": 1113.98
+        },
+        "loss": {
+          "median": 24.1843,
+          "max": 24.5626
+        },
+        "aniso": {
+          "median": 5.595,
+          "max": 5.91
+        },
+        "rattr": {
+          "median": 0.06365000000000001,
+          "max": 0.0657
+        },
+        "ich": {
+          "median": 0.17645,
+          "max": 0.19
+        }
+      },
+      "32000-34000": {
+        "logged_windows": 40,
+        "gn": {
+          "median": 760.9449999999999,
+          "max": 1387.51
+        },
+        "loss": {
+          "median": 25.3126,
+          "max": 29.6186
+        },
+        "aniso": {
+          "median": 5.36,
+          "max": 5.9
+        },
+        "rattr": {
+          "median": 0.06785,
+          "max": 0.0816
+        },
+        "ich": {
+          "median": 0.19205,
+          "max": 0.2374
+        }
+      },
+      "34000-35000": {
+        "logged_windows": 20,
+        "gn": {
+          "median": 2530.415,
+          "max": 29918.83
+        },
+        "loss": {
+          "median": 32.82235,
+          "max": 50.2033
+        },
+        "aniso": {
+          "median": 4.1,
+          "max": 5.38
+        },
+        "rattr": {
+          "median": 0.0942,
+          "max": 0.1649
+        },
+        "ich": {
+          "median": 0.26890000000000003,
+          "max": 0.4408
+        }
+      },
+      "35000-37000": {
+        "logged_windows": 40,
+        "gn": {
+          "median": 56939.795,
+          "max": 269053.8
+        },
+        "loss": {
+          "median": 55.8514,
+          "max": 59.0729
+        },
+        "aniso": {
+          "median": 1.76,
+          "max": 2.44
+        },
+        "rattr": {
+          "median": 0.202,
+          "max": 0.216
+        },
+        "ich": {
+          "median": 0.45840000000000003,
+          "max": 0.4806
+        }
+      },
+      "37000-40000": {
+        "logged_windows": 60,
+        "gn": {
+          "median": 390.44,
+          "max": 306442.04
+        },
+        "loss": {
+          "median": 43.2151,
+          "max": 57.6957
+        },
+        "aniso": {
+          "median": 2.5999999999999996,
+          "max": 3.47
+        },
+        "rattr": {
+          "median": 0.1345,
+          "max": 0.2082
+        },
+        "ich": {
+          "median": 0.41225,
+          "max": 0.4683
+        }
+      },
+      "40000-41000": {
+        "logged_windows": 13,
+        "gn": {
+          "median": 437.1,
+          "max": 558.32
+        },
+        "loss": {
+          "median": 34.1961,
+          "max": 34.9794
+        },
+        "aniso": {
+          "median": 3.51,
+          "max": 3.66
+        },
+        "rattr": {
+          "median": 0.1191,
+          "max": 0.1339
+        },
+        "ich": {
+          "median": 0.2949,
+          "max": 0.301
+        }
+      }
+    },
+    "evals": [
+      {
+        "step": 500,
+        "photo": 10.04,
+        "teacher": 11.02,
+        "train": 10.05,
+        "truck": 10.04,
+        "line": "  eval step 500: PSNR photo=10.04 (gt 17.09, gap 7.04) teacher=11.02 ssim=0.204 | s0 10.05(+8.08) | s1 10.04(+6.00) | codec_rmse=0.02118 gen_rmse=nan score[psnr]=-10.04388 uniq=0.437 eps=0.0800 ich=0.273 thr=1.296/1.499 relq=1.377 off=0.01859 cen=0.00658 chf=0.00321 empty=0.10 a_rf=0.12 hf=0.188/0.554 sstd=0.40-2.26 rad999=0.090 lam2=0.857/0.774 tmpl=5.3/22.3"
+      },
+      {
+        "step": 1000,
+        "photo": 10.29,
+        "teacher": 11.2,
+        "train": 10.42,
+        "truck": 10.16,
+        "line": "  eval step 1000: PSNR photo=10.29 (gt 17.09, gap 6.80) teacher=11.20 ssim=0.213 | s0 10.42(+7.71) | s1 10.16(+5.89) | codec_rmse=0.02125 gen_rmse=nan score[psnr]=-10.29019 uniq=0.438 eps=0.0800 ich=0.242 thr=0.939/1.499 relq=1.335 off=0.01924 cen=0.00509 chf=0.00290 empty=0.10 a_rf=0.75 hf=0.181/0.507 sstd=0.47-2.15 rad999=0.090 lam2=0.813/0.774 tmpl=9.3/22.3"
+      },
+      {
+        "step": 2000,
+        "photo": 9.98,
+        "teacher": 10.73,
+        "train": 8.13,
+        "truck": 11.83,
+        "line": "  eval step 2000: PSNR photo=9.98 (gt 17.09, gap 7.11) teacher=10.73 ssim=0.189 | s0 8.13(+10.00) | s1 11.83(+4.22) | codec_rmse=0.02101 gen_rmse=nan score[psnr]=-9.97546 uniq=0.473 eps=0.0800 ich=0.217 thr=0.857/1.499 relq=1.383 off=0.01946 cen=0.00341 chf=0.00250 empty=0.10 a_rf=1.00 hf=0.209/0.449 sstd=1.20-2.16 rad999=0.090 lam2=0.763/0.774 tmpl=17.0/22.3"
+      },
+      {
+        "step": 3000,
+        "photo": 11.85,
+        "teacher": 12.3,
+        "train": 10.16,
+        "truck": 13.55,
+        "line": "  eval step 3000: PSNR photo=11.85 (gt 17.09, gap 5.23) teacher=12.30 ssim=0.260 | s0 10.16(+7.97) | s1 13.55(+2.50) | codec_rmse=0.02114 gen_rmse=nan score[psnr]=-11.85169 uniq=0.504 eps=0.0800 ich=0.189 thr=0.798/1.499 relq=1.386 off=0.01964 cen=0.00306 chf=0.00226 empty=0.10 a_rf=1.00 hf=0.215/0.485 sstd=1.24-2.21 rad999=0.090 lam2=0.749/0.774 tmpl=25.7/22.3"
+      },
+      {
+        "step": 4000,
+        "photo": 13.6,
+        "teacher": 13.36,
+        "train": 12.65,
+        "truck": 14.56,
+        "line": "  eval step 4000: PSNR photo=13.60 (gt 17.09, gap 3.48) teacher=13.36 ssim=0.330 | s0 12.65(+5.48) | s1 14.56(+1.49) | codec_rmse=0.02120 gen_rmse=nan score[psnr]=-13.60257 uniq=0.524 eps=0.0800 ich=0.170 thr=0.766/1.499 relq=1.403 off=0.01971 cen=0.00274 chf=0.00213 empty=0.10 a_rf=1.00 hf=0.228/0.544 sstd=1.28-2.34 rad999=0.090 lam2=0.743/0.774 tmpl=33.1/22.3"
+      },
+      {
+        "step": 5000,
+        "photo": 13.84,
+        "teacher": 14.16,
+        "train": 12.56,
+        "truck": 15.13,
+        "line": "  eval step 5000: PSNR photo=13.84 (gt 17.09, gap 3.24) teacher=14.16 ssim=0.370 | s0 12.56(+5.57) | s1 15.13(+0.91) | codec_rmse=0.02119 gen_rmse=nan score[psnr]=-13.84419 uniq=0.540 eps=0.0800 ich=0.155 thr=0.756/1.499 relq=1.403 off=0.01974 cen=0.00257 chf=0.00206 empty=0.10 a_rf=1.00 hf=0.233/0.574 sstd=1.28-2.49 rad999=0.090 lam2=0.740/0.774 tmpl=38.3/22.3"
+      },
+      {
+        "step": 6000,
+        "photo": 15.47,
+        "teacher": 14.81,
+        "train": 14.0,
+        "truck": 16.93,
+        "line": "  eval step 6000: PSNR photo=15.47 (gt 17.09, gap 1.62) teacher=14.81 ssim=0.443 | s0 14.00(+4.13) | s1 16.93(-0.89) | codec_rmse=0.02119 gen_rmse=nan score[psnr]=-15.46606 uniq=0.543 eps=0.0800 ich=0.148 thr=0.731/1.499 relq=1.390 off=0.01975 cen=0.00242 chf=0.00199 empty=0.10 a_rf=1.00 hf=0.235/0.608 sstd=1.24-2.49 rad999=0.090 lam2=0.742/0.774 tmpl=41.5/22.3"
+      },
+      {
+        "step": 7000,
+        "photo": 17.49,
+        "teacher": 15.92,
+        "train": 16.61,
+        "truck": 18.37,
+        "line": "  eval step 7000: PSNR photo=17.49 (gt 17.09, gap -0.40) teacher=15.92 ssim=0.534 | s0 16.61(+1.52) | s1 18.37(-2.33) | codec_rmse=0.02134 gen_rmse=nan score[psnr]=-17.49107 uniq=0.551 eps=0.0800 ich=0.143 thr=0.757/1.499 relq=1.413 off=0.01987 cen=0.00248 chf=0.00198 empty=0.10 a_rf=1.00 hf=0.234/0.621 sstd=1.17-2.49 rad999=0.090 lam2=0.744/0.774 tmpl=45.2/22.3"
+      },
+      {
+        "step": 8000,
+        "photo": 17.5,
+        "teacher": 16.44,
+        "train": 16.36,
+        "truck": 18.64,
+        "line": "  eval step 8000: PSNR photo=17.50 (gt 17.09, gap -0.41) teacher=16.44 ssim=0.558 | s0 16.36(+1.77) | s1 18.64(-2.60) | codec_rmse=0.02127 gen_rmse=nan score[psnr]=-17.49890 uniq=0.549 eps=0.0800 ich=0.135 thr=0.742/1.499 relq=1.402 off=0.01981 cen=0.00241 chf=0.00195 empty=0.10 a_rf=1.00 hf=0.233/0.641 sstd=1.13-2.42 rad999=0.090 lam2=0.747/0.774 tmpl=46.8/22.3"
+      },
+      {
+        "step": 9000,
+        "photo": 18.13,
+        "teacher": 16.8,
+        "train": 17.02,
+        "truck": 19.23,
+        "line": "  eval step 9000: PSNR photo=18.13 (gt 17.09, gap -1.04) teacher=16.80 ssim=0.592 | s0 17.02(+1.10) | s1 19.23(-3.18) | codec_rmse=0.02128 gen_rmse=nan score[psnr]=-18.12613 uniq=0.552 eps=0.0800 ich=0.133 thr=0.739/1.499 relq=1.405 off=0.01981 cen=0.00242 chf=0.00193 empty=0.10 a_rf=1.00 hf=0.232/0.659 sstd=1.10-2.43 rad999=0.090 lam2=0.745/0.774 tmpl=49.2/22.3"
+      },
+      {
+        "step": 10000,
+        "photo": 18.29,
+        "teacher": 16.76,
+        "train": 17.2,
+        "truck": 19.37,
+        "line": "  eval step 10000: PSNR photo=18.29 (gt 17.09, gap -1.20) teacher=16.76 ssim=0.602 | s0 17.20(+0.93) | s1 19.37(-3.33) | codec_rmse=0.02120 gen_rmse=nan score[psnr]=-18.28798 uniq=0.552 eps=0.0800 ich=0.132 thr=0.731/1.499 relq=1.390 off=0.01973 cen=0.00240 chf=0.00191 empty=0.10 a_rf=1.00 hf=0.230/0.669 sstd=1.08-2.41 rad999=0.090 lam2=0.745/0.774 tmpl=50.2/22.3"
+      },
+      {
+        "step": 11000,
+        "photo": 18.61,
+        "teacher": 16.6,
+        "train": 17.48,
+        "truck": 19.74,
+        "line": "  eval step 11000: PSNR photo=18.61 (gt 17.09, gap -1.52) teacher=16.60 ssim=0.626 | s0 17.48(+0.65) | s1 19.74(-3.69) | codec_rmse=0.02136 gen_rmse=nan score[psnr]=-18.60688 uniq=0.548 eps=0.0800 ich=0.126 thr=0.746/1.499 relq=1.406 off=0.01986 cen=0.00241 chf=0.00190 empty=0.10 a_rf=1.00 hf=0.230/0.679 sstd=1.08-2.42 rad999=0.090 lam2=0.744/0.774 tmpl=51.7/22.3"
+      },
+      {
+        "step": 12000,
+        "photo": 18.87,
+        "teacher": 16.79,
+        "train": 17.58,
+        "truck": 20.16,
+        "line": "  eval step 12000: PSNR photo=18.87 (gt 17.09, gap -1.78) teacher=16.79 ssim=0.639 | s0 17.58(+0.55) | s1 20.16(-4.11) | codec_rmse=0.02125 gen_rmse=nan score[psnr]=-18.87010 uniq=0.548 eps=0.0800 ich=0.123 thr=0.734/1.499 relq=1.400 off=0.01978 cen=0.00235 chf=0.00188 empty=0.10 a_rf=1.00 hf=0.227/0.679 sstd=1.05-2.36 rad999=0.090 lam2=0.746/0.774 tmpl=52.2/22.3"
+      },
+      {
+        "step": 13000,
+        "photo": 19.35,
+        "teacher": 17.02,
+        "train": 18.01,
+        "truck": 20.69,
+        "line": "  eval step 13000: PSNR photo=19.35 (gt 17.09, gap -2.26) teacher=17.02 ssim=0.685 | s0 18.01(+0.12) | s1 20.69(-4.65) | codec_rmse=0.02127 gen_rmse=nan score[psnr]=-19.34941 uniq=0.556 eps=0.0800 ich=0.135 thr=0.742/1.499 relq=1.399 off=0.01980 cen=0.00233 chf=0.00188 empty=0.10 a_rf=1.00 hf=0.224/0.685 sstd=1.04-2.32 rad999=0.090 lam2=0.751/0.774 tmpl=50.4/22.3"
+      },
+      {
+        "step": 14000,
+        "photo": 19.42,
+        "teacher": 17.22,
+        "train": 18.09,
+        "truck": 20.76,
+        "line": "  eval step 14000: PSNR photo=19.42 (gt 17.09, gap -2.34) teacher=17.22 ssim=0.694 | s0 18.09(+0.04) | s1 20.76(-4.72) | codec_rmse=0.02127 gen_rmse=nan score[psnr]=-19.42391 uniq=0.556 eps=0.0800 ich=0.133 thr=0.754/1.499 relq=1.405 off=0.01982 cen=0.00229 chf=0.00188 empty=0.10 a_rf=1.00 hf=0.223/0.686 sstd=1.02-2.34 rad999=0.090 lam2=0.752/0.774 tmpl=52.8/22.3"
+      },
+      {
+        "step": 15000,
+        "photo": 19.67,
+        "teacher": 16.97,
+        "train": 18.47,
+        "truck": 20.87,
+        "line": "  eval step 15000: PSNR photo=19.67 (gt 17.09, gap -2.59) teacher=16.97 ssim=0.715 | s0 18.47(-0.35) | s1 20.87(-4.83) | codec_rmse=0.02127 gen_rmse=nan score[psnr]=-19.67324 uniq=0.556 eps=0.0800 ich=0.131 thr=0.760/1.499 relq=1.405 off=0.01978 cen=0.00230 chf=0.00187 empty=0.10 a_rf=1.00 hf=0.221/0.688 sstd=1.01-2.29 rad999=0.090 lam2=0.756/0.774 tmpl=53.3/22.3"
+      },
+      {
+        "step": 16000,
+        "photo": 19.7,
+        "teacher": 17.38,
+        "train": 18.18,
+        "truck": 21.23,
+        "line": "  eval step 16000: PSNR photo=19.70 (gt 17.09, gap -2.62) teacher=17.38 ssim=0.724 | s0 18.18(-0.05) | s1 21.23(-5.18) | codec_rmse=0.02128 gen_rmse=nan score[psnr]=-19.70230 uniq=0.557 eps=0.0800 ich=0.130 thr=0.765/1.499 relq=1.405 off=0.01981 cen=0.00231 chf=0.00187 empty=0.10 a_rf=1.00 hf=0.221/0.693 sstd=1.01-2.29 rad999=0.090 lam2=0.758/0.774 tmpl=54.4/22.3"
+      },
+      {
+        "step": 17000,
+        "photo": 19.81,
+        "teacher": 17.26,
+        "train": 18.24,
+        "truck": 21.37,
+        "line": "  eval step 17000: PSNR photo=19.81 (gt 17.09, gap -2.72) teacher=17.26 ssim=0.729 | s0 18.24(-0.12) | s1 21.37(-5.32) | codec_rmse=0.02130 gen_rmse=nan score[psnr]=-19.80648 uniq=0.557 eps=0.0800 ich=0.128 thr=0.764/1.499 relq=1.407 off=0.01982 cen=0.00231 chf=0.00185 empty=0.10 a_rf=1.00 hf=0.219/0.695 sstd=0.99-2.28 rad999=0.090 lam2=0.757/0.774 tmpl=55.6/22.3"
+      },
+      {
+        "step": 18000,
+        "photo": 19.96,
+        "teacher": 17.3,
+        "train": 18.7,
+        "truck": 21.21,
+        "line": "  eval step 18000: PSNR photo=19.96 (gt 17.09, gap -2.87) teacher=17.30 ssim=0.734 | s0 18.70(-0.57) | s1 21.21(-5.17) | codec_rmse=0.02131 gen_rmse=nan score[psnr]=-19.95647 uniq=0.559 eps=0.0800 ich=0.127 thr=0.766/1.499 relq=1.407 off=0.01984 cen=0.00231 chf=0.00186 empty=0.10 a_rf=1.00 hf=0.218/0.698 sstd=0.99-2.28 rad999=0.090 lam2=0.756/0.774 tmpl=56.6/22.3"
+      },
+      {
+        "step": 19000,
+        "photo": 20.06,
+        "teacher": 17.32,
+        "train": 18.64,
+        "truck": 21.49,
+        "line": "  eval step 19000: PSNR photo=20.06 (gt 17.09, gap -2.98) teacher=17.32 ssim=0.736 | s0 18.64(-0.51) | s1 21.49(-5.45) | codec_rmse=0.02127 gen_rmse=nan score[psnr]=-20.06414 uniq=0.555 eps=0.0800 ich=0.126 thr=0.758/1.499 relq=1.407 off=0.01979 cen=0.00229 chf=0.00186 empty=0.10 a_rf=1.00 hf=0.217/0.697 sstd=0.98-2.25 rad999=0.090 lam2=0.755/0.774 tmpl=56.8/22.3"
+      },
+      {
+        "step": 20000,
+        "photo": 20.16,
+        "teacher": 17.48,
+        "train": 18.6,
+        "truck": 21.71,
+        "line": "  eval step 20000: PSNR photo=20.16 (gt 17.09, gap -3.07) teacher=17.48 ssim=0.750 | s0 18.60(-0.47) | s1 21.71(-5.66) | codec_rmse=0.02133 gen_rmse=nan score[psnr]=-20.15577 uniq=0.558 eps=0.0800 ich=0.124 thr=0.765/1.499 relq=1.408 off=0.01986 cen=0.00230 chf=0.00186 empty=0.10 a_rf=1.00 hf=0.216/0.705 sstd=0.97-2.25 rad999=0.090 lam2=0.755/0.774 tmpl=57.6/22.3"
+      },
+      {
+        "step": 21000,
+        "photo": 20.2,
+        "teacher": 17.46,
+        "train": 18.88,
+        "truck": 21.51,
+        "line": "  eval step 21000: PSNR photo=20.20 (gt 17.09, gap -3.11) teacher=17.46 ssim=0.757 | s0 18.88(-0.75) | s1 21.51(-5.47) | codec_rmse=0.02135 gen_rmse=nan score[psnr]=-20.19773 uniq=0.558 eps=0.0800 ich=0.123 thr=0.759/1.499 relq=1.406 off=0.01987 cen=0.00228 chf=0.00184 empty=0.10 a_rf=1.00 hf=0.215/0.705 sstd=0.97-2.23 rad999=0.090 lam2=0.755/0.774 tmpl=58.7/22.3"
+      },
+      {
+        "step": 22000,
+        "photo": 20.25,
+        "teacher": 17.71,
+        "train": 18.91,
+        "truck": 21.59,
+        "line": "  eval step 22000: PSNR photo=20.25 (gt 17.09, gap -3.17) teacher=17.71 ssim=0.754 | s0 18.91(-0.79) | s1 21.59(-5.55) | codec_rmse=0.02137 gen_rmse=nan score[psnr]=-20.25426 uniq=0.559 eps=0.0800 ich=0.123 thr=0.765/1.499 relq=1.407 off=0.01987 cen=0.00229 chf=0.00184 empty=0.10 a_rf=1.00 hf=0.213/0.703 sstd=0.96-2.22 rad999=0.090 lam2=0.756/0.774 tmpl=59.4/22.3"
+      },
+      {
+        "step": 23000,
+        "photo": 20.18,
+        "teacher": 17.43,
+        "train": 18.46,
+        "truck": 21.91,
+        "line": "  eval step 23000: PSNR photo=20.18 (gt 17.09, gap -3.10) teacher=17.43 ssim=0.755 | s0 18.46(-0.33) | s1 21.91(-5.86) | codec_rmse=0.02135 gen_rmse=nan score[psnr]=-20.18183 uniq=0.559 eps=0.0800 ich=0.123 thr=0.757/1.499 relq=1.404 off=0.01987 cen=0.00230 chf=0.00185 empty=0.10 a_rf=1.00 hf=0.213/0.714 sstd=0.95-2.19 rad999=0.090 lam2=0.755/0.774 tmpl=58.8/22.3"
+      },
+      {
+        "step": 24000,
+        "photo": 20.32,
+        "teacher": 17.27,
+        "train": 18.75,
+        "truck": 21.88,
+        "line": "  eval step 24000: PSNR photo=20.32 (gt 17.09, gap -3.23) teacher=17.27 ssim=0.764 | s0 18.75(-0.62) | s1 21.88(-5.84) | codec_rmse=0.02130 gen_rmse=nan score[psnr]=-20.31611 uniq=0.557 eps=0.0800 ich=0.121 thr=0.759/1.499 relq=1.404 off=0.01982 cen=0.00228 chf=0.00184 empty=0.10 a_rf=1.00 hf=0.211/0.709 sstd=0.95-2.19 rad999=0.090 lam2=0.759/0.774 tmpl=59.7/22.3"
+      },
+      {
+        "step": 25000,
+        "photo": 20.51,
+        "teacher": 17.65,
+        "train": 19.09,
+        "truck": 21.93,
+        "line": "  eval step 25000: PSNR photo=20.51 (gt 17.09, gap -3.42) teacher=17.65 ssim=0.766 | s0 19.09(-0.96) | s1 21.93(-5.88) | codec_rmse=0.02130 gen_rmse=nan score[psnr]=-20.50697 uniq=0.558 eps=0.0800 ich=0.120 thr=0.762/1.499 relq=1.406 off=0.01983 cen=0.00228 chf=0.00184 empty=0.10 a_rf=1.00 hf=0.210/0.708 sstd=0.95-2.18 rad999=0.090 lam2=0.759/0.774 tmpl=60.6/22.3"
+      },
+      {
+        "step": 26000,
+        "photo": 20.49,
+        "teacher": 17.45,
+        "train": 18.81,
+        "truck": 22.17,
+        "line": "  eval step 26000: PSNR photo=20.49 (gt 17.09, gap -3.41) teacher=17.45 ssim=0.774 | s0 18.81(-0.68) | s1 22.17(-6.13) | codec_rmse=0.02135 gen_rmse=nan score[psnr]=-20.49164 uniq=0.558 eps=0.0800 ich=0.120 thr=0.762/1.499 relq=1.407 off=0.01987 cen=0.00232 chf=0.00184 empty=0.10 a_rf=1.00 hf=0.210/0.711 sstd=0.94-2.16 rad999=0.090 lam2=0.758/0.774 tmpl=60.8/22.3"
+      },
+      {
+        "step": 27000,
+        "photo": 20.47,
+        "teacher": 17.24,
+        "train": 18.69,
+        "truck": 22.26,
+        "line": "  eval step 27000: PSNR photo=20.47 (gt 17.09, gap -3.39) teacher=17.24 ssim=0.769 | s0 18.69(-0.56) | s1 22.26(-6.21) | codec_rmse=0.02132 gen_rmse=nan score[psnr]=-20.47272 uniq=0.556 eps=0.0800 ich=0.120 thr=0.765/1.499 relq=1.405 off=0.01984 cen=0.00228 chf=0.00183 empty=0.10 a_rf=1.00 hf=0.209/0.712 sstd=0.94-2.16 rad999=0.090 lam2=0.755/0.774 tmpl=60.4/22.3"
+      },
+      {
+        "step": 28000,
+        "photo": 20.45,
+        "teacher": 17.48,
+        "train": 18.87,
+        "truck": 22.02,
+        "line": "  eval step 28000: PSNR photo=20.45 (gt 17.09, gap -3.36) teacher=17.48 ssim=0.774 | s0 18.87(-0.75) | s1 22.02(-5.98) | codec_rmse=0.02133 gen_rmse=nan score[psnr]=-20.44870 uniq=0.557 eps=0.0800 ich=0.118 thr=0.759/1.499 relq=1.405 off=0.01986 cen=0.00227 chf=0.00184 empty=0.10 a_rf=1.00 hf=0.208/0.713 sstd=0.93-2.15 rad999=0.090 lam2=0.758/0.774 tmpl=61.1/22.3"
+      },
+      {
+        "step": 29000,
+        "photo": 20.72,
+        "teacher": 17.9,
+        "train": 19.19,
+        "truck": 22.26,
+        "line": "  eval step 29000: PSNR photo=20.72 (gt 17.09, gap -3.64) teacher=17.90 ssim=0.782 | s0 19.19(-1.06) | s1 22.26(-6.22) | codec_rmse=0.02131 gen_rmse=nan score[psnr]=-20.72300 uniq=0.556 eps=0.0800 ich=0.118 thr=0.764/1.499 relq=1.407 off=0.01983 cen=0.00227 chf=0.00182 empty=0.10 a_rf=1.00 hf=0.207/0.712 sstd=0.93-2.13 rad999=0.090 lam2=0.757/0.774 tmpl=61.6/22.3"
+      },
+      {
+        "step": 30000,
+        "photo": 20.49,
+        "teacher": 17.69,
+        "train": 18.66,
+        "truck": 22.32,
+        "line": "  eval step 30000: PSNR photo=20.49 (gt 17.09, gap -3.41) teacher=17.69 ssim=0.770 | s0 18.66(-0.54) | s1 22.32(-6.28) | codec_rmse=0.02136 gen_rmse=nan score[psnr]=-20.49376 uniq=0.558 eps=0.0800 ich=0.119 thr=0.764/1.499 relq=1.407 off=0.01988 cen=0.00225 chf=0.00183 empty=0.10 a_rf=1.00 hf=0.206/0.695 sstd=0.92-2.11 rad999=0.090 lam2=0.755/0.774 tmpl=61.4/22.3"
+      },
+      {
+        "step": 31000,
+        "photo": 20.88,
+        "teacher": 17.45,
+        "train": 19.57,
+        "truck": 22.19,
+        "line": "  eval step 31000: PSNR photo=20.88 (gt 17.09, gap -3.79) teacher=17.45 ssim=0.782 | s0 19.57(-1.44) | s1 22.19(-6.15) | codec_rmse=0.02133 gen_rmse=nan score[psnr]=-20.88086 uniq=0.557 eps=0.0800 ich=0.117 thr=0.767/1.499 relq=1.407 off=0.01985 cen=0.00229 chf=0.00182 empty=0.10 a_rf=1.00 hf=0.206/0.705 sstd=0.93-2.11 rad999=0.090 lam2=0.757/0.774 tmpl=62.1/22.3"
+      },
+      {
+        "step": 32000,
+        "photo": 20.78,
+        "teacher": 17.39,
+        "train": 19.39,
+        "truck": 22.16,
+        "line": "  eval step 32000: PSNR photo=20.78 (gt 17.09, gap -3.69) teacher=17.39 ssim=0.778 | s0 19.39(-1.26) | s1 22.16(-6.12) | codec_rmse=0.02137 gen_rmse=nan score[psnr]=-20.77567 uniq=0.557 eps=0.0800 ich=0.117 thr=0.771/1.499 relq=1.412 off=0.01988 cen=0.00229 chf=0.00183 empty=0.10 a_rf=1.00 hf=0.206/0.708 sstd=0.93-2.11 rad999=0.090 lam2=0.757/0.774 tmpl=62.1/22.3"
+      },
+      {
+        "step": 33000,
+        "photo": 20.09,
+        "teacher": 17.55,
+        "train": 18.24,
+        "truck": 21.95,
+        "line": "  eval step 33000: PSNR photo=20.09 (gt 17.09, gap -3.01) teacher=17.55 ssim=0.743 | s0 18.24(-0.11) | s1 21.95(-5.90) | codec_rmse=0.02130 gen_rmse=nan score[psnr]=-20.09205 uniq=0.556 eps=0.0800 ich=0.125 thr=0.764/1.499 relq=1.403 off=0.01975 cen=0.00271 chf=0.00186 empty=0.10 a_rf=1.00 hf=0.203/0.684 sstd=0.93-2.02 rad999=0.090 lam2=0.757/0.774 tmpl=60.4/22.3"
+      },
+      {
+        "step": 34000,
+        "photo": 19.99,
+        "teacher": 17.15,
+        "train": 18.06,
+        "truck": 21.92,
+        "line": "  eval step 34000: PSNR photo=19.99 (gt 17.09, gap -2.91) teacher=17.15 ssim=0.733 | s0 18.06(+0.06) | s1 21.92(-5.88) | codec_rmse=0.02132 gen_rmse=nan score[psnr]=-19.99171 uniq=0.554 eps=0.0800 ich=0.130 thr=0.761/1.499 relq=1.403 off=0.01982 cen=0.00234 chf=0.00190 empty=0.10 a_rf=1.00 hf=0.211/0.687 sstd=0.94-2.20 rad999=0.090 lam2=0.762/0.774 tmpl=58.5/22.3"
+      },
+      {
+        "step": 35000,
+        "photo": 14.44,
+        "teacher": 14.26,
+        "train": 13.49,
+        "truck": 15.38,
+        "line": "  eval step 35000: PSNR photo=14.44 (gt 17.09, gap 2.65) teacher=14.26 ssim=0.359 | s0 13.49(+4.63) | s1 15.38(+0.67) | codec_rmse=0.02074 gen_rmse=nan score[psnr]=-14.43656 uniq=0.440 eps=0.0800 ich=0.247 thr=0.791/1.499 relq=1.381 off=0.01868 cen=0.00447 chf=0.00281 empty=0.10 a_rf=1.00 hf=0.185/0.446 sstd=0.74-2.47 rad999=0.090 lam2=0.802/0.774 tmpl=29.7/22.3"
+      },
+      {
+        "step": 36000,
+        "photo": 12.12,
+        "teacher": 12.71,
+        "train": 11.98,
+        "truck": 12.25,
+        "line": "  eval step 36000: PSNR photo=12.12 (gt 17.09, gap 4.97) teacher=12.71 ssim=0.273 | s0 11.98(+6.14) | s1 12.25(+3.79) | codec_rmse=0.02091 gen_rmse=nan score[psnr]=-12.11735 uniq=0.412 eps=0.0800 ich=0.292 thr=1.123/1.499 relq=1.372 off=0.01841 cen=0.00627 chf=0.00320 empty=0.10 a_rf=1.00 hf=0.132/0.218 sstd=0.19-2.92 rad999=0.090 lam2=0.893/0.774 tmpl=5.7/22.3"
+      },
+      {
+        "step": 37000,
+        "photo": 12.24,
+        "teacher": 12.75,
+        "train": 11.59,
+        "truck": 12.89,
+        "line": "  eval step 37000: PSNR photo=12.24 (gt 17.09, gap 4.85) teacher=12.75 ssim=0.260 | s0 11.59(+6.54) | s1 12.89(+3.16) | codec_rmse=0.02059 gen_rmse=nan score[psnr]=-12.23682 uniq=0.415 eps=0.0800 ich=0.283 thr=0.967/1.499 relq=1.365 off=0.01808 cen=0.00624 chf=0.00308 empty=0.10 a_rf=1.00 hf=0.037/0.002 sstd=0.05-0.34 rad999=0.090 lam2=0.845/0.774 tmpl=7.8/22.3"
+      },
+      {
+        "step": 38000,
+        "photo": 13.56,
+        "teacher": 13.45,
+        "train": 13.07,
+        "truck": 14.05,
+        "line": "  eval step 38000: PSNR photo=13.56 (gt 17.09, gap 3.53) teacher=13.45 ssim=0.299 | s0 13.07(+5.06) | s1 14.05(+2.00) | codec_rmse=0.02051 gen_rmse=nan score[psnr]=-13.55830 uniq=0.409 eps=0.0800 ich=0.277 thr=0.828/1.499 relq=1.347 off=0.01807 cen=0.00620 chf=0.00302 empty=0.10 a_rf=1.00 hf=0.064/0.027 sstd=0.17-0.81 rad999=0.090 lam2=0.827/0.774 tmpl=10.9/22.3"
+      },
+      {
+        "step": 39000,
+        "photo": 16.28,
+        "teacher": 15.46,
+        "train": 15.09,
+        "truck": 17.46,
+        "line": "  eval step 39000: PSNR photo=16.28 (gt 17.09, gap 0.81) teacher=15.46 ssim=0.453 | s0 15.09(+3.03) | s1 17.46(-1.42) | codec_rmse=0.02070 gen_rmse=nan score[psnr]=-16.27793 uniq=0.449 eps=0.0800 ich=0.232 thr=0.622/1.499 relq=1.375 off=0.01917 cen=0.00352 chf=0.00262 empty=0.10 a_rf=1.00 hf=0.112/0.174 sstd=0.50-1.33 rad999=0.090 lam2=0.797/0.774 tmpl=18.3/22.3"
+      },
+      {
+        "step": 40000,
+        "photo": 18.21,
+        "teacher": 16.44,
+        "train": 17.03,
+        "truck": 19.39,
+        "line": "  eval step 40000: PSNR photo=18.21 (gt 17.09, gap -1.13) teacher=16.44 ssim=0.598 | s0 17.03(+1.09) | s1 19.39(-3.35) | codec_rmse=0.02089 gen_rmse=nan score[psnr]=-18.21325 uniq=0.479 eps=0.0800 ich=0.199 thr=0.562/1.499 relq=1.397 off=0.01943 cen=0.00255 chf=0.00229 empty=0.10 a_rf=1.00 hf=0.130/0.262 sstd=0.56-1.41 rad999=0.090 lam2=0.782/0.774 tmpl=33.3/22.3"
+      }
+    ],
+    "grad_skips": [],
+    "loss_skips": [],
+    "anchors": [],
+    "max_logged_norm": {
+      "run": "B1_bgcap_20260922_024641",
+      "step": 37100,
+      "loss": 55.9762,
+      "gn": 306442.04,
+      "cov3d": 1.879,
+      "radius": 0.241,
+      "rattr": 0.2082,
+      "aniso": 1.72,
+      "aniso_gt": 12.66,
+      "ich": 0.4646,
+      "centroid": 0.3948,
+      "ramp_sobel": 0.0,
+      "lr": 0.000117
+    }
+  },
+  "B1g_20260924_105249": {
+    "first": {
+      "run": "B1g_20260924_105249",
+      "step": 30050,
+      "loss": 24.87,
+      "gn": 521.66,
+      "cov3d": 0.719,
+      "radius": 0.045,
+      "rattr": 0.0694,
+      "aniso": 5.47,
+      "aniso_gt": 12.3,
+      "ich": 0.1779,
+      "centroid": 0.1188,
+      "ramp_sobel": 0.0,
+      "lr": 0.000142
+    },
+    "last": {
+      "run": "B1g_20260924_105249",
+      "step": 42200,
+      "loss": 24.3999,
+      "gn": 861.69,
+      "cov3d": 0.724,
+      "radius": 0.031,
+      "rattr": 0.1377,
+      "aniso": 4.25,
+      "aniso_gt": 9.93,
+      "ich": 0.1204,
+      "centroid": 0.0864,
+      "ramp_sobel": 0.551,
+      "lr": 9.77e-05
+    },
+    "windows": {
+      "30000-32000": {
+        "logged_windows": 40,
+        "gn": {
+          "median": 534.015,
+          "max": 684.91
+        },
+        "loss": {
+          "median": 25.910449999999997,
+          "max": 27.3782
+        },
+        "aniso": {
+          "median": 5.5,
+          "max": 5.74
+        },
+        "rattr": {
+          "median": 0.0825,
+          "max": 0.0927
+        },
+        "ich": {
+          "median": 0.1747,
+          "max": 0.195
+        }
+      },
+      "32000-34000": {
+        "logged_windows": 40,
+        "gn": {
+          "median": 546.03,
+          "max": 595.41
+        },
+        "loss": {
+          "median": 26.054499999999997,
+          "max": 27.2326
+        },
+        "aniso": {
+          "median": 5.470000000000001,
+          "max": 5.95
+        },
+        "rattr": {
+          "median": 0.08545,
+          "max": 0.0922
+        },
+        "ich": {
+          "median": 0.1721,
+          "max": 0.1904
+        }
+      },
+      "34000-35000": {
+        "logged_windows": 20,
+        "gn": {
+          "median": 564.76,
+          "max": 614.85
+        },
+        "loss": {
+          "median": 25.698,
+          "max": 26.4522
+        },
+        "aniso": {
+          "median": 5.61,
+          "max": 5.9
+        },
+        "rattr": {
+          "median": 0.0839,
+          "max": 0.0936
+        },
+        "ich": {
+          "median": 0.1664,
+          "max": 0.1815
+        }
+      },
+      "35000-37000": {
+        "logged_windows": 40,
+        "gn": {
+          "median": 530.0799999999999,
+          "max": 609.72
+        },
+        "loss": {
+          "median": 25.684849999999997,
+          "max": 26.1497
+        },
+        "aniso": {
+          "median": 5.605,
+          "max": 5.97
+        },
+        "rattr": {
+          "median": 0.0849,
+          "max": 0.0936
+        },
+        "ich": {
+          "median": 0.16615,
+          "max": 0.1754
+        }
+      },
+      "37000-40000": {
+        "logged_windows": 60,
+        "gn": {
+          "median": 543.74,
+          "max": 618.87
+        },
+        "loss": {
+          "median": 25.585,
+          "max": 26.199
+        },
+        "aniso": {
+          "median": 5.67,
+          "max": 5.97
+        },
+        "rattr": {
+          "median": 0.08535000000000001,
+          "max": 0.0947
+        },
+        "ich": {
+          "median": 0.1633,
+          "max": 0.1734
+        }
+      },
+      "40000-41000": {
+        "logged_windows": 20,
+        "gn": {
+          "median": 757.7349999999999,
+          "max": 998.15
+        },
+        "loss": {
+          "median": 26.91895,
+          "max": 29.0754
+        },
+        "aniso": {
+          "median": 5.63,
+          "max": 5.97
+        },
+        "rattr": {
+          "median": 0.11305000000000001,
+          "max": 0.1466
+        },
+        "ich": {
+          "median": 0.16210000000000002,
+          "max": 0.1678
+        }
+      },
+      "41000-42000": {
+        "logged_windows": 17,
+        "gn": {
+          "median": 929.78,
+          "max": 1790.26
+        },
+        "loss": {
+          "median": 28.2802,
+          "max": 53.381
+        },
+        "aniso": {
+          "median": 5.14,
+          "max": 9.62
+        },
+        "rattr": {
+          "median": 0.1419,
+          "max": 0.2834
+        },
+        "ich": {
+          "median": 0.1451,
+          "max": 0.2727
+        }
+      },
+      "42000-44000": {
+        "logged_windows": 4,
+        "gn": {
+          "median": 870.445,
+          "max": 982.82
+        },
+        "loss": {
+          "median": 24.5959,
+          "max": 26.4813
+        },
+        "aniso": {
+          "median": 4.33,
+          "max": 4.99
+        },
+        "rattr": {
+          "median": 0.13829999999999998,
+          "max": 0.1436
+        },
+        "ich": {
+          "median": 0.1211,
+          "max": 0.1281
+        }
+      }
+    },
+    "evals": [
+      {
+        "step": 31000,
+        "photo": 18.91,
+        "teacher": 16.78,
+        "train": 16.46,
+        "truck": 21.37,
+        "line": "  eval step 31000: PSNR photo=18.91 (gt 17.09, gap -1.83) teacher=16.78 ssim=0.726 | s0 16.46(+1.67) | s1 21.37(-5.32) | codec_rmse=0.02134 gen_rmse=nan score[psnr]=-18.91340 uniq=0.559 eps=0.0800 ich=0.118 thr=0.763/1.499 relq=1.407 off=0.01985 cen=0.00230 chf=0.00184 empty=0.10 a_rf=1.00 hf=0.208/0.703 sstd=0.93-2.11 rad999=0.090 lam2=0.758/0.774 tmpl=62.1/22.3"
+      },
+      {
+        "step": 32000,
+        "photo": 18.72,
+        "teacher": 16.51,
+        "train": 16.15,
+        "truck": 21.28,
+        "line": "  eval step 32000: PSNR photo=18.72 (gt 17.09, gap -1.63) teacher=16.51 ssim=0.709 | s0 16.15(+1.97) | s1 21.28(-5.23) | codec_rmse=0.02134 gen_rmse=nan score[psnr]=-18.71643 uniq=0.555 eps=0.0800 ich=0.125 thr=0.774/1.499 relq=1.407 off=0.01987 cen=0.00225 chf=0.00187 empty=0.10 a_rf=1.00 hf=0.207/0.678 sstd=0.94-2.16 rad999=0.090 lam2=0.760/0.774 tmpl=60.9/22.3"
+      },
+      {
+        "step": 33000,
+        "photo": 19.23,
+        "teacher": 16.42,
+        "train": 16.83,
+        "truck": 21.63,
+        "line": "  eval step 33000: PSNR photo=19.23 (gt 17.09, gap -2.14) teacher=16.42 ssim=0.740 | s0 16.83(+1.30) | s1 21.63(-5.58) | codec_rmse=0.02134 gen_rmse=nan score[psnr]=-19.22688 uniq=0.559 eps=0.0800 ich=0.117 thr=0.760/1.499 relq=1.404 off=0.01986 cen=0.00226 chf=0.00182 empty=0.10 a_rf=1.00 hf=0.204/0.682 sstd=0.94-2.11 rad999=0.090 lam2=0.758/0.774 tmpl=62.8/22.3"
+      },
+      {
+        "step": 34000,
+        "photo": 19.16,
+        "teacher": 16.49,
+        "train": 16.66,
+        "truck": 21.66,
+        "line": "  eval step 34000: PSNR photo=19.16 (gt 17.09, gap -2.08) teacher=16.49 ssim=0.738 | s0 16.66(+1.46) | s1 21.66(-5.62) | codec_rmse=0.02136 gen_rmse=nan score[psnr]=-19.16293 uniq=0.559 eps=0.0800 ich=0.116 thr=0.772/1.499 relq=1.408 off=0.01989 cen=0.00226 chf=0.00182 empty=0.10 a_rf=1.00 hf=0.204/0.687 sstd=0.94-2.11 rad999=0.090 lam2=0.759/0.774 tmpl=63.2/22.3"
+      },
+      {
+        "step": 35000,
+        "photo": 18.94,
+        "teacher": 16.54,
+        "train": 16.45,
+        "truck": 21.43,
+        "line": "  eval step 35000: PSNR photo=18.94 (gt 17.09, gap -1.86) teacher=16.54 ssim=0.735 | s0 16.45(+1.68) | s1 21.43(-5.39) | codec_rmse=0.02135 gen_rmse=nan score[psnr]=-18.94287 uniq=0.558 eps=0.0800 ich=0.116 thr=0.764/1.499 relq=1.407 off=0.01987 cen=0.00226 chf=0.00182 empty=0.10 a_rf=1.00 hf=0.204/0.694 sstd=0.94-2.10 rad999=0.090 lam2=0.759/0.774 tmpl=63.7/22.3"
+      },
+      {
+        "step": 36000,
+        "photo": 18.92,
+        "teacher": 16.28,
+        "train": 16.35,
+        "truck": 21.49,
+        "line": "  eval step 36000: PSNR photo=18.92 (gt 17.09, gap -1.84) teacher=16.28 ssim=0.733 | s0 16.35(+1.78) | s1 21.49(-5.45) | codec_rmse=0.02135 gen_rmse=nan score[psnr]=-18.92193 uniq=0.559 eps=0.0800 ich=0.115 thr=0.766/1.499 relq=1.408 off=0.01988 cen=0.00222 chf=0.00182 empty=0.10 a_rf=1.00 hf=0.204/0.694 sstd=0.94-2.09 rad999=0.090 lam2=0.758/0.774 tmpl=64.1/22.3"
+      },
+      {
+        "step": 37000,
+        "photo": 19.27,
+        "teacher": 16.48,
+        "train": 17.05,
+        "truck": 21.49,
+        "line": "  eval step 37000: PSNR photo=19.27 (gt 17.09, gap -2.18) teacher=16.48 ssim=0.744 | s0 17.05(+1.07) | s1 21.49(-5.44) | codec_rmse=0.02133 gen_rmse=nan score[psnr]=-19.27046 uniq=0.557 eps=0.0800 ich=0.114 thr=0.766/1.499 relq=1.405 off=0.01986 cen=0.00225 chf=0.00181 empty=0.10 a_rf=1.00 hf=0.204/0.699 sstd=0.94-2.10 rad999=0.090 lam2=0.759/0.774 tmpl=64.4/22.3"
+      },
+      {
+        "step": 38000,
+        "photo": 19.16,
+        "teacher": 16.39,
+        "train": 16.98,
+        "truck": 21.34,
+        "line": "  eval step 38000: PSNR photo=19.16 (gt 17.09, gap -2.07) teacher=16.39 ssim=0.744 | s0 16.98(+1.15) | s1 21.34(-5.29) | codec_rmse=0.02135 gen_rmse=nan score[psnr]=-19.15662 uniq=0.557 eps=0.0800 ich=0.114 thr=0.767/1.499 relq=1.408 off=0.01986 cen=0.00222 chf=0.00182 empty=0.10 a_rf=1.00 hf=0.204/0.698 sstd=0.94-2.11 rad999=0.090 lam2=0.759/0.774 tmpl=65.1/22.3"
+      },
+      {
+        "step": 39000,
+        "photo": 19.42,
+        "teacher": 16.47,
+        "train": 17.32,
+        "truck": 21.53,
+        "line": "  eval step 39000: PSNR photo=19.42 (gt 17.09, gap -2.34) teacher=16.47 ssim=0.747 | s0 17.32(+0.81) | s1 21.53(-5.48) | codec_rmse=0.02137 gen_rmse=nan score[psnr]=-19.42352 uniq=0.558 eps=0.0800 ich=0.114 thr=0.770/1.499 relq=1.408 off=0.01990 cen=0.00225 chf=0.00182 empty=0.10 a_rf=1.00 hf=0.204/0.703 sstd=0.94-2.10 rad999=0.090 lam2=0.759/0.774 tmpl=65.2/22.3"
+      },
+      {
+        "step": 40000,
+        "photo": 19.3,
+        "teacher": 16.44,
+        "train": 17.06,
+        "truck": 21.53,
+        "line": "  eval step 40000: PSNR photo=19.30 (gt 17.09, gap -2.21) teacher=16.44 ssim=0.746 | s0 17.06(+1.06) | s1 21.53(-5.49) | codec_rmse=0.02136 gen_rmse=nan score[psnr]=-19.29766 uniq=0.557 eps=0.0800 ich=0.113 thr=0.767/1.499 relq=1.408 off=0.01988 cen=0.00224 chf=0.00181 empty=0.10 a_rf=1.00 hf=0.203/0.701 sstd=0.94-2.10 rad999=0.090 lam2=0.758/0.774 tmpl=65.4/22.3"
+      },
+      {
+        "step": 41000,
+        "photo": 19.44,
+        "teacher": 16.52,
+        "train": 17.15,
+        "truck": 21.72,
+        "line": "  eval step 41000: PSNR photo=19.44 (gt 17.09, gap -2.35) teacher=16.52 ssim=0.753 | s0 17.15(+0.98) | s1 21.72(-5.68) | codec_rmse=0.02137 gen_rmse=nan score[psnr]=-19.43641 uniq=0.558 eps=0.0800 ich=0.114 thr=0.772/1.499 relq=1.411 off=0.01990 cen=0.00221 chf=0.00181 empty=0.10 a_rf=1.00 hf=0.204/0.704 sstd=0.94-2.10 rad999=0.090 lam2=0.757/0.774 tmpl=65.9/22.3"
+      },
+      {
+        "step": 42000,
+        "photo": 19.2,
+        "teacher": 16.39,
+        "train": 17.0,
+        "truck": 21.4,
+        "line": "  eval step 42000: PSNR photo=19.20 (gt 17.09, gap -2.11) teacher=16.39 ssim=0.751 | s0 17.00(+1.13) | s1 21.40(-5.36) | codec_rmse=0.02138 gen_rmse=nan score[psnr]=-19.20024 uniq=0.560 eps=0.0800 ich=0.114 thr=0.772/1.499 relq=1.411 off=0.01990 cen=0.00223 chf=0.00180 empty=0.10 a_rf=1.00 hf=0.203/0.705 sstd=0.94-2.08 rad999=0.090 lam2=0.759/0.774 tmpl=65.8/22.3"
+      }
+    ],
+    "grad_skips": [
+      {
+        "step": 30063,
+        "norm": 6523.0,
+        "cumulative": 1,
+        "line": "  [GSKIP] step 30063: gnorm 6523 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (1 grad-skips so far)"
+      },
+      {
+        "step": 41372,
+        "norm": 1579.0,
+        "cumulative": 51,
+        "line": "  [GSKIP] step 41372: gnorm 1579 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (51 grad-skips so far)"
+      },
+      {
+        "step": 41498,
+        "norm": 1608.0,
+        "cumulative": 101,
+        "line": "  [GSKIP] step 41498: gnorm 1608 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (101 grad-skips so far)"
+      },
+      {
+        "step": 41830,
+        "norm": 2564.0,
+        "cumulative": 151,
+        "line": "  [GSKIP] step 41830: gnorm 2564 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (151 grad-skips so far)"
+      },
+      {
+        "step": 42091,
+        "norm": 1912.0,
+        "cumulative": 201,
+        "line": "  [GSKIP] step 42091: gnorm 1912 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (201 grad-skips so far)"
+      },
+      {
+        "step": 42224,
+        "norm": 2875.0,
+        "cumulative": 251,
+        "line": "  [GSKIP] step 42224: gnorm 2875 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (251 grad-skips so far)"
+      },
+      {
+        "step": 42274,
+        "norm": 2431.0,
+        "cumulative": 301,
+        "line": "  [GSKIP] step 42274: gnorm 2431 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (301 grad-skips so far)"
+      },
+      {
+        "step": 42324,
+        "norm": 2228.0,
+        "cumulative": 351,
+        "line": "  [GSKIP] step 42324: gnorm 2228 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (351 grad-skips so far)"
+      },
+      {
+        "step": 42374,
+        "norm": 2068.0,
+        "cumulative": 401,
+        "line": "  [GSKIP] step 42374: gnorm 2068 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (401 grad-skips so far)"
+      },
+      {
+        "step": 42424,
+        "norm": 3003.0,
+        "cumulative": 451,
+        "line": "  [GSKIP] step 42424: gnorm 3003 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (451 grad-skips so far)"
+      },
+      {
+        "step": 42474,
+        "norm": 2925.0,
+        "cumulative": 501,
+        "line": "  [GSKIP] step 42474: gnorm 2925 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (501 grad-skips so far)"
+      },
+      {
+        "step": 42524,
+        "norm": 2678.0,
+        "cumulative": 551,
+        "line": "  [GSKIP] step 42524: gnorm 2678 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (551 grad-skips so far)"
+      },
+      {
+        "step": 42574,
+        "norm": 2615.0,
+        "cumulative": 601,
+        "line": "  [GSKIP] step 42574: gnorm 2615 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (601 grad-skips so far)"
+      },
+      {
+        "step": 42624,
+        "norm": 2076.0,
+        "cumulative": 651,
+        "line": "  [GSKIP] step 42624: gnorm 2076 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (651 grad-skips so far)"
+      },
+      {
+        "step": 42674,
+        "norm": 1973.0,
+        "cumulative": 701,
+        "line": "  [GSKIP] step 42674: gnorm 1973 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (701 grad-skips so far)"
+      },
+      {
+        "step": 42724,
+        "norm": 2439.0,
+        "cumulative": 751,
+        "line": "  [GSKIP] step 42724: gnorm 2439 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (751 grad-skips so far)"
+      },
+      {
+        "step": 42774,
+        "norm": 2503.0,
+        "cumulative": 801,
+        "line": "  [GSKIP] step 42774: gnorm 2503 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (801 grad-skips so far)"
+      },
+      {
+        "step": 42824,
+        "norm": 2661.0,
+        "cumulative": 851,
+        "line": "  [GSKIP] step 42824: gnorm 2661 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (851 grad-skips so far)"
+      },
+      {
+        "step": 42874,
+        "norm": 2884.0,
+        "cumulative": 901,
+        "line": "  [GSKIP] step 42874: gnorm 2884 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (901 grad-skips so far)"
+      },
+      {
+        "step": 42924,
+        "norm": 2724.0,
+        "cumulative": 951,
+        "line": "  [GSKIP] step 42924: gnorm 2724 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (951 grad-skips so far)"
+      },
+      {
+        "step": 42974,
+        "norm": 2864.0,
+        "cumulative": 1001,
+        "line": "  [GSKIP] step 42974: gnorm 2864 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (1001 grad-skips so far)"
+      },
+      {
+        "step": 43024,
+        "norm": 2466.0,
+        "cumulative": 1051,
+        "line": "  [GSKIP] step 43024: gnorm 2466 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (1051 grad-skips so far)"
+      },
+      {
+        "step": 43074,
+        "norm": 2211.0,
+        "cumulative": 1101,
+        "line": "  [GSKIP] step 43074: gnorm 2211 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (1101 grad-skips so far)"
+      },
+      {
+        "step": 43124,
+        "norm": 2787.0,
+        "cumulative": 1151,
+        "line": "  [GSKIP] step 43124: gnorm 2787 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (1151 grad-skips so far)"
+      },
+      {
+        "step": 43174,
+        "norm": 2501.0,
+        "cumulative": 1201,
+        "line": "  [GSKIP] step 43174: gnorm 2501 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (1201 grad-skips so far)"
+      },
+      {
+        "step": 43224,
+        "norm": 2082.0,
+        "cumulative": 1251,
+        "line": "  [GSKIP] step 43224: gnorm 2082 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (1251 grad-skips so far)"
+      },
+      {
+        "step": 43274,
+        "norm": 2824.0,
+        "cumulative": 1301,
+        "line": "  [GSKIP] step 43274: gnorm 2824 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (1301 grad-skips so far)"
+      },
+      {
+        "step": 43324,
+        "norm": 2882.0,
+        "cumulative": 1351,
+        "line": "  [GSKIP] step 43324: gnorm 2882 vs frozen anchor 503.5 x3 -- step dropped, optimiser state untouched (1351 grad-skips so far)"
+      }
+    ],
+    "loss_skips": [],
+    "anchors": [],
+    "max_logged_norm": {
+      "run": "B1g_20260924_105249",
+      "step": 41800,
+      "loss": 53.381,
+      "gn": 1790.26,
+      "cov3d": 1.546,
+      "radius": 0.071,
+      "rattr": 0.2834,
+      "aniso": 9.62,
+      "aniso_gt": 21.2,
+      "ich": 0.2727,
+      "centroid": 0.1967,
+      "ramp_sobel": 1.015,
+      "lr": 9.92e-05
+    }
+  },
+  "B1g_20260925_053253": {
+    "first": {
+      "run": "B1g_20260925_053253",
+      "step": 42050,
+      "loss": 31.3654,
+      "gn": 1291.55,
+      "cov3d": 0.902,
+      "radius": 0.041,
+      "rattr": 0.1759,
+      "aniso": 5.41,
+      "aniso_gt": 12.3,
+      "ich": 0.1604,
+      "centroid": 0.1133,
+      "ramp_sobel": 0.675,
+      "lr": 9.83e-05
+    },
+    "last": {
+      "run": "B1g_20260925_053253",
+      "step": 42750,
+      "loss": 33.3707,
+      "gn": 1525.93,
+      "cov3d": 0.951,
+      "radius": 0.04,
+      "rattr": 0.2023,
+      "aniso": 5.53,
+      "aniso_gt": 12.97,
+      "ich": 0.1581,
+      "centroid": 0.1126,
+      "ramp_sobel": 0.908,
+      "lr": 9.56e-05
+    },
+    "windows": {
+      "42000-44000": {
+        "logged_windows": 15,
+        "gn": {
+          "median": 1334.93,
+          "max": 1525.93
+        },
+        "loss": {
+          "median": 32.9794,
+          "max": 33.5786
+        },
+        "aniso": {
+          "median": 5.38,
+          "max": 5.53
+        },
+        "rattr": {
+          "median": 0.1977,
+          "max": 0.2091
+        },
+        "ich": {
+          "median": 0.1625,
+          "max": 0.1704
+        }
+      }
+    },
+    "evals": [],
+    "grad_skips": [],
+    "loss_skips": [],
+    "anchors": [
+      "  [GSPAN] step 42000: detail phase, re-collecting grad-norm anchor",
+      "  [GSPAN] step 42032: frozen grad-norm anchor 1198 x3"
+    ],
+    "max_logged_norm": {
+      "run": "B1g_20260925_053253",
+      "step": 42750,
+      "loss": 33.3707,
+      "gn": 1525.93,
+      "cov3d": 0.951,
+      "radius": 0.04,
+      "rattr": 0.2023,
+      "aniso": 5.53,
+      "aniso_gt": 12.97,
+      "ich": 0.1581,
+      "centroid": 0.1126,
+      "ramp_sobel": 0.908,
+      "lr": 9.56e-05
+    }
+  }
+}

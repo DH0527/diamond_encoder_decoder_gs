@@ -1,0 +1,82 @@
+[
+  {
+    "index": 166,
+    "name": "step_028630",
+    "scene": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores",
+    "view": "00004",
+    "pool": 3,
+    "psnr_vs_gtg": 19.505836486816406,
+    "psnr_vs_photo": 21.458202362060547,
+    "psnr_gtg_vs_photo": 19.214536666870117
+  },
+  {
+    "index": 166,
+    "name": "step_028630",
+    "scene": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores",
+    "view": "00066",
+    "pool": 65,
+    "psnr_vs_gtg": 20.669572830200195,
+    "psnr_vs_photo": 19.50006866455078,
+    "psnr_gtg_vs_photo": 21.069805145263672
+  },
+  {
+    "index": 166,
+    "name": "step_028630",
+    "scene": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores",
+    "view": "00230",
+    "pool": 229,
+    "psnr_vs_gtg": 19.70147132873535,
+    "psnr_vs_photo": 13.782438278198242,
+    "psnr_gtg_vs_photo": 18.062400817871094
+  },
+  {
+    "index": 166,
+    "name": "step_028630",
+    "scene": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores",
+    "view": "00244",
+    "pool": 243,
+    "psnr_vs_gtg": 21.686107635498047,
+    "psnr_vs_photo": 17.88153648376465,
+    "psnr_gtg_vs_photo": 20.698843002319336
+  },
+  {
+    "index": 382,
+    "name": "step_028750",
+    "scene": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores",
+    "view": "000004",
+    "pool": 3,
+    "psnr_vs_gtg": 21.6845703125,
+    "psnr_vs_photo": 21.79559898376465,
+    "psnr_gtg_vs_photo": 21.716880798339844
+  },
+  {
+    "index": 382,
+    "name": "step_028750",
+    "scene": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores",
+    "view": "000066",
+    "pool": 65,
+    "psnr_vs_gtg": 19.500629425048828,
+    "psnr_vs_photo": 20.605104446411133,
+    "psnr_gtg_vs_photo": 19.676626205444336
+  },
+  {
+    "index": 382,
+    "name": "step_028750",
+    "scene": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores",
+    "view": "000230",
+    "pool": 229,
+    "psnr_vs_gtg": 19.932640075683594,
+    "psnr_vs_photo": 20.784656524658203,
+    "psnr_gtg_vs_photo": 19.891094207763672
+  },
+  {
+    "index": 382,
+    "name": "step_028750",
+    "scene": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/truck_colmap_seg_prune_scores",
+    "view": "000244",
+    "pool": 243,
+    "psnr_vs_gtg": 22.649572372436523,
+    "psnr_vs_photo": 22.291364669799805,
+    "psnr_gtg_vs_photo": 22.520511627197266
+  }
+]

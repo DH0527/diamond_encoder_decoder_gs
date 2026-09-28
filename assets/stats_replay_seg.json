@@ -1,0 +1,22 @@
+{
+  "root": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg",
+  "num_files": 3000,
+  "sample_stride": 50,
+  "quantile": 0.02,
+  "center": [
+    9.7578125,
+    -19.70654296875,
+    -32.46484375
+  ],
+  "scale": 47.418164062500004,
+  "lo": [
+    -18.265625,
+    -40.4375,
+    -77.625
+  ],
+  "hi": [
+    37.78125,
+    1.0244140625,
+    12.6953125
+  ]
+}

@@ -1,0 +1,777 @@
+[
+  {
+    "file": "can3tok/__init__.py",
+    "lines": 15,
+    "functions": []
+  },
+  {
+    "file": "can3tok/attr_decoder.py",
+    "lines": 405,
+    "functions": [
+      "AttributeDecoder"
+    ]
+  },
+  {
+    "file": "can3tok/compressor.py",
+    "lines": 906,
+    "functions": [
+      "encode_scale",
+      "decode_scale",
+      "axis_angle_to_matrix",
+      "_GridMixin",
+      "StagedCompressor",
+      "StagedDecompressor"
+    ]
+  },
+  {
+    "file": "can3tok/config.py",
+    "lines": 497,
+    "functions": [
+      "Can3TokConfig",
+      "patch_layout",
+      "channel_budget",
+      "validate_layout",
+      "describe_layout"
+    ]
+  },
+  {
+    "file": "can3tok/data.py",
+    "lines": 1047,
+    "functions": [
+      "list_npz_files",
+      "_quat_mul",
+      "_rot_to_quat",
+      "_euler_rotation",
+      "ReplayGaussianDataset"
+    ]
+  },
+  {
+    "file": "can3tok/decoder.py",
+    "lines": 313,
+    "functions": [
+      "CodecDecoder"
+    ]
+  },
+  {
+    "file": "can3tok/encoder.py",
+    "lines": 445,
+    "functions": [
+      "GroupAttributeEncoder",
+      "GroupPointPooler",
+      "PatchPackEncoder"
+    ]
+  },
+  {
+    "file": "can3tok/eval_utils.py",
+    "lines": 519,
+    "functions": [
+      "compute_eval_metrics",
+      "render_eval_metrics",
+      "latent_diagnostics",
+      "group_error_breakdown",
+      "_scatter_panels",
+      "save_comparison_figure",
+      "save_eval_outputs"
+    ]
+  },
+  {
+    "file": "can3tok/gen_decoder.py",
+    "lines": 378,
+    "functions": [
+      "GenerativeDecoder"
+    ]
+  },
+  {
+    "file": "can3tok/io_utils.py",
+    "lines": 238,
+    "functions": [
+      "_as_float32",
+      "normalize_quat_np",
+      "logit_np",
+      "load_replay_dict",
+      "load_npz_state",
+      "camera_from_vector",
+      "transform_camera_vector",
+      "gaussian_target_channels",
+      "denormalize_xyz",
+      "write_ply",
+      "save_json",
+      "load_json"
+    ]
+  },
+  {
+    "file": "can3tok/joint_decoder.py",
+    "lines": 408,
+    "functions": [
+      "DirectJointGaussianDecoder",
+      "JointGaussianRefiner"
+    ]
+  },
+  {
+    "file": "can3tok/layers.py",
+    "lines": 209,
+    "functions": [
+      "FourierFeatures",
+      "MLP",
+      "residual_head",
+      "SelfAttentionBlock",
+      "CrossAttentionBlock",
+      "ResBlock2d",
+      "window_partition",
+      "window_reverse",
+      "WindowSelfAttention",
+      "neighbor_gather"
+    ]
+  },
+  {
+    "file": "can3tok/losses.py",
+    "lines": 2382,
+    "functions": [
+      "masked_reduce",
+      "masked_smooth_l1",
+      "masked_mse",
+      "masked_hard_smooth_l1",
+      "quat_loss",
+      "balanced_presence_loss",
+      "_sample_valid_indices",
+      "_sample_spatial_indices",
+      "spatial_balance_weights",
+      "_pair_chunk",
+      "_nearest_indices",
+      "symmetric_chamfer",
+      "onesided_chamfer",
+      "multiscale_chamfer",
+      "coverage_onesided_loss",
+      "soft_voxel_occupancy_loss",
+      "projected_chamfer",
+      "_soft_hist2d",
+      "projected_histogram_loss",
+      "intra_group_chamfer",
+      "intra_group_sinkhorn_loss",
+      "intra_group_spacing_loss",
+      "intra_group_attr_set_loss",
+      "target_group_extent",
+      "sinkhorn_parameter_target",
+      "group_centroid_loss",
+      "patch_dispersion_loss",
+      "shape_channel_mask",
+      "z_map_tokens",
+      "tokens_to_xyz_mask",
+      "group_residual_z_loss",
+      "point_group_residual_loss",
+      "z_raw_losses",
+      "equivariance_loss",
+      "frame_distance",
+      "render_loss",
+      "responsibility_target",
+      "_quat_to_R",
+      "covariance3d_loss",
+      "_attr_losses",
+      "branch_geometry_loss",
+      "total_loss"
+    ]
+  },
+  {
+    "file": "can3tok/model.py",
+    "lines": 473,
+    "functions": [
+      "Can3TokAE",
+      "build_model"
+    ]
+  },
+  {
+    "file": "can3tok/morton.py",
+    "lines": 159,
+    "functions": [
+      "_part1by2_np",
+      "morton3d_np",
+      "_is_pow2",
+      "grid_zorder_permutation",
+      "inverse_permutation",
+      "kd_equal_groups",
+      "morton_equal_groups"
+    ]
+  },
+  {
+    "file": "can3tok/render.py",
+    "lines": 339,
+    "functions": [
+      "sh_dc_to_rgb",
+      "rgb_to_sh_dc",
+      "_world_to_view",
+      "_projection",
+      "Camera",
+      "perturb_camera_vector",
+      "render_gaussians",
+      "gaussians_from_target",
+      "ssim_value",
+      "psnr",
+      "ssim",
+      "_edge_weight",
+      "photometric_loss",
+      "vgg_perceptual"
+    ]
+  },
+  {
+    "file": "can3tok/schedule.py",
+    "lines": 495,
+    "functions": [
+      "_ramp",
+      "phase_of",
+      "shortcut_alpha_at",
+      "decoder_refine_alpha_at",
+      "render_downscale_at",
+      "detail_gains",
+      "schedule_flags",
+      "_attr_param_mult",
+      "sinkhorn_epsilon_at",
+      "effective_weights",
+      "lr_scales",
+      "global_lr"
+    ]
+  },
+  {
+    "file": "can3tok/stats.py",
+    "lines": 56,
+    "functions": [
+      "compute_global_stats",
+      "load_or_create_stats"
+    ]
+  },
+  {
+    "file": "can3tok/template.py",
+    "lines": 75,
+    "functions": [
+      "fibonacci_ball",
+      "fibonacci_ball_torch"
+    ]
+  },
+  {
+    "file": "can3tok/train.py",
+    "lines": 2392,
+    "functions": [
+      "build_parser",
+      "is_dist",
+      "rank0",
+      "log",
+      "recenter_scale_band",
+      "set_seed",
+      "resolve_shape_args",
+      "build_config",
+      "make_datasets",
+      "ModelEMA",
+      "load_eval_views",
+      "random_rotation",
+      "run_eval",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/audit_attr_decoder.py",
+    "lines": 201,
+    "functions": [
+      "split_var",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/audit_attr_weights.py",
+    "lines": 151,
+    "functions": [
+      "main"
+    ]
+  },
+  {
+    "file": "tools/audit_losses.py",
+    "lines": 227,
+    "functions": [
+      "main",
+      "_args_from_launcher"
+    ]
+  },
+  {
+    "file": "tools/audit_render_direction.py",
+    "lines": 142,
+    "functions": [
+      "main"
+    ]
+  },
+  {
+    "file": "tools/audit_render_scale.py",
+    "lines": 132,
+    "functions": [
+      "main"
+    ]
+  },
+  {
+    "file": "tools/build_assets.py",
+    "lines": 253,
+    "functions": [
+      "read_colmap_cameras",
+      "build_stats",
+      "build_anchors",
+      "cam_of",
+      "match_photos",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/check_attr_gate.py",
+    "lines": 140,
+    "functions": [
+      "r2",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/compare_runs.py",
+    "lines": 68,
+    "functions": [
+      "load",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/diag_attr_ablate.py",
+    "lines": 125,
+    "functions": [
+      "main"
+    ]
+  },
+  {
+    "file": "tools/diag_attr_collapse.py",
+    "lines": 104,
+    "functions": [
+      "spread",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/diag_covered_vs_not.py",
+    "lines": 134,
+    "functions": [
+      "main"
+    ]
+  },
+  {
+    "file": "tools/diag_detail.py",
+    "lines": 140,
+    "functions": [
+      "read_ply",
+      "pca_bound",
+      "summarise",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/diag_duplication.py",
+    "lines": 117,
+    "functions": [
+      "stats",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/diag_grouping.py",
+    "lines": 116,
+    "functions": [
+      "kd_partition",
+      "group_stats",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/diag_render_coverage.py",
+    "lines": 126,
+    "functions": [
+      "main"
+    ]
+  },
+  {
+    "file": "tools/diag_thickness.py",
+    "lines": 86,
+    "functions": [
+      "local_shape",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/eval_per_scene.py",
+    "lines": 70,
+    "functions": [
+      "main"
+    ]
+  },
+  {
+    "file": "tools/exp_code_learnability.py",
+    "lines": 256,
+    "functions": [
+      "scene_cameras",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/exp_info_chain.py",
+    "lines": 149,
+    "functions": [
+      "fit_r2",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/make_blur_slides.py",
+    "lines": 495,
+    "functions": [
+      "_set_ea",
+      "_fill",
+      "_line",
+      "rect",
+      "txt",
+      "add_runs",
+      "bullets",
+      "header",
+      "footer_num",
+      "card",
+      "pill",
+      "new",
+      "build"
+    ]
+  },
+  {
+    "file": "tools/make_talk_slides.py",
+    "lines": 334,
+    "functions": [
+      "ea",
+      "fill",
+      "rect",
+      "txt",
+      "bullets",
+      "captioned_pic",
+      "header",
+      "foot",
+      "build"
+    ]
+  },
+  {
+    "file": "tools/merge_assets.py",
+    "lines": 79,
+    "functions": [
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_attr_budget_slotwise.py",
+    "lines": 143,
+    "functions": [
+      "full_groups",
+      "rank_k_positions",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_attr_ceiling.py",
+    "lines": 149,
+    "functions": [
+      "responsibility",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_attr_code_size.py",
+    "lines": 154,
+    "functions": [
+      "rank_k_positions",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_attr_compensation.py",
+    "lines": 159,
+    "functions": [
+      "rank_k_positions",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_attr_from_geometry.py",
+    "lines": 132,
+    "functions": [
+      "features_and_targets",
+      "r2",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_attr_rank.py",
+    "lines": 115,
+    "functions": [
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_attr_target.py",
+    "lines": 164,
+    "functions": [
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_bottleneck.py",
+    "lines": 131,
+    "functions": [
+      "load_groups",
+      "GroupAE",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_budget_free.py",
+    "lines": 159,
+    "functions": [
+      "load_scene",
+      "neighbour_frames",
+      "own_frames",
+      "run_oracle",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_budget_split.py",
+    "lines": 155,
+    "functions": [
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_conditioning.py",
+    "lines": 175,
+    "functions": [
+      "Cond",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_context.py",
+    "lines": 196,
+    "functions": [
+      "CodeMixer",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_decoder_class.py",
+    "lines": 184,
+    "functions": [
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_equiv.py",
+    "lines": 89,
+    "functions": [
+      "rot",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_full_budget.py",
+    "lines": 164,
+    "functions": [
+      "kmeans",
+      "partition",
+      "rank_k_positions",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_layout_tradeoff.py",
+    "lines": 167,
+    "functions": [
+      "kmeans",
+      "groups_for",
+      "abs_chamfer",
+      "fit_eval",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_model_geom_ceiling.py",
+    "lines": 142,
+    "functions": [
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_nonlinear_shape.py",
+    "lines": 149,
+    "functions": [
+      "offsets_of",
+      "measure",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_objective.py",
+    "lines": 103,
+    "functions": [
+      "group_chamfer",
+      "evaluate",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_shape_budget_slotwise.py",
+    "lines": 117,
+    "functions": [
+      "group_offsets",
+      "measure",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/oracle_shape_rank.py",
+    "lines": 145,
+    "functions": [
+      "measure",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/probe_memory.py",
+    "lines": 145,
+    "functions": [
+      "argv_from_launcher",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/render_compare.py",
+    "lines": 296,
+    "functions": [
+      "parse_args",
+      "load_run",
+      "attrs_from_nn",
+      "render_set",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/render_eval_figs.py",
+    "lines": 85,
+    "functions": [
+      "main"
+    ]
+  },
+  {
+    "file": "tools/verify_latent_bits.py",
+    "lines": 159,
+    "functions": [
+      "quantize",
+      "main"
+    ]
+  },
+  {
+    "file": "tools/verify_utilization_oracle.py",
+    "lines": 203,
+    "functions": [
+      "_pca_residual",
+      "_aniso_shell_chamfer",
+      "_group_radius",
+      "collect",
+      "run_arm",
+      "main"
+    ]
+  },
+  {
+    "file": "tests/test_fix3_integrations.py",
+    "lines": 284,
+    "functions": [
+      "test_pruning_scores_affect_sampling_not_codec_features",
+      "test_anchor_full_groups_follow_template_slot_sort",
+      "test_capacitated_anchor_assignment_uses_global_free_slots",
+      "test_direct_joint_geometry_and_attributes_train_same_shared_head",
+      "test_geometry_first_attribute_weight_ramp",
+      "test_fixed_anchor_is_shared_origin_and_translation_is_trainable",
+      "test_local_memory_changes_centered_group_shape_and_receives_gradient",
+      "test_structured_compact_queries_survive_to_point_decoder",
+      "test_centered_local_shape_and_absolute_centroid_are_separated",
+      "test_decode_compact_matches_training_codec_path",
+      "test_structured_local_head_does_not_read_collapsed_mid",
+      "test_invert_path_does_not_generate_xyz_from_a_shared_head"
+    ]
+  },
+  {
+    "file": "tests/test_fix7_guards.py",
+    "lines": 152,
+    "functions": [
+      "test_shape_mask_excludes_appearance_channels",
+      "test_shape_mask_repeats_per_group_across_channels",
+      "_radius",
+      "test_radius_term_ignores_a_collapsed_ground_truth_group",
+      "test_radius_term_still_reports_a_shrunken_group",
+      "test_validate_layout_rejects_the_l16k_shape_budget",
+      "test_validate_layout_accepts_the_rebalanced_budget",
+      "test_shape_budget_floor_can_be_waived_explicitly",
+      "test_working_reference_layout_is_not_flagged"
+    ]
+  },
+  {
+    "file": "tests/test_joint_decoder.py",
+    "lines": 75,
+    "functions": [
+      "_cfg",
+      "_inputs",
+      "test_joint_refiner_is_function_preserving_at_initialisation",
+      "test_geometry_and_attribute_losses_reach_same_shared_code"
+    ]
+  },
+  {
+    "file": "tests/test_layout.py",
+    "lines": 141,
+    "functions": [
+      "test_zorder_permutation",
+      "test_budget_rejects_zero_padding",
+      "test_forward_backward",
+      "test_losses"
+    ]
+  },
+  {
+    "file": "tests/test_scale_band.py",
+    "lines": 69,
+    "functions": [
+      "_decoder",
+      "test_asymmetric_band_blocks_giant_log_scale",
+      "test_asymmetric_band_allows_smaller_than_upper",
+      "test_recenter_resets_absolute_log_bias",
+      "test_recenter_leaves_group_relative_bias_alone",
+      "test_zero_weight_head_emits_group_median_not_upper_cap"
+    ]
+  },
+  {
+    "file": "tests/test_schedule_polish.py",
+    "lines": 74,
+    "functions": [
+      "_args",
+      "test_polish_overrides_unfinished_gen_curriculum",
+      "test_finetune_teacher_forcing_is_off_after_initial_step",
+      "test_zero_polish_start_still_disables_polish"
+    ]
+  },
+  {
+    "file": "tests/test_sinkhorn_geometry.py",
+    "lines": 41,
+    "functions": [
+      "test_sinkhorn_is_permutation_invariant_and_detects_duplicates",
+      "test_sinkhorn_ignores_padding_and_centroid_loss_sees_shift"
+    ]
+  },
+  {
+    "file": "scripts/argv_from_argsjson.py",
+    "lines": 64,
+    "functions": [
+      "ns_to_argv",
+      "load_ns",
+      "main"
+    ]
+  }
+]

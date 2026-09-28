@@ -1,0 +1,174 @@
+{
+  "checkpoint": "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/runs/C1_detail_20260916_021829/ckpt_step00018000.pt",
+  "snapshot": "/data/daeho/aaaa_proj/seondo/speedy-splat/output/train_colmap_seg_prune_scores/replay_seg/step_028630.npz",
+  "precision": "CUDA BF16 autocast, FP32 render",
+  "patch_chunk": 24,
+  "pool_chunk": 8,
+  "all_arms_mask": "same target mask",
+  "analytic_anchors": "computed from original unchanged input in all arms",
+  "max_torch_allocated_gib": 1.4892706871032715,
+  "arms": {
+    "baseline": {
+      "xyz_change_world": {
+        "p10": 0.0,
+        "p50": 0.0,
+        "p90": 0.0,
+        "p99": 0.0
+      },
+      "compact_shape_relative_l2": 0.0,
+      "compact_app_relative_l2": 0.0,
+      "view_scores": {
+        "3": {
+          "photo_psnr": 16.6547794342041,
+          "target_psnr": 16.748445510864258,
+          "photo_ssim": 0.47284215688705444,
+          "rois": {
+            "upper_rail": {
+              "photo_psnr": 15.954222679138184,
+              "target_psnr": 17.09748649597168,
+              "photo_l1": 0.12074416130781174,
+              "gradient_l1": 0.034818366169929504
+            },
+            "front_rail": {
+              "photo_psnr": 14.788655281066895,
+              "target_psnr": 13.982001304626465,
+              "photo_l1": 0.13688750565052032,
+              "gradient_l1": 0.04024554044008255
+            },
+            "lettering": {
+              "photo_psnr": 17.17572021484375,
+              "target_psnr": 18.07957649230957,
+              "photo_l1": 0.10810844600200653,
+              "gradient_l1": 0.03958771377801895
+            }
+          },
+          "baseline_render_psnr": 120.0,
+          "baseline_image_mae": 0.0
+        },
+        "93": {
+          "photo_psnr": 13.572591781616211,
+          "target_psnr": 15.27513313293457,
+          "photo_ssim": 0.3907293677330017,
+          "rois": {
+            "near_rail": {
+              "photo_psnr": 12.511931419372559,
+              "target_psnr": 15.664556503295898,
+              "photo_l1": 0.17864486575126648,
+              "gradient_l1": 0.049616336822509766
+            }
+          },
+          "baseline_render_psnr": 120.0,
+          "baseline_image_mae": 0.0
+        }
+      }
+    },
+    "no_local_xyz": {
+      "xyz_change_world": {
+        "p10": 0.0020560782868415117,
+        "p50": 0.011090616695582867,
+        "p90": 0.07291854172945023,
+        "p99": 0.25725336670875587
+      },
+      "compact_shape_relative_l2": 0.1090175062417984,
+      "compact_app_relative_l2": 0.20579582452774048,
+      "view_scores": {
+        "3": {
+          "photo_psnr": 15.686039924621582,
+          "target_psnr": 16.11294937133789,
+          "photo_ssim": 0.4228134751319885,
+          "rois": {
+            "upper_rail": {
+              "photo_psnr": 14.867176055908203,
+              "target_psnr": 15.567991256713867,
+              "photo_l1": 0.1405477225780487,
+              "gradient_l1": 0.036784637719392776
+            },
+            "front_rail": {
+              "photo_psnr": 12.995462417602539,
+              "target_psnr": 13.257364273071289,
+              "photo_l1": 0.18118254840373993,
+              "gradient_l1": 0.04456159472465515
+            },
+            "lettering": {
+              "photo_psnr": 16.530710220336914,
+              "target_psnr": 17.191965103149414,
+              "photo_l1": 0.11479722708463669,
+              "gradient_l1": 0.04163995757699013
+            }
+          },
+          "baseline_render_psnr": 21.05187225341797,
+          "baseline_image_mae": 0.05719999969005585
+        },
+        "93": {
+          "photo_psnr": 13.183832168579102,
+          "target_psnr": 14.385832786560059,
+          "photo_ssim": 0.3697596788406372,
+          "rois": {
+            "near_rail": {
+              "photo_psnr": 12.069175720214844,
+              "target_psnr": 13.823718070983887,
+              "photo_l1": 0.18977147340774536,
+              "gradient_l1": 0.053922370076179504
+            }
+          },
+          "baseline_render_psnr": 19.78321647644043,
+          "baseline_image_mae": 0.06430605798959732
+        }
+      }
+    },
+    "mean_local_attributes": {
+      "xyz_change_world": {
+        "p10": 0.005165302660316229,
+        "p50": 0.024509655311703682,
+        "p90": 0.16470885276794434,
+        "p99": 0.738639545440674
+      },
+      "compact_shape_relative_l2": 0.2156272530555725,
+      "compact_app_relative_l2": 0.3955470621585846,
+      "view_scores": {
+        "3": {
+          "photo_psnr": 12.704915046691895,
+          "target_psnr": 13.181153297424316,
+          "photo_ssim": 0.3548770844936371,
+          "rois": {
+            "upper_rail": {
+              "photo_psnr": 11.983717918395996,
+              "target_psnr": 12.737157821655273,
+              "photo_l1": 0.1959303468465805,
+              "gradient_l1": 0.038933657109737396
+            },
+            "front_rail": {
+              "photo_psnr": 12.158191680908203,
+              "target_psnr": 13.356866836547852,
+              "photo_l1": 0.20624805986881256,
+              "gradient_l1": 0.04261525720357895
+            },
+            "lettering": {
+              "photo_psnr": 13.81797981262207,
+              "target_psnr": 14.856674194335938,
+              "photo_l1": 0.16530701518058777,
+              "gradient_l1": 0.04845970869064331
+            }
+          },
+          "baseline_render_psnr": 14.983345031738281,
+          "baseline_image_mae": 0.13395725190639496
+        },
+        "93": {
+          "photo_psnr": 11.7170991897583,
+          "target_psnr": 12.501785278320312,
+          "photo_ssim": 0.2995564639568329,
+          "rois": {
+            "near_rail": {
+              "photo_psnr": 9.957613945007324,
+              "target_psnr": 12.491798400878906,
+              "photo_l1": 0.24936625361442566,
+              "gradient_l1": 0.04995451867580414
+            }
+          },
+          "baseline_render_psnr": 13.705585479736328,
+          "baseline_image_mae": 0.15204183757305145
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "report": "mdmd/12_code_audit_and_improvement_20260915.md",
+  "report_lines": 757,
+  "broken_local_links": [],
+  "diagnostic_script_syntax": "passed",
+  "original_source_changes": [],
+  "successful_model_checks": [
+    "T16k70k: val166,382; 18 views each",
+    "S16k62k: val166,382; 18 views each"
+  ],
+  "scope": "read-only checkpoint inference; no retraining; Markdown and diagnostic artifacts only"
+}

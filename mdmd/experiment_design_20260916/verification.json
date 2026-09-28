@@ -1,0 +1,21 @@
+{
+  "variant_argument_diff": {
+    "out_dir": [
+      "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/runs/B0_detail_20260916_012558",
+      "/data/daeho/aacd_proj/can3tok_encoder_decoder_new_fix_7/runs/C1_detail_20260916_012558"
+    ],
+    "normalize_pooler_xyz": [
+      0,
+      1
+    ]
+  },
+  "B0_vs_S_model_config_diff": {},
+  "core_source_files_unchanged": 20,
+  "broken_document_links": [],
+  "existing_audit_contract_tests_passed": 9,
+  "diagnostic_syntax": "valid",
+  "strict_json": "valid",
+  "data_preflight_snapshots": 8,
+  "target_render_snapshots": 4,
+  "training_executed": false
+}

@@ -1,0 +1,12 @@
+# conda env create -f environment/can3tok_env.yml
+# 이후 래스터라이저를 소스에서 빌드 (SETUP_KR.md §3.3).
+name: can3tok
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - ninja
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu121
+      - -r requirements_can3tok.txt
