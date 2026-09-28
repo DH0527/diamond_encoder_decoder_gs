@@ -81,6 +81,20 @@ if miss:
              f"       파서 기본값이 들어가 체크포인트와 다른 모델이 됩니다. 키를 명시하세요. (SETUP_KR.md §8.1)")
 print("계약 플래그: " + " ".join(f"{k}={d[k]}" for k in need))
 
+# 계약 플래그가 아니어도 같은 함정이다: B1_bgcap 이후에 추가된 grad_spike_* ·
+# near_detach_frac 는 기본값이 켜짐이라, 키가 없는 설정은 원래 런에 없던 장치를 켠 채 돈다.
+try:
+    sys.path.insert(0, os.getcwd())
+    from can3tok.train import build_parser
+    absent = [x for x in build_parser()._actions
+              if x.option_strings and x.dest != "help" and x.dest not in d]
+    if absent:
+        problems.append("설정에 없는 인자 -> 파서 기본값이 들어감: "
+                        + ", ".join(f"{x.dest}={x.default!r}" for x in absent)
+                        + "  (원래 런과 같게 하려면 값을 명시하거나 --set 으로 주세요)")
+except Exception as e:
+    problems.append(f"train.py 파서를 불러오지 못해 빠진 인자를 검사하지 못함 ({type(e).__name__}: {e})")
+
 for key in ("root", "stats_path", "scene_anchors", "split_path", "photo_map", "view_pool"):
     for p in [x for x in str(d.get(key) or "").split(",") if x]:
         ok = os.path.exists(p)
