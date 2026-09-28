@@ -12,6 +12,9 @@
 #   bash scripts/launch_from_config.sh configs/B1_bgcap.args.json \
 #        --set max_steps=40000 --set w_splat_area=0.1 --detached
 #
+#   # GPU 를 쓰기 전에 확인만: 계약 검사 + 데이터 경로 존재 + 최종 명령 출력 후 종료
+#   bash scripts/launch_from_config.sh configs/B1_bgcap.args.json --dry-run
+#
 # 환경변수: GPUS(0,1,2) NPROC(3) TAG MASTER_PORT(29531) PYTHON TORCHRUN
 #
 # 왜 계약 플래그를 검사하나: train.py 의 파서는 새로 추가된 플래그(예:
@@ -36,12 +39,14 @@ CONFIG="$1"; shift
 
 RESUME=""
 DETACHED=0
+DRYRUN=0
 SETS=()
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --resume) RESUME="$2"; shift 2 ;;
     --set)    SETS+=(--set "$2"); shift 2 ;;
     --detached) DETACHED=1; shift ;;
+    --dry-run)  DRYRUN=1; shift ;;
     *) echo "알 수 없는 인자: $1" >&2; exit 1 ;;
   esac
 done
@@ -67,6 +72,33 @@ PY
 
 if [[ -n "$RESUME" && ! -f "$RESUME" ]]; then
   echo "체크포인트 없음: $RESUME" >&2; exit 1
+fi
+
+if [[ $DRYRUN -eq 1 ]]; then
+  # 새 서버에서 가장 흔한 실패는 데이터/자산 경로가 옛 서버를 가리키는 것 (SETUP_KR.md §5.2)
+  "$PYTHON" - "$CONFIG" <<'PY'
+import json, os, sys
+d = json.load(open(sys.argv[1]))
+bad = 0
+for key in ("root", "stats_path", "scene_anchors", "split_path", "photo_map", "view_pool"):
+    val = str(d.get(key) or "")
+    for p in [x for x in val.split(",") if x]:
+        ok = os.path.exists(p)
+        bad += not ok
+        print(f"  {'ok ' if ok else '없음'}  {key:14s} {p}")
+if bad:
+    print(f"\n경로 {bad}개가 없습니다. tools/relocate_assets.py --assets configs 로 옮기거나 데이터를 준비하세요.")
+PY
+  echo
+  echo "[dry-run] 실행할 명령:"
+  printf '  CUDA_VISIBLE_DEVICES=%s %s --standalone --nproc_per_node=%s --master_port=%s train.py \\\n' \
+    "$GPUS" "$TORCHRUN" "$NPROC" "$MASTER_PORT"
+  "$PYTHON" scripts/argv_from_argsjson.py --src "$CONFIG" \
+    --set "out_dir=$OUT" --set "resume=$RESUME" --set "init_from=" "${SETS[@]}" \
+    | tr '\0' '\n' | grep -E '^--(out_dir|resume|max_steps|stats_path|root|w_splat_area|lr)$' -A1 \
+    | grep -v '^--$' | paste -d' ' - - | sed 's/^/    /'
+  echo "  (전체 인자 $("$PYTHON" scripts/argv_from_argsjson.py --src "$CONFIG" | tr '\0' '\n' | grep -c '^--')개 중 주요 항목만 표시)"
+  exit 0
 fi
 
 if [[ $DETACHED -eq 1 && -z "${CAN3TOK_DETACHED:-}" ]]; then

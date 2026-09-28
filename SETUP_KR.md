@@ -345,6 +345,9 @@ split 순으로 만들고, 마지막에 7개 파일이 다 있는지 검사합�
 conda activate can3tok
 cd <can3tok>
 
+# 먼저 확인만 (GPU 안 씀): 계약 플래그 + 데이터·자산 경로 존재 여부 + 최종 명령
+bash scripts/launch_from_config.sh configs/B1_bgcap.args.json --dry-run
+
 # 처음부터
 GPUS=0,1,2 NPROC=3 bash scripts/launch_from_config.sh configs/B1_bgcap.args.json --detached
 
